@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect width="100" height="100" rx="12" fill="#0a0a0a"/>
+  <text x="50" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="800" font-size="32" fill="#ffffff">VKC</text>
+  <rect x="20" y="52" width="60" height="3" rx="1.5" fill="#dd3333"/>
+  <text x="50" y="72" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="600" font-size="14" fill="#dd3333" letter-spacing="4">SYSTEMS</text>
+</svg>

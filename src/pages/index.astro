@@ -1,0 +1,264 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="VKC Systems | Systems Integration & IT Solutions in NJ"
+  description="VKC Systems is an MBE/DBE systems integrator specializing in networking, CCTV, access control, and communication solutions for mass transit and commercial clients in the NYC metro area."
+>
+  <!-- ============================================ -->
+  <!--                HERO SECTION                  -->
+  <!-- ============================================ -->
+  <section class="relative min-h-screen flex items-center bg-vkc-dark text-white overflow-hidden">
+    <!-- Subtle gradient overlay -->
+    <div class="absolute inset-0 bg-gradient-to-br from-vkc-dark via-vkc-dark to-zinc-900 opacity-90"></div>
+    <!-- Decorative grid pattern -->
+    <div class="absolute inset-0 opacity-5" style="background-image: linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px); background-size: 60px 60px;"></div>
+
+    <div class="relative z-10 mx-auto w-full max-w-7xl px-6 py-32 lg:py-40">
+      <div class="max-w-3xl">
+        <!-- Certification label -->
+        <span class="inline-block rounded-full border border-vkc-red/40 bg-vkc-red/10 px-4 py-1.5 text-xs font-semibold tracking-widest text-vkc-red uppercase mb-6">
+          MBE/DBE Certified Systems Integrator
+        </span>
+
+        <!-- Main heading -->
+        <h1 class="text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl">
+          Engineering the Future of
+          <span class="text-vkc-red">Transit Infrastructure</span>
+        </h1>
+
+        <!-- Subtext -->
+        <p class="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-400 sm:text-xl">
+          VKC Systems delivers end-to-end communication and network integration
+          solutions for transit agencies, government clients, and commercial facilities across the NYC metro area.
+        </p>
+
+        <!-- CTA buttons -->
+        <div class="mt-10 flex flex-wrap gap-4">
+          <a
+            href="/solutions"
+            class="inline-flex items-center rounded-md bg-vkc-red px-8 py-3.5 text-sm font-semibold text-white shadow-lg shadow-vkc-red/25 transition hover:bg-vkc-red-dark focus:outline-none focus:ring-2 focus:ring-vkc-red focus:ring-offset-2 focus:ring-offset-vkc-dark"
+          >
+            View Our Solutions
+          </a>
+          <a
+            href="/contact"
+            class="inline-flex items-center rounded-md border border-zinc-600 px-8 py-3.5 text-sm font-semibold text-white transition hover:border-white hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-vkc-dark"
+          >
+            Contact Us
+          </a>
+        </div>
+      </div>
+
+      <!-- Stats row -->
+      <div class="mt-20 grid grid-cols-1 gap-8 border-t border-zinc-800 pt-10 sm:grid-cols-3 lg:mt-28">
+        <div>
+          <p class="text-3xl font-bold text-white sm:text-4xl">Since 2014</p>
+          <p class="mt-1 text-sm font-medium tracking-wide text-zinc-500 uppercase">Established</p>
+        </div>
+        <div>
+          <p class="text-3xl font-bold text-white sm:text-4xl">8+</p>
+          <p class="mt-1 text-sm font-medium tracking-wide text-zinc-500 uppercase">Transit & Government Agencies Served</p>
+        </div>
+        <div>
+          <p class="text-3xl font-bold text-white sm:text-4xl">24/7</p>
+          <p class="mt-1 text-sm font-medium tracking-wide text-zinc-500 uppercase">Service & Support</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!--              SERVICES GRID                   -->
+  <!-- ============================================ -->
+  <section class="bg-white py-24 sm:py-32">
+    <div class="mx-auto max-w-7xl px-6">
+      <!-- Section header -->
+      <div class="mx-auto max-w-2xl text-center">
+        <p class="text-sm font-semibold tracking-widest text-vkc-red uppercase">What We Do</p>
+        <h2 class="mt-3 text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl lg:text-5xl">
+          Our Solutions
+        </h2>
+        <p class="mt-4 text-lg leading-relaxed text-vkc-gray">
+          Comprehensive systems integration services tailored for critical infrastructure and commercial environments.
+        </p>
+      </div>
+
+      <!-- Service cards grid -->
+      <div class="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <!-- Networking -->
+        <a href="/solutions/networking" class="group relative rounded-xl border border-zinc-200 bg-white p-6 transition hover:border-vkc-red/30 hover:shadow-lg hover:shadow-vkc-red/5">
+          <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-vkc-red/10 text-2xl">
+            <span>&#128268;</span>
+          </div>
+          <h3 class="mt-4 text-lg font-semibold text-zinc-900 group-hover:text-vkc-red transition">Networking</h3>
+          <p class="mt-2 text-sm leading-relaxed text-vkc-gray">
+            Fiber optic infrastructure, network design, and enterprise Wi-Fi solutions for mission-critical environments.
+          </p>
+          <span class="mt-4 inline-flex items-center text-sm font-medium text-vkc-red opacity-0 transition group-hover:opacity-100">
+            Learn More &rarr;
+          </span>
+        </a>
+
+        <!-- CCTV -->
+        <a href="/solutions/cctv" class="group relative rounded-xl border border-zinc-200 bg-white p-6 transition hover:border-vkc-red/30 hover:shadow-lg hover:shadow-vkc-red/5">
+          <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-vkc-red/10 text-2xl">
+            <span>&#128247;</span>
+          </div>
+          <h3 class="mt-4 text-lg font-semibold text-zinc-900 group-hover:text-vkc-red transition">CCTV</h3>
+          <p class="mt-2 text-sm leading-relaxed text-vkc-gray">
+            Surveillance security systems with custom cabinet solutions designed for demanding transit environments.
+          </p>
+          <span class="mt-4 inline-flex items-center text-sm font-medium text-vkc-red opacity-0 transition group-hover:opacity-100">
+            Learn More &rarr;
+          </span>
+        </a>
+
+        <!-- Public Address Systems -->
+        <a href="/solutions/public-address" class="group relative rounded-xl border border-zinc-200 bg-white p-6 transition hover:border-vkc-red/30 hover:shadow-lg hover:shadow-vkc-red/5">
+          <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-vkc-red/10 text-2xl">
+            <span>&#128226;</span>
+          </div>
+          <h3 class="mt-4 text-lg font-semibold text-zinc-900 group-hover:text-vkc-red transition">Public Address Systems</h3>
+          <p class="mt-2 text-sm leading-relaxed text-vkc-gray">
+            PA and intercom systems engineered for harsh environments and high-traffic transit facilities.
+          </p>
+          <span class="mt-4 inline-flex items-center text-sm font-medium text-vkc-red opacity-0 transition group-hover:opacity-100">
+            Learn More &rarr;
+          </span>
+        </a>
+
+        <!-- Access Control -->
+        <a href="/solutions/access-control" class="group relative rounded-xl border border-zinc-200 bg-white p-6 transition hover:border-vkc-red/30 hover:shadow-lg hover:shadow-vkc-red/5">
+          <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-vkc-red/10 text-2xl">
+            <span>&#128274;</span>
+          </div>
+          <h3 class="mt-4 text-lg font-semibold text-zinc-900 group-hover:text-vkc-red transition">Access Control</h3>
+          <p class="mt-2 text-sm leading-relaxed text-vkc-gray">
+            Lenel-integrated access control systems providing secure entry management for facilities of any scale.
+          </p>
+          <span class="mt-4 inline-flex items-center text-sm font-medium text-vkc-red opacity-0 transition group-hover:opacity-100">
+            Learn More &rarr;
+          </span>
+        </a>
+
+        <!-- Communication Cabinets -->
+        <a href="/solutions/communication-cabinets" class="group relative rounded-xl border border-zinc-200 bg-white p-6 transition hover:border-vkc-red/30 hover:shadow-lg hover:shadow-vkc-red/5">
+          <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-vkc-red/10 text-2xl">
+            <span>&#128451;</span>
+          </div>
+          <h3 class="mt-4 text-lg font-semibold text-zinc-900 group-hover:text-vkc-red transition">Communication Cabinets</h3>
+          <p class="mt-2 text-sm leading-relaxed text-vkc-gray">
+            Custom-fabricated communication cabinets and enclosures built to spec for transit and industrial applications.
+          </p>
+          <span class="mt-4 inline-flex items-center text-sm font-medium text-vkc-red opacity-0 transition group-hover:opacity-100">
+            Learn More &rarr;
+          </span>
+        </a>
+
+        <!-- CADD Services -->
+        <a href="/solutions/cadd" class="group relative rounded-xl border border-zinc-200 bg-white p-6 transition hover:border-vkc-red/30 hover:shadow-lg hover:shadow-vkc-red/5">
+          <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-vkc-red/10 text-2xl">
+            <span>&#128208;</span>
+          </div>
+          <h3 class="mt-4 text-lg font-semibold text-zinc-900 group-hover:text-vkc-red transition">CADD Services</h3>
+          <p class="mt-2 text-sm leading-relaxed text-vkc-gray">
+            Professional AutoCAD drafting and technical drawings for infrastructure planning and documentation.
+          </p>
+          <span class="mt-4 inline-flex items-center text-sm font-medium text-vkc-red opacity-0 transition group-hover:opacity-100">
+            Learn More &rarr;
+          </span>
+        </a>
+
+        <!-- VoIP -->
+        <a href="/solutions/voip" class="group relative rounded-xl border border-zinc-200 bg-white p-6 transition hover:border-vkc-red/30 hover:shadow-lg hover:shadow-vkc-red/5">
+          <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-vkc-red/10 text-2xl">
+            <span>&#128222;</span>
+          </div>
+          <h3 class="mt-4 text-lg font-semibold text-zinc-900 group-hover:text-vkc-red transition">VoIP</h3>
+          <p class="mt-2 text-sm leading-relaxed text-vkc-gray">
+            Modern business phone systems with VoIP technology for reliable, cost-effective communications.
+          </p>
+          <span class="mt-4 inline-flex items-center text-sm font-medium text-vkc-red opacity-0 transition group-hover:opacity-100">
+            Learn More &rarr;
+          </span>
+        </a>
+
+        <!-- Office IT -->
+        <a href="/solutions/office-it" class="group relative rounded-xl border border-zinc-200 bg-white p-6 transition hover:border-vkc-red/30 hover:shadow-lg hover:shadow-vkc-red/5">
+          <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-vkc-red/10 text-2xl">
+            <span>&#128187;</span>
+          </div>
+          <h3 class="mt-4 text-lg font-semibold text-zinc-900 group-hover:text-vkc-red transition">Office IT</h3>
+          <p class="mt-2 text-sm leading-relaxed text-vkc-gray">
+            Managed IT services, workstation setup, and ongoing technical support to keep your business running.
+          </p>
+          <span class="mt-4 inline-flex items-center text-sm font-medium text-vkc-red opacity-0 transition group-hover:opacity-100">
+            Learn More &rarr;
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!--              ABOUT PREVIEW                   -->
+  <!-- ============================================ -->
+  <section class="bg-vkc-light">
+    <div class="mx-auto max-w-7xl">
+      <div class="grid grid-cols-1 lg:grid-cols-2">
+        <!-- Dark left panel -->
+        <div class="relative flex items-center justify-center bg-vkc-dark px-6 py-24 sm:py-32 lg:py-40">
+          <!-- Decorative accent -->
+          <div class="absolute inset-0 opacity-5" style="background-image: linear-gradient(135deg, rgba(221,51,51,.3) 0%, transparent 50%);"></div>
+          <div class="relative text-center">
+            <p class="text-7xl font-black text-white/10 sm:text-8xl lg:text-9xl">VKC</p>
+            <p class="mt-2 text-sm font-semibold tracking-[0.3em] text-vkc-red uppercase">Systems</p>
+          </div>
+        </div>
+
+        <!-- Content right panel -->
+        <div class="flex items-center px-6 py-24 sm:px-12 lg:px-16 lg:py-40">
+          <div class="max-w-lg">
+            <p class="text-sm font-semibold tracking-widest text-vkc-red uppercase">Who We Are</p>
+            <h2 class="mt-3 text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl">
+              About VKC Systems
+            </h2>
+            <p class="mt-6 text-base leading-relaxed text-vkc-gray">
+              Founded in 2014 and now headquartered in South Hackensack, NJ, VKC Systems
+              has established itself as a trusted systems integrator for major transit
+              agencies including MTA, NYCT, LIRR, TBTA, Metro-North, NJT, Port Authority, and NYC DEP.
+            </p>
+            <a
+              href="/about"
+              class="mt-8 inline-flex items-center text-sm font-semibold text-vkc-red transition hover:text-vkc-red-dark"
+            >
+              Learn More About Us &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!--               CTA SECTION                    -->
+  <!-- ============================================ -->
+  <section class="bg-vkc-dark py-24 sm:py-32">
+    <div class="mx-auto max-w-4xl px-6 text-center">
+      <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
+        Ready to Start Your Project?
+      </h2>
+      <p class="mt-4 text-lg text-gray-400">
+        Contact us today for a consultation.
+      </p>
+      <a
+        href="/contact"
+        class="mt-10 inline-flex items-center rounded-md bg-vkc-red px-8 py-3.5 text-sm font-semibold text-white shadow-lg transition hover:bg-vkc-red-dark focus:outline-none focus:ring-2 focus:ring-vkc-red focus:ring-offset-2 focus:ring-offset-vkc-dark"
+      >
+        Get in Touch
+      </a>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@theme {
+  --color-vkc-red: #dd3333;
+  --color-vkc-red-dark: #b82828;
+  --color-vkc-dark: #0a0a0a;
+  --color-vkc-gray: #566678;
+  --color-vkc-light: #f5f5f5;
+  --font-family-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-family-display: 'Inter', system-ui, -apple-system, sans-serif;
+}

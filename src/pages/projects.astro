@@ -1,0 +1,281 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const currentProjects = [
+  {
+    id: 'E-30641',
+    name: 'Replacement of 17 Escalators at 6 Stations Systemwide',
+    services: [
+      'Pre-cutover and post-cutover testing',
+      'Communication risers (logical), wiring diagrams',
+      'Technical expertise for field testing and communication drawing sign-off',
+      'Field surveys for installation plans and drawings',
+      'Integration of new and existing devices into PSLAN and network systems',
+      'Fiber/copper testing procedures and reports',
+      'FAT/SAT procedures and reports',
+      'Custom security system manual',
+    ],
+  },
+  {
+    id: 'E-30645',
+    name: 'Design-Build Services For Replacement Of 6 Escalators At 2 Stations',
+    services: [
+      'Pre-cutover and post-cutover testing',
+      'Communication risers (logical), wiring diagrams and cable certifications',
+      'Technical expertise for field testing and communication drawing sign-off',
+      'Field surveys for installation plans and drawings',
+      'Integration of new and existing devices into PSLAN/CCTV and network systems',
+      'Field of view and fiber/copper testing procedures and reports',
+      'FAT/SAT procedures and reports',
+      'Custom security system manual',
+    ],
+  },
+  {
+    id: 'P-36317',
+    name: 'Construction of New West 28th Street Substation',
+    services: [
+      'Pre-cutover and post-cutover network testing',
+      'Communication risers (logical), wiring diagrams and cable certifications',
+      'Technical expertise for field testing and communication drawing sign-off',
+      'Field surveys for installation plans and drawings',
+      'Integration of new devices into existing network systems',
+      'Fiber/copper testing procedures and reports',
+      'FAT/SAT procedures and reports',
+      'OEM manual for network systems',
+    ],
+  },
+  {
+    id: 'P-36708',
+    name: 'Construction of New Canal Street Substation on the 8th Avenue Line',
+    services: [
+      'Pre-cutover and post-cutover network testing',
+      'Communication risers (logical), wiring diagrams and cable certifications',
+      'Technical expertise for field testing and communication drawing sign-off',
+      'Field surveys for installation plans and drawings',
+      'Integration of new devices into existing network systems',
+      'Fiber/copper testing procedures and reports',
+      'FAT/SAT procedures and reports',
+      'OEM manual for network systems',
+    ],
+  },
+  {
+    id: 'P-36719',
+    name: '82nd Road Substation Renewal, 13th Street Substation Renewal, and High-Tension Switchgear Replacement',
+    services: [
+      'Custom data cabinet fabrication per location',
+      'Communication risers (logical), wiring diagrams and cable certifications',
+      'Technical expertise for field testing and communication drawing sign-off',
+      'Field surveys for installation plans and drawings',
+      'Integration of new devices into existing network systems',
+      'Fiber/copper testing procedures and reports',
+      'FAT/SAT procedures and reports',
+      'OEM manual for network systems',
+    ],
+  },
+  {
+    id: 'QM-36',
+    name: 'Design-build Services for Relocation of QMT Refueling Station and QSB Switchgear',
+    services: [
+      'Communication risers (logical), wiring diagrams and cable certifications',
+      'Field surveys in coordination with general contractor',
+      'Network integration support',
+      'Fiber/copper testing procedures and reports',
+      'FAT/SAT procedures and reports',
+      'OEM manual for network systems',
+    ],
+  },
+];
+
+const previousProjectsLeft = [
+  'LIRR 6240 3rd Track - 5 Stations',
+  'A-37150D - Livonia',
+  'E-34025R - Elevators GCT',
+  'C-43751 - Power and HVAC Upgrade at PCC RCC',
+  'P-36444 - Rutgers Tube Rehabilitation',
+  'QM-81 - Rehabilitation of Tunnel Controls and Communications at QMT and HCT',
+];
+
+const previousProjectsRight = [
+  'CS-179 - East Side Access',
+  'S-33932 - Life Cycle Replacement Code System Phase I',
+  'E-30512 - Replace Escalators',
+  'LIRR - 3rd Track Temporary WiFi',
+  'P-80692 - Tottenville Substation',
+  'MNR 58050 - CSI Package',
+];
+---
+
+<BaseLayout
+  title="Our Projects | Transit & Commercial Systems Integration | VKC Systems"
+  description="View VKC Systems' portfolio of completed and current projects in mass transit, CCTV, networking, and communication systems across the New York City metro area."
+>
+  <!-- Hero Section -->
+  <section class="relative bg-vkc-dark py-24 sm:py-32">
+    <div class="absolute inset-0 overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-br from-vkc-dark via-gray-900 to-vkc-dark"></div>
+      <div class="absolute top-0 left-1/3 h-96 w-96 rounded-full bg-vkc-red/5 blur-3xl"></div>
+      <div class="absolute bottom-0 right-1/4 h-96 w-96 rounded-full bg-vkc-red/5 blur-3xl"></div>
+    </div>
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+      <p class="mb-4 text-sm font-semibold uppercase tracking-widest text-vkc-red">Our Work</p>
+      <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
+        Our Projects
+      </h1>
+      <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-300 sm:text-xl">
+        Active and completed systems integration work for MTA, NYCT, LIRR, TBTA, Metro-North, NJT, Port Authority, and NYC DEP.
+      </p>
+    </div>
+  </section>
+
+  <!-- Current Projects Section -->
+  <section class="bg-white py-20 sm:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-16 text-center">
+        <p class="mb-2 text-sm font-semibold uppercase tracking-widest text-vkc-red">Active</p>
+        <h2 class="text-3xl font-extrabold tracking-tight text-vkc-dark sm:text-4xl">
+          Current Projects
+        </h2>
+      </div>
+
+      <div class="space-y-16">
+        {currentProjects.map((project, index) => (
+          <div
+            class:list={[
+              'flex flex-col gap-8 rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition-shadow duration-300 hover:shadow-lg lg:flex-row lg:items-stretch lg:p-0 lg:overflow-hidden',
+              index % 2 !== 0 && 'lg:flex-row-reverse',
+            ]}
+          >
+            {/* Image Placeholder */}
+            <div class="flex-shrink-0 lg:w-2/5">
+              <div
+                class:list={[
+                  'flex h-64 items-center justify-center rounded-xl bg-gradient-to-br from-gray-100 to-gray-50 lg:h-full lg:rounded-none',
+                  index % 2 === 0 ? 'lg:rounded-l-2xl' : 'lg:rounded-r-2xl',
+                ]}
+              >
+                <div class="text-center">
+                  <svg
+                    class="mx-auto h-16 w-16 text-gray-300"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0 0 22.5 18.75V5.25A2.25 2.25 0 0 0 20.25 3H3.75A2.25 2.25 0 0 0 1.5 5.25v13.5A2.25 2.25 0 0 0 3.75 21Z"
+                    />
+                  </svg>
+                  <p class="mt-3 text-sm font-medium text-gray-400">Project Photo</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Content */}
+            <div class="flex flex-1 flex-col justify-center lg:p-10">
+              <div class="mb-3">
+                <span class="inline-block rounded-full bg-vkc-red/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-vkc-red">
+                  {project.id}
+                </span>
+              </div>
+              <h3 class="mb-5 text-xl font-bold leading-snug text-vkc-dark sm:text-2xl">
+                {project.name}
+              </h3>
+              <ul class="space-y-2.5">
+                {project.services.map((service) => (
+                  <li class="flex items-start gap-3 text-sm leading-relaxed text-vkc-gray sm:text-base">
+                    <svg
+                      class="mt-1 h-4 w-4 shrink-0 text-vkc-red"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="2.5"
+                      stroke="currentColor"
+                    >
+                      <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                    </svg>
+                    <span>{service}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Previous Projects Section -->
+  <section class="bg-vkc-light py-20 sm:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-16 text-center">
+        <p class="mb-2 text-sm font-semibold uppercase tracking-widest text-vkc-red">Completed</p>
+        <h2 class="text-3xl font-extrabold tracking-tight text-vkc-dark sm:text-4xl">
+          Previous Projects
+        </h2>
+      </div>
+
+      <div class="grid gap-8 md:grid-cols-2">
+        {/* Left Column */}
+        <div class="space-y-4">
+          {previousProjectsLeft.map((project) => (
+            <div class="flex items-center gap-4 rounded-xl border border-gray-200 bg-white px-6 py-5 shadow-sm transition-all duration-200 hover:shadow-md hover:border-vkc-red/20">
+              <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-vkc-red/10">
+                <svg
+                  class="h-5 w-5 text-vkc-red"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
+                </svg>
+              </div>
+              <span class="text-sm font-medium text-vkc-dark sm:text-base">{project}</span>
+            </div>
+          ))}
+        </div>
+
+        {/* Right Column */}
+        <div class="space-y-4">
+          {previousProjectsRight.map((project) => (
+            <div class="flex items-center gap-4 rounded-xl border border-gray-200 bg-white px-6 py-5 shadow-sm transition-all duration-200 hover:shadow-md hover:border-vkc-red/20">
+              <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-vkc-red/10">
+                <svg
+                  class="h-5 w-5 text-vkc-red"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
+                </svg>
+              </div>
+              <span class="text-sm font-medium text-vkc-dark sm:text-base">{project}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="bg-vkc-dark py-20">
+    <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+        Have a project in mind?
+      </h2>
+      <p class="mx-auto mt-4 max-w-2xl text-lg text-gray-400">
+        Our experienced team is ready to deliver the communications and systems integration solutions your project demands.
+      </p>
+      <div class="mt-8">
+        <a
+          href="/contact"
+          class="inline-flex items-center rounded-lg bg-vkc-red px-8 py-3.5 text-base font-semibold text-white shadow-sm transition-colors duration-200 hover:bg-vkc-red-dark"
+        >
+          Contact Us Today
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

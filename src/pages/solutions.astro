@@ -1,0 +1,208 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const services = [
+  {
+    title: 'Networking',
+    href: '/solutions/networking',
+    description:
+      'Enterprise-grade network infrastructure integrating data, VoIP, CCTV, and public address systems into custom enclosures designed for mission-critical environments.',
+    subServices: [
+      'Fiber Optic Termination',
+      'Factory Acceptance Quality Controls',
+      'High Speed Public Wi-Fi',
+      'Network Design & Engineering',
+      'Site Acceptance Quality Controls',
+      'Network Equipment Housing',
+      'PSLAN Engineering',
+      'Fiber Distribution Panels',
+      'Maintenance & Repair',
+    ],
+  },
+  {
+    title: 'CCTV',
+    href: '/solutions/cctv',
+    description:
+      'Comprehensive CCTV systems with custom cabinet fabrication, compliance with safety regulations, and reliable operation in industrial/commercial settings.',
+  },
+  {
+    title: 'Public Address Systems',
+    href: '/solutions/public-address',
+    description:
+      'PA and intercom systems designed for harsh environments with custom cabinets, power redundancies, and IP-enabled equipment for synchronized announcements.',
+  },
+  {
+    title: 'Access Control',
+    href: '/solutions/access-control',
+    description:
+      'Access control solutions integrated with Lenel/VAR platforms, providing unified visibility and control of CCTV, intrusion alarms, and building systems.',
+  },
+  {
+    title: 'Communication Cabinets',
+    href: '/solutions/communication-cabinets',
+    description:
+      'Custom network cabinets for CCTV, VoIP, secure access control, VMS testing/integration, and PSLAN upgrades with NEMA rating and temperature control.',
+  },
+  {
+    title: 'CADD Services',
+    href: '/solutions/cadd',
+    description:
+      'Comprehensive design services including conceptual drawings, technical writing, AutoCAD drawings, and design-to-fabrication quality control.',
+  },
+  {
+    title: 'VoIP',
+    href: '/solutions/voip',
+    description:
+      'Enterprise VoIP solutions for business communication. Professional installation, configuration, and maintenance.',
+  },
+  {
+    title: 'Office IT',
+    href: '/solutions/office-it',
+    description:
+      'Managed IT solutions including network engineering, cloud computing, server/cable infrastructure, Office 365, Wi-Fi, VoIP, and mobile device management.',
+  },
+];
+
+const icons: Record<string, string> = {
+  Networking:
+    '<path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5a17.92 17.92 0 0 1-8.716-2.247m0 0A9 9 0 0 1 3 12c0-1.39.315-2.706.878-3.882" />',
+  CCTV:
+    '<path stroke-linecap="round" stroke-linejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z" />',
+  'Public Address Systems':
+    '<path stroke-linecap="round" stroke-linejoin="round" d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 1 1 0-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38a.75.75 0 0 1-1.021-.27 18.632 18.632 0 0 1-1.244-2.893M10.34 6.66a19.64 19.64 0 0 1 4.834-2.86 1.126 1.126 0 0 1 1.576 1.032V19.17a1.126 1.126 0 0 1-1.576 1.032 19.64 19.64 0 0 1-4.834-2.86m0-10.682a18.64 18.64 0 0 0 0 10.682" />',
+  'Access Control':
+    '<path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25a3 3 0 0 1 3 3m3 0a6 6 0 0 1-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1 1 21.75 8.25Z" />',
+  'Communication Cabinets':
+    '<path stroke-linecap="round" stroke-linejoin="round" d="M5.25 14.25h13.5m-13.5 0a3 3 0 0 1-3-3m3 3a3 3 0 1 0 0 6h13.5a3 3 0 1 0 0-6m-16.5-3a3 3 0 0 1 3-3h13.5a3 3 0 0 1 3 3m-19.5 0a4.5 4.5 0 0 1 .9-2.7L5.737 5.1a3.375 3.375 0 0 1 2.7-1.35h7.126c1.062 0 2.062.5 2.7 1.35l2.587 3.45a4.5 4.5 0 0 1 .9 2.7m0 0a3 3 0 0 1-3 3m0 3h.008v.008h-.008v-.008Zm0-6h.008v.008h-.008v-.008Zm-3 6h.008v.008h-.008v-.008Zm0-6h.008v.008h-.008v-.008Z" />',
+  'CADD Services':
+    '<path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />',
+  VoIP:
+    '<path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />',
+  'Office IT':
+    '<path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25" />',
+};
+---
+
+<BaseLayout
+  title="Our Solutions | Networking, CCTV, Access Control & More | VKC Systems"
+  description="Explore VKC Systems' full range of IT solutions: networking, CCTV, public address systems, access control, communication cabinets, CADD services, VoIP, and managed IT."
+>
+  <!-- Hero Section -->
+  <section class="relative bg-vkc-dark py-24 sm:py-32">
+    <div class="absolute inset-0 overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-br from-vkc-dark via-gray-900 to-vkc-dark"></div>
+      <div class="absolute top-0 right-0 h-96 w-96 rounded-full bg-vkc-red/5 blur-3xl"></div>
+      <div class="absolute bottom-0 left-0 h-96 w-96 rounded-full bg-vkc-red/5 blur-3xl"></div>
+    </div>
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+      <p class="mb-4 text-sm font-semibold uppercase tracking-widest text-vkc-red">What We Do</p>
+      <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
+        Our Solutions
+      </h1>
+      <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-300 sm:text-xl">
+        End-to-end communication and network integration services built for transit, industrial, and commercial environments.
+      </p>
+    </div>
+  </section>
+
+  <!-- Services Grid -->
+  <section class="bg-white py-20 sm:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid gap-8 md:grid-cols-2">
+        {services.map((service) => (
+          <a
+            href={service.href}
+            class="group relative flex flex-col rounded-2xl border border-gray-100 bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-xl hover:border-vkc-red/20 hover:-translate-y-1"
+          >
+            {/* Icon */}
+            <div class="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-vkc-red/10 text-vkc-red transition-colors duration-300 group-hover:bg-vkc-red group-hover:text-white">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="h-7 w-7"
+                set:html={icons[service.title]}
+              />
+            </div>
+
+            {/* Title */}
+            <h3 class="mb-3 text-xl font-bold text-vkc-dark group-hover:text-vkc-red transition-colors duration-200">
+              {service.title}
+            </h3>
+
+            {/* Description */}
+            <p class="mb-6 text-base leading-relaxed text-vkc-gray">
+              {service.description}
+            </p>
+
+            {/* Sub-services (only for Networking) */}
+            {service.subServices && (
+              <div class="mb-6">
+                <ul class="grid grid-cols-1 gap-x-4 gap-y-2 sm:grid-cols-2">
+                  {service.subServices.map((sub) => (
+                    <li class="flex items-start gap-2 text-sm text-vkc-gray">
+                      <svg
+                        class="mt-0.5 h-4 w-4 shrink-0 text-vkc-red"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="2"
+                        stroke="currentColor"
+                      >
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                      </svg>
+                      {sub}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {/* Learn More Link */}
+            <div class="mt-auto">
+              <span class="inline-flex items-center text-sm font-semibold text-vkc-red transition-all duration-200 group-hover:gap-2">
+                Learn More
+                <svg
+                  class="ml-1 h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2.5"
+                  stroke="currentColor"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                </svg>
+              </span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="bg-vkc-light py-20">
+    <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-extrabold tracking-tight text-vkc-dark sm:text-4xl">
+        Ready to discuss your project?
+      </h2>
+      <p class="mx-auto mt-4 max-w-2xl text-lg text-vkc-gray">
+        Our team of engineers and technical experts is ready to help you find the right solution for your needs.
+      </p>
+      <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <a
+          href="/contact"
+          class="inline-flex items-center rounded-lg bg-vkc-red px-8 py-3.5 text-base font-semibold text-white shadow-sm transition-colors duration-200 hover:bg-vkc-red-dark"
+        >
+          Get a Quote
+        </a>
+        <a
+          href="/projects"
+          class="inline-flex items-center rounded-lg border-2 border-vkc-dark px-8 py-3.5 text-base font-semibold text-vkc-dark transition-colors duration-200 hover:bg-vkc-dark hover:text-white"
+        >
+          View Our Projects
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,123 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const capabilities = [
+  'Custom PA cabinet design and fabrication',
+  'IP-enabled equipment for synchronized announcements',
+  'Power redundancy systems',
+  'Intercom system installation',
+  'Harsh environment engineering',
+  'Train dispatch communication systems',
+  'Integration with existing station infrastructure',
+  'Maintenance and repair services',
+];
+---
+
+<BaseLayout
+  title="Public Address Systems | VKC Systems"
+  description="VKC Systems designs and installs industry-leading PA systems for harsh environments with custom cabinets, power redundancies, and IP-enabled equipment for synchronized announcements."
+>
+  <!-- Hero Section -->
+  <section class="relative bg-vkc-dark py-24 sm:py-32">
+    <div class="absolute inset-0 overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-br from-vkc-dark via-gray-900 to-vkc-dark"></div>
+      <div class="absolute top-0 right-0 h-96 w-96 rounded-full bg-vkc-red/5 blur-3xl"></div>
+      <div class="absolute bottom-0 left-0 h-96 w-96 rounded-full bg-vkc-red/5 blur-3xl"></div>
+    </div>
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+      <p class="mb-4 text-sm font-semibold uppercase tracking-widest text-vkc-red">Solutions</p>
+      <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
+        Public Address Systems
+      </h1>
+      <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-300 sm:text-xl">
+        Industry-leading PA and intercom systems engineered for the most demanding environments.
+      </p>
+    </div>
+  </section>
+
+  <!-- Back to Solutions -->
+  <div class="bg-white border-b border-gray-100">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4">
+      <a
+        href="/solutions"
+        class="inline-flex items-center text-sm font-medium text-vkc-gray transition-colors duration-200 hover:text-vkc-red"
+      >
+        <svg
+          class="mr-2 h-4 w-4"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="2"
+          stroke="currentColor"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+        </svg>
+        Back to Solutions
+      </a>
+    </div>
+  </div>
+
+  <!-- Overview Section -->
+  <section class="bg-white py-20 sm:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="text-3xl font-extrabold tracking-tight text-vkc-dark sm:text-4xl">
+          Overview
+        </h2>
+        <div class="mt-2 h-1 w-16 rounded-full bg-vkc-red"></div>
+        <p class="mt-8 text-lg leading-relaxed text-vkc-gray sm:text-xl">
+          VKC Systems provides industry-leading PA and intercom systems designed for harsh
+          environments. Our solutions feature custom cabinets, power redundancies, and IP-enabled
+          equipment for synchronized announcements across transit stations and commercial facilities.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Capabilities Section -->
+  <section class="bg-vkc-light py-20 sm:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="text-3xl font-extrabold tracking-tight text-vkc-dark sm:text-4xl">
+          Key Capabilities
+        </h2>
+        <div class="mt-2 h-1 w-16 rounded-full bg-vkc-red"></div>
+        <ul class="mt-10 grid gap-4 sm:grid-cols-2">
+          {capabilities.map((item) => (
+            <li class="flex items-start gap-3 rounded-xl bg-white p-5 shadow-sm border border-gray-100">
+              <svg
+                class="mt-0.5 h-5 w-5 shrink-0 text-vkc-red"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2.5"
+                stroke="currentColor"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+              </svg>
+              <span class="text-base leading-relaxed text-vkc-gray">{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="bg-vkc-dark py-20 sm:py-28">
+    <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+        Need a public address solution?
+      </h2>
+      <p class="mx-auto mt-4 max-w-2xl text-lg text-gray-300">
+        Our team of engineers and technical experts is ready to design and install a PA system tailored to your facility.
+      </p>
+      <div class="mt-8">
+        <a
+          href="/contact"
+          class="inline-flex items-center rounded-lg bg-vkc-red px-8 py-3.5 text-base font-semibold text-white shadow-sm transition-colors duration-200 hover:bg-vkc-red-dark"
+        >
+          Contact Us
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

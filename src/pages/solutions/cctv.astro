@@ -1,0 +1,169 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const capabilities = [
+  {
+    title: 'Custom CCTV Cabinet Fabrication',
+    description:
+      'Purpose-built enclosures designed to house CCTV equipment in demanding transit and commercial environments, meeting NEMA ratings and temperature control requirements.',
+    icon: '<path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" />',
+  },
+  {
+    title: 'Video Management System (VMS) Testing & Integration',
+    description:
+      'Thorough testing and seamless integration of VMS platforms to ensure reliable video recording, playback, and real-time monitoring across all connected cameras.',
+    icon: '<path stroke-linecap="round" stroke-linejoin="round" d="M6 20.25h12m-7.5-3v3m3-3v3m-10.125-3h17.25c.621 0 1.125-.504 1.125-1.125V4.875c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125Z" />',
+  },
+  {
+    title: 'Camera Installation & Configuration',
+    description:
+      'Professional installation and precise configuration of surveillance cameras, optimizing coverage angles, resolution settings, and network connectivity for each deployment.',
+    icon: '<path stroke-linecap="round" stroke-linejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z" />',
+  },
+  {
+    title: 'System Compliance with MTA/NYCT Standards',
+    description:
+      'Every installation meets the rigorous safety and performance standards required by the MTA and NYCT, ensuring regulatory approval and long-term operational reliability.',
+    icon: '<path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />',
+  },
+  {
+    title: 'Network-Integrated Surveillance Solutions',
+    description:
+      'IP-based camera systems fully integrated into existing network infrastructure, enabling centralized management, remote access, and scalable deployments.',
+    icon: '<path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5a17.92 17.92 0 0 1-8.716-2.247m0 0A9 9 0 0 1 3 12c0-1.39.315-2.706.878-3.882" />',
+  },
+  {
+    title: '24/7 Maintenance & Monitoring Support',
+    description:
+      'Around-the-clock support to keep your surveillance systems operational, with proactive monitoring, rapid response to outages, and scheduled preventive maintenance.',
+    icon: '<path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.048.58.024 1.194-.14 1.743" />',
+  },
+  {
+    title: 'Field Surveys & Installation Planning',
+    description:
+      'Comprehensive on-site surveys to assess infrastructure, identify optimal camera placements, and develop detailed installation plans tailored to each facility.',
+    icon: '<path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />',
+  },
+  {
+    title: 'Integration with Existing Security Infrastructure',
+    description:
+      'Seamless integration of new CCTV systems with your existing access control, alarm, and building management systems for a unified security platform.',
+    icon: '<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 16.875h3.375m0 0h3.375m-3.375 0V13.5m0 3.375v3.375M6 10.5h2.25a2.25 2.25 0 0 0 2.25-2.25V6a2.25 2.25 0 0 0-2.25-2.25H6A2.25 2.25 0 0 0 3.75 6v2.25A2.25 2.25 0 0 0 6 10.5Zm0 9.75h2.25A2.25 2.25 0 0 0 10.5 18v-2.25a2.25 2.25 0 0 0-2.25-2.25H6a2.25 2.25 0 0 0-2.25 2.25V18A2.25 2.25 0 0 0 6 20.25Zm9.75-9.75H18a2.25 2.25 0 0 0 2.25-2.25V6A2.25 2.25 0 0 0 18 3.75h-2.25A2.25 2.25 0 0 0 13.5 6v2.25a2.25 2.25 0 0 0 2.25 2.25Z" />',
+  },
+];
+---
+
+<BaseLayout
+  title="CCTV Solutions | VKC Systems"
+  description="VKC Systems provides comprehensive CCTV and surveillance systems with custom cabinet fabrication, compliance with safety regulations, and reliable operation in industrial and commercial settings."
+>
+  <!-- Hero Section -->
+  <section class="relative bg-vkc-dark py-24 sm:py-32">
+    <div class="absolute inset-0 overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-br from-vkc-dark via-gray-900 to-vkc-dark"></div>
+      <div class="absolute top-0 right-0 h-96 w-96 rounded-full bg-vkc-red/5 blur-3xl"></div>
+      <div class="absolute bottom-0 left-0 h-96 w-96 rounded-full bg-vkc-red/5 blur-3xl"></div>
+    </div>
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+      <a
+        href="/solutions"
+        class="mb-6 inline-flex items-center gap-2 text-sm font-medium text-gray-400 transition-colors duration-200 hover:text-white"
+      >
+        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+        </svg>
+        Back to Solutions
+      </a>
+      <p class="mb-4 text-sm font-semibold uppercase tracking-widest text-vkc-red">Solutions</p>
+      <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
+        CCTV Solutions
+      </h1>
+      <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-300 sm:text-xl">
+        Comprehensive surveillance systems engineered for mass transit and commercial environments.
+      </p>
+    </div>
+  </section>
+
+  <!-- Overview Section -->
+  <section class="bg-white py-20 sm:py-28">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold tracking-tight text-vkc-dark sm:text-4xl">
+        Overview
+      </h2>
+      <div class="mt-4 h-1 w-16 rounded-full bg-vkc-red"></div>
+      <p class="mt-8 text-lg leading-relaxed text-vkc-gray sm:text-xl">
+        VKC Systems provides comprehensive CCTV systems with custom cabinet fabrication,
+        compliance with safety regulations, and reliable operation in industrial and
+        commercial settings. Our team specializes in designing, installing, and maintaining
+        surveillance systems for mass transit authorities and commercial facilities
+        throughout the NYC metro area.
+      </p>
+    </div>
+  </section>
+
+  <!-- Capabilities Section -->
+  <section class="bg-vkc-light py-20 sm:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <h2 class="text-3xl font-bold tracking-tight text-vkc-dark sm:text-4xl">
+          Key Capabilities
+        </h2>
+        <div class="mt-4 mx-auto h-1 w-16 rounded-full bg-vkc-red"></div>
+        <p class="mx-auto mt-6 max-w-2xl text-lg text-vkc-gray">
+          End-to-end CCTV expertise from planning and fabrication through installation and ongoing support.
+        </p>
+      </div>
+
+      <div class="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        {capabilities.map((capability) => (
+          <div class="group rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-xl hover:border-vkc-red/20 hover:-translate-y-1">
+            <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-vkc-red/10 text-vkc-red transition-colors duration-300 group-hover:bg-vkc-red group-hover:text-white">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="h-6 w-6"
+                set:html={capability.icon}
+              />
+            </div>
+            <h3 class="mb-2 text-base font-bold text-vkc-dark">
+              {capability.title}
+            </h3>
+            <p class="text-sm leading-relaxed text-vkc-gray">
+              {capability.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="bg-vkc-dark py-20 sm:py-28">
+    <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+        Need a CCTV solution?
+      </h2>
+      <p class="mx-auto mt-4 max-w-2xl text-lg text-gray-300">
+        Our team of engineers and technical experts is ready to design, install, and maintain
+        a surveillance system tailored to your facility's requirements.
+      </p>
+      <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <a
+          href="/contact"
+          class="inline-flex items-center rounded-lg bg-vkc-red px-8 py-3.5 text-base font-semibold text-white shadow-sm transition-colors duration-200 hover:bg-vkc-red-dark"
+        >
+          Contact Us
+        </a>
+        <a
+          href="/solutions"
+          class="inline-flex items-center rounded-lg border-2 border-white/20 px-8 py-3.5 text-base font-semibold text-white transition-colors duration-200 hover:border-white hover:bg-white/10"
+        >
+          View All Solutions
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
