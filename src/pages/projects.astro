@@ -1,66 +1,24 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const currentProjects = [
+const featuredProjects = [
   {
-    id: 'E-30641',
-    name: 'Replacement of 17 Escalators at 6 Stations Systemwide',
+    id: 'AW-73',
+    name: 'Design-Build Replacement of Facility Monitoring and Safety Systems',
+    image: '/projects/aw-73.jpg',
     services: [
-      'Pre-cutover and post-cutover testing',
-      'Communication risers (logical), wiring diagrams',
-      'Technical expertise for field testing and communication drawing sign-off',
-      'Field surveys for installation plans and drawings',
-      'Integration of new and existing devices into PSLAN and network systems',
-      'Fiber/copper testing procedures and reports',
-      'FAT/SAT procedures and reports',
-      'Custom security system manual',
-    ],
-  },
-  {
-    id: 'E-30645',
-    name: 'Design-Build Services For Replacement Of 6 Escalators At 2 Stations',
-    services: [
-      'Pre-cutover and post-cutover testing',
+      'Facility monitoring system design and integration',
+      'Safety system installation and commissioning',
+      'Network infrastructure for monitoring systems',
       'Communication risers (logical), wiring diagrams and cable certifications',
-      'Technical expertise for field testing and communication drawing sign-off',
       'Field surveys for installation plans and drawings',
-      'Integration of new and existing devices into PSLAN/CCTV and network systems',
-      'Field of view and fiber/copper testing procedures and reports',
       'FAT/SAT procedures and reports',
-      'Custom security system manual',
-    ],
-  },
-  {
-    id: 'P-36317',
-    name: 'Construction of New West 28th Street Substation',
-    services: [
-      'Pre-cutover and post-cutover network testing',
-      'Communication risers (logical), wiring diagrams and cable certifications',
-      'Technical expertise for field testing and communication drawing sign-off',
-      'Field surveys for installation plans and drawings',
-      'Integration of new devices into existing network systems',
-      'Fiber/copper testing procedures and reports',
-      'FAT/SAT procedures and reports',
-      'OEM manual for network systems',
-    ],
-  },
-  {
-    id: 'P-36708',
-    name: 'Construction of New Canal Street Substation on the 8th Avenue Line',
-    services: [
-      'Pre-cutover and post-cutover network testing',
-      'Communication risers (logical), wiring diagrams and cable certifications',
-      'Technical expertise for field testing and communication drawing sign-off',
-      'Field surveys for installation plans and drawings',
-      'Integration of new devices into existing network systems',
-      'Fiber/copper testing procedures and reports',
-      'FAT/SAT procedures and reports',
-      'OEM manual for network systems',
     ],
   },
   {
     id: 'P-36719',
     name: '82nd Road Substation Renewal, 13th Street Substation Renewal, and High-Tension Switchgear Replacement',
+    image: '/projects/p-36719.jpg',
     services: [
       'Custom data cabinet fabrication per location',
       'Communication risers (logical), wiring diagrams and cable certifications',
@@ -73,17 +31,68 @@ const currentProjects = [
     ],
   },
   {
-    id: 'QM-36',
-    name: 'Design-build Services for Relocation of QMT Refueling Station and QSB Switchgear',
+    id: 'E-30647',
+    name: 'Design-Build Replacement of 21 Escalators',
+    image: '/projects/e-30647.jpg',
     services: [
+      'Pre-cutover and post-cutover testing',
       'Communication risers (logical), wiring diagrams and cable certifications',
-      'Field surveys in coordination with general contractor',
-      'Network integration support',
+      'Technical expertise for field testing and communication drawing sign-off',
+      'Field surveys for installation plans and drawings',
+      'Integration of new and existing devices into PSLAN/CCTV and network systems',
+      'Fiber/copper testing procedures and reports',
+      'FAT/SAT procedures and reports',
+      'Custom security system manual',
+    ],
+  },
+  {
+    id: 'P-36727',
+    name: 'Rehabilitation of Concourse Yard Substation',
+    image: '/projects/p-36727.jpg',
+    services: [
+      'Pre-cutover and post-cutover network testing',
+      'Communication risers (logical), wiring diagrams and cable certifications',
+      'Technical expertise for field testing and communication drawing sign-off',
+      'Field surveys for installation plans and drawings',
+      'Integration of new devices into existing network systems',
       'Fiber/copper testing procedures and reports',
       'FAT/SAT procedures and reports',
       'OEM manual for network systems',
     ],
   },
+  {
+    id: 'NJT',
+    name: 'NJT Raritan River Bridge Replacement',
+    image: '/projects/njt-raritan.jpg',
+    services: [
+      'Communication system design and integration',
+      'Network infrastructure installation',
+      'Communication risers (logical), wiring diagrams and cable certifications',
+      'Field surveys and coordination with general contractor',
+      'Fiber/copper testing procedures and reports',
+      'FAT/SAT procedures and reports',
+    ],
+  },
+];
+
+const otherCurrentProjects = [
+  { id: 'BBJ', name: 'BBJ Queens Phase 1' },
+  { id: 'C-43058', name: 'Communication Room Upgrade' },
+  { id: 'C-52169', name: 'PIDS Bushwick Ave & Atlantic Ave' },
+  { id: 'C-52180', name: 'PIDS St. Lawrence' },
+  { id: 'C-52181', name: 'PIDS Longwood, E143 Street, Cypress Avenue' },
+  { id: 'E-30641', name: 'Replacement of 17 Escalators at 6 Stations Systemwide' },
+  { id: 'E-30645', name: 'Design-Build Services For Replacement of 6 Escalators at 2 Stations' },
+  { id: 'HC-48', name: 'Rehabilitation of HLCT Manhattan Plaza' },
+  { id: 'JFK', name: 'JFK GTC Garage PS' },
+  { id: 'MS-21001', name: 'Grand Central Madison' },
+  { id: 'P-36317', name: 'Construction of New West 28th Street Substation' },
+  { id: 'P-36708', name: 'Construction of New Canal Street Substation on the 8th Avenue Line' },
+  { id: 'PS-236A', name: 'Throgs Neck Pumping Station' },
+  { id: 'PS-276', name: 'Hannah St CCTV' },
+  { id: 'PS-317', name: 'Victory Blvd Pump Station Rehab' },
+  { id: 'R-50769', name: 'Installation of 2 Elevators at 57th Street' },
+  { id: 'S-48010', name: 'QBL East CBTC' },
 ];
 
 const previousProjectsLeft = [
@@ -93,6 +102,7 @@ const previousProjectsLeft = [
   'C-43751 - Power and HVAC Upgrade at PCC RCC',
   'P-36444 - Rutgers Tube Rehabilitation',
   'QM-81 - Rehabilitation of Tunnel Controls and Communications at QMT and HCT',
+  'QM-36 - Relocation of QMT Refueling Station and QSB Switchgear',
 ];
 
 const previousProjectsRight = [
@@ -127,49 +137,65 @@ const previousProjectsRight = [
     </div>
   </section>
 
-  <!-- Current Projects Section -->
+  <!-- Featured Projects Section -->
   <section class="bg-white py-20 sm:py-28">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mb-16 text-center">
-        <p class="mb-2 text-sm font-semibold uppercase tracking-widest text-vkc-red">Active</p>
+        <p class="mb-2 text-sm font-semibold uppercase tracking-widest text-vkc-red">Featured</p>
         <h2 class="text-3xl font-extrabold tracking-tight text-vkc-dark sm:text-4xl">
-          Current Projects
+          Major Active Projects
         </h2>
       </div>
 
       <div class="space-y-16">
-        {currentProjects.map((project, index) => (
+        {featuredProjects.map((project, index) => (
           <div
             class:list={[
               'flex flex-col gap-8 rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition-shadow duration-300 hover:shadow-lg lg:flex-row lg:items-stretch lg:p-0 lg:overflow-hidden',
               index % 2 !== 0 && 'lg:flex-row-reverse',
             ]}
           >
-            {/* Image Placeholder */}
+            {/* Project Image */}
             <div class="flex-shrink-0 lg:w-2/5">
-              <div
-                class:list={[
-                  'flex h-64 items-center justify-center rounded-xl bg-gradient-to-br from-gray-100 to-gray-50 lg:h-full lg:rounded-none',
-                  index % 2 === 0 ? 'lg:rounded-l-2xl' : 'lg:rounded-r-2xl',
-                ]}
-              >
-                <div class="text-center">
-                  <svg
-                    class="mx-auto h-16 w-16 text-gray-300"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0 0 22.5 18.75V5.25A2.25 2.25 0 0 0 20.25 3H3.75A2.25 2.25 0 0 0 1.5 5.25v13.5A2.25 2.25 0 0 0 3.75 21Z"
-                    />
-                  </svg>
-                  <p class="mt-3 text-sm font-medium text-gray-400">Project Photo</p>
+              {project.image ? (
+                <div
+                  class:list={[
+                    'h-64 overflow-hidden rounded-xl lg:h-full lg:min-h-[320px] lg:rounded-none',
+                    index % 2 === 0 ? 'lg:rounded-l-2xl' : 'lg:rounded-r-2xl',
+                  ]}
+                >
+                  <img
+                    src={project.image}
+                    alt={project.name}
+                    class="h-full w-full object-cover"
+                    loading="lazy"
+                  />
                 </div>
-              </div>
+              ) : (
+                <div
+                  class:list={[
+                    'flex h-64 items-center justify-center rounded-xl bg-gradient-to-br from-gray-100 to-gray-50 lg:h-full lg:min-h-[320px] lg:rounded-none',
+                    index % 2 === 0 ? 'lg:rounded-l-2xl' : 'lg:rounded-r-2xl',
+                  ]}
+                >
+                  <div class="text-center">
+                    <svg
+                      class="mx-auto h-16 w-16 text-gray-300"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0 0 22.5 18.75V5.25A2.25 2.25 0 0 0 20.25 3H3.75A2.25 2.25 0 0 0 1.5 5.25v13.5A2.25 2.25 0 0 0 3.75 21Z"
+                      />
+                    </svg>
+                    <p class="mt-3 text-sm font-medium text-gray-400">Project Photo</p>
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Content */}
@@ -205,8 +231,42 @@ const previousProjectsRight = [
     </div>
   </section>
 
-  <!-- Previous Projects Section -->
+  <!-- Other Current Projects Section -->
   <section class="bg-vkc-light py-20 sm:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-16 text-center">
+        <p class="mb-2 text-sm font-semibold uppercase tracking-widest text-vkc-red">Active</p>
+        <h2 class="text-3xl font-extrabold tracking-tight text-vkc-dark sm:text-4xl">
+          Additional Current Projects
+        </h2>
+      </div>
+
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {otherCurrentProjects.map((project) => (
+          <div class="flex items-start gap-4 rounded-xl border border-gray-200 bg-white px-6 py-5 shadow-sm transition-all duration-200 hover:shadow-md hover:border-vkc-red/20">
+            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-vkc-red/10">
+              <svg
+                class="h-5 w-5 text-vkc-red"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
+              </svg>
+            </div>
+            <div>
+              <span class="mb-1 inline-block text-xs font-bold uppercase tracking-wider text-vkc-red">{project.id}</span>
+              <p class="text-sm font-medium text-vkc-dark sm:text-base">{project.name}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Previous Projects Section -->
+  <section class="bg-white py-20 sm:py-28">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mb-16 text-center">
         <p class="mb-2 text-sm font-semibold uppercase tracking-widest text-vkc-red">Completed</p>
