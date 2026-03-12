@@ -26,7 +26,11 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           <p class="text-vkc-gray mb-8">
             Fill out the form below and we'll get back to you as soon as possible.
           </p>
-          <form action="https://formspree.io/f/placeholder" method="POST" class="space-y-6">
+          <form action="https://formsubmit.co/info@vkcsystems.com" method="POST" class="space-y-6">
+            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+            <input type="hidden" name="_next" value="https://vkcsystems.com/contact">
+            <input type="hidden" name="_subject" value="New Contact Form Submission - VKC Systems">
+            <input type="hidden" name="_captcha" value="true">
             <div>
               <label for="name" class="block text-sm font-medium text-vkc-dark mb-1">
                 Name <span class="text-vkc-red">*</span>
