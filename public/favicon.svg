@@ -1,6 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
   <rect width="100" height="100" rx="12" fill="#0a0a0a"/>
-  <text x="50" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="800" font-size="32" fill="#ffffff">VKC</text>
-  <rect x="20" y="52" width="60" height="3" rx="1.5" fill="#dd3333"/>
-  <text x="50" y="72" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="600" font-size="14" fill="#dd3333" letter-spacing="4">SYSTEMS</text>
+  <g transform="translate(15, 15) scale(0.42)">
+    <path fill="#ed1c24" d="M165.67,50.64a106.26,106.26,0,0,0-135.28,0C49.72,40.08,73,33.92,98,33.92S146.33,40.08,165.67,50.64Z"/>
+    <path fill="#ed1c24" d="M146.09,29.13A106.28,106.28,0,0,0,12.15,48.05C29.82,34.9,52,25.54,76.79,22S125.48,21.39,146.09,29.13Z"/>
+    <path fill="#ed1c24" d="M131.44,10.66A106.27,106.27,0,0,0,0,42.63c16.29-14.82,37.44-26.3,61.77-32.22S110.16,5,131.44,10.66Z"/>
+    <path fill="#ed1c24" d="M0,132.27a106.28,106.28,0,0,0,135.27,0C115.94,142.82,92.67,149,67.64,149S19.33,142.82,0,132.27Z"/>
+    <path fill="#ed1c24" d="M19.57,153.77a106.28,106.28,0,0,0,134-18.91c-17.67,13.15-39.85,22.5-64.64,26S40.19,161.52,19.57,153.77Z"/>
+    <path fill="#ed1c24" d="M34.23,172.24a106.28,106.28,0,0,0,131.44-32c-16.29,14.82-37.45,26.3-61.77,32.22S55.5,177.93,34.23,172.24Z"/>
+  </g>
 </svg>
