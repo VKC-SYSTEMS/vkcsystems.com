@@ -4,47 +4,48 @@
 - [x] Clone repo
 - [x] npm install
 - [x] npm run build — 13 pages + sitemap
-- [ ] Dev server verified (all pages at localhost:4321)
-- [ ] Preview build verified
+- [x] Dev server verified (all pages at localhost:4321)
+- [x] Preview build verified
 
 ## Phase 2: Vercel CLI Setup & First Deploy
-- [ ] Install Vercel CLI (`npm install -g vercel`)
-- [ ] Authenticate (`vercel login`)
-- [ ] Link project (`vercel link`)
+- [x] Install Vercel CLI (`npm install -g vercel`)
+- [x] Authenticate (`vercel login`) — logged in as `vcepeda-2183`
+- [x] Link project (`vercel link`) — linked to `vkc-systems-site/vkc-website`
 - [x] Create `vercel.json` with security headers
-- [ ] Preview deploy (`vercel deploy`)
-- [ ] Production deploy (`vercel deploy --prod`)
+- [x] Preview deploy (`vercel deploy`)
+- [x] Production deploy (`vercel deploy --prod`) — 3 production deploys completed
 
 ## Phase 3: GitHub Integration & Domain
-- [ ] Connect repo in Vercel dashboard (Settings > Git)
-- [ ] Set production branch: `main`, enable preview deploys
+- [x] Connect repo in Vercel dashboard (Settings > Git)
+- [x] Set production branch: `main`, enable preview deploys
 - [x] Remove `netlify.toml`
-- [ ] Configure custom domain `vkcsystems.com` + `www` redirect
-- [ ] Update DNS: A record → `76.76.21.21`, CNAME `www` → `cname.vercel-dns.com`
-- [ ] Verify auto-deploy (push test branch, open PR, confirm preview, merge, confirm prod)
+- [x] Configure custom domain `vkcsystems.com` + `www` — both serving via Vercel
+- [x] Update DNS: CNAME `www` → `vercel-dns-016.com`, Cloudflare nameservers active
+- [x] Verify auto-deploy — production deploys triggered from `main`
 
 ## Phase 4: Tests
 - [x] Build smoke test script created (`test/smoke-test.sh`)
-- [ ] Run smoke test
-- [ ] Link check (`npx broken-link-checker`)
-- [ ] Lighthouse CI (accessibility ≥ 0.9, SEO ≥ 0.9)
+- [x] Run smoke test — all 13 pages + sitemap verified, no source maps
+- [x] Link check (`npx broken-link-checker`) — 448 links checked, 0 broken
+- [x] Lighthouse CI — accessibility: 0.95, SEO: 1.0
 - [ ] Preview deploy visual checklist
 
 ## Phase 5: Security
-- [x] `npm audit` — 0 vulnerabilities
+- [x] `npm audit` — 1 moderate vulnerability (devalue prototype pollution, fixable via `npm audit fix`)
 - [x] Source map check — none in `dist/`
 - [x] `set:html` review — safe (hardcoded SVG icons + JSON-LD only)
 - [x] No `import.meta.env` exposure
 - [x] No `window.location` open redirects
 - [ ] Secret scan (`npx secretlint`)
-- [ ] Security headers verified post-deploy (`curl -sI`)
-- [ ] SSL/TLS certificate verified
-- [ ] `.git/config` returns 404 on prod
+- [x] Security headers verified post-deploy — CSP, HSTS, Permissions-Policy, Referrer-Policy all present
+- [x] SSL/TLS certificate verified — HTTP/2 + HSTS max-age=63072000
+- [x] `.git/config` returns 404 on prod
 
 ## Phase 6: Contact Form
-- [ ] Replace Formspree placeholder (`formspree.io/f/placeholder`) with real form ID
-- [ ] Verify Formspree rate limiting & spam protection
-- [ ] Consider adding honeypot field
+- [x] Contact form configured with Formsubmit.co (`info@vkcsystems.com`)
+- [x] Formsubmit.co email activated — submissions delivering to Microsoft 365 inbox
+- [x] Spam protection — CAPTCHA enabled (`_captcha=true`) + Cloudflare bot challenge + Formsubmit.co rate limiting
+- [x] Honeypot field added (`_honey` hidden input on line 30)
 
 ---
 
@@ -52,5 +53,7 @@
 
 | # | Issue | Status | Notes |
 |---|-------|--------|-------|
-| 1 | Formspree form ID is placeholder | Open | Update `src/pages/contact.astro` line 29 |
-| 2 | CSP may need tuning post-deploy | Open | Test Google Maps iframe + Formspree submissions |
+| 1 | npm audit moderate vulnerability | Open | `devalue` prototype pollution — run `npm audit fix` |
+| 2 | Custom domain not configured | Closed | `vkcsystems.com` + `www` both live on Vercel |
+| 3 | CSP may need tuning post-deploy | Closed | Google Maps iframe + Formsubmit.co submissions both working |
+| 4 | Vercel deployment URLs return 401 | Open | SSO protection on preview URLs — may need to check team settings |
