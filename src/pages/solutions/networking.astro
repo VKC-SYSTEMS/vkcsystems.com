@@ -1,22 +1,49 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const subServices = [
-  'Fiber Optic Termination',
-  'Factory Acceptance Quality Controls',
-  'High Speed Public Wi-Fi',
-  'Network Design & Engineering',
-  'Site Acceptance Quality Controls',
-  'Network Equipment Housing',
-  'PSLAN Engineering',
-  'Fiber Distribution Panels',
-  'Maintenance & Repair',
+const categories = [
+  {
+    title: 'Engineering & Design',
+    items: [
+      'Network architecture design',
+      'Layer 2 and Layer 3 configuration',
+      'Redundancy and failover planning',
+      'Network segmentation and performance optimization',
+    ],
+  },
+  {
+    title: 'Infrastructure & Cabling',
+    items: [
+      'Fiber optic termination and certification',
+      'Copper cable testing and validation',
+      'Structured cabling systems',
+      'Rack and cabinet network integration',
+    ],
+  },
+  {
+    title: 'Testing & Commissioning',
+    items: [
+      'Factory Acceptance Testing (FAT)',
+      'Site Acceptance Testing (SAT)',
+      'Network performance validation',
+      'Pre- and post-cutover testing',
+    ],
+  },
+  {
+    title: 'Deployment & Integration',
+    items: [
+      'Network switch configuration',
+      'VLAN implementation and routing',
+      'Network upgrades and migrations',
+      'Integration into existing infrastructure environments',
+    ],
+  },
 ];
 ---
 
 <BaseLayout
-  title="Networking Solutions | VKC Systems"
-  description="Enterprise networking solutions: fiber optic termination, PSLAN engineering, high-speed Wi-Fi, and custom network equipment housing for transit environments."
+  title="Network Engineering & Infrastructure | VKC Systems"
+  description="Network engineering, fiber optic infrastructure, FAT/SAT testing, and network integration solutions for transit and mission-critical environments."
 >
   <!-- Hero Section -->
   <section class="relative bg-vkc-dark py-24 sm:py-32">
@@ -28,10 +55,10 @@ const subServices = [
     <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
       <p class="mb-4 text-sm font-semibold uppercase tracking-widest text-vkc-red">Solutions</p>
       <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
-        Networking Solutions
+        Network Engineering &amp; Infrastructure
       </h1>
       <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-300 sm:text-xl">
-        High-performance network infrastructure for mass transit and commercial environments.
+        High-performance network infrastructure engineered for mission-critical environments.
       </p>
     </div>
   </section>
@@ -66,46 +93,90 @@ const subServices = [
         </h2>
         <div class="mt-2 h-1 w-16 rounded-full bg-vkc-red"></div>
         <p class="mt-6 text-lg leading-relaxed text-vkc-gray sm:text-xl">
-          VKC Systems designs and engineers reliable, high-performance network
-          infrastructure for mass transit and commercial environments. From fiber optic backbone
-          engineering and PSLAN design to high-speed public Wi-Fi and custom network equipment
-          housing, our dedicated engineers deliver end-to-end networking solutions built for
-          demanding, mission-critical operations.
+          VKC Systems specializes in the engineering, integration, and validation of
+          high-performance network infrastructure for mission-critical environments.
+        </p>
+        <p class="mt-4 text-lg leading-relaxed text-vkc-gray sm:text-xl">
+          Our team delivers reliable, scalable network solutions designed to support complex
+          operations across transit, transportation, and public sector projects. From initial
+          design through final commissioning, we ensure every network is built for performance,
+          resilience, and long-term stability.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- Services / Capabilities Section -->
+  <!-- Network Capabilities Section -->
   <section class="bg-vkc-light py-20 sm:py-28">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-3xl text-center">
-        <h2 class="text-3xl font-extrabold tracking-tight text-vkc-dark sm:text-4xl">
-          Our Capabilities
+        <p class="text-sm font-semibold uppercase tracking-widest text-vkc-red">What We Deliver</p>
+        <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-vkc-dark sm:text-4xl">
+          Network Capabilities
         </h2>
-        <p class="mt-4 text-lg text-vkc-gray">
-          Comprehensive networking services tailored to your infrastructure needs.
-        </p>
       </div>
 
-      <div class="mx-auto mt-12 max-w-4xl">
-        <ul class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {subServices.map((service) => (
-            <li class="flex items-start gap-3 rounded-xl border border-gray-100 bg-white p-5 shadow-sm">
-              <svg
-                class="mt-0.5 h-5 w-5 shrink-0 text-vkc-red"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="2.5"
-                stroke="currentColor"
-              >
-                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-              </svg>
-              <span class="text-base font-medium text-vkc-dark">{service}</span>
-            </li>
-          ))}
-        </ul>
+      <div class="mx-auto mt-12 grid max-w-5xl gap-8 sm:grid-cols-2">
+        {categories.map((category) => (
+          <div class="rounded-2xl border border-gray-100 bg-white p-8 shadow-sm">
+            <h3 class="text-xl font-bold text-vkc-dark">{category.title}</h3>
+            <div class="mt-2 h-0.5 w-10 rounded-full bg-vkc-red"></div>
+            <ul class="mt-5 space-y-3">
+              {category.items.map((item) => (
+                <li class="flex items-start gap-3">
+                  <svg
+                    class="mt-0.5 h-5 w-5 shrink-0 text-vkc-red"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="2.5"
+                    stroke="currentColor"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                  </svg>
+                  <span class="text-base text-vkc-gray">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
       </div>
+    </div>
+  </section>
+
+  <!-- Built for Critical Environments -->
+  <section class="bg-white py-20 sm:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <p class="text-sm font-semibold uppercase tracking-widest text-vkc-red">Reliability</p>
+        <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-vkc-dark sm:text-4xl">
+          Built for Critical Environments
+        </h2>
+        <div class="mt-2 h-1 w-16 rounded-full bg-vkc-red"></div>
+        <p class="mt-6 text-lg leading-relaxed text-vkc-gray sm:text-xl">
+          VKC Systems delivers network infrastructure solutions designed for environments where
+          uptime, reliability, and performance are essential.
+        </p>
+        <p class="mt-4 text-lg leading-relaxed text-vkc-gray sm:text-xl">
+          Our experience in complex infrastructure projects ensures that every network is
+          engineered to meet strict operational and technical requirements, supporting long-term
+          performance and system stability.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tagline Section -->
+  <section class="bg-vkc-light py-16 sm:py-20">
+    <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-extrabold tracking-tight text-vkc-dark sm:text-3xl">
+        Precision. Performance. Reliability.
+      </h2>
+      <p class="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-vkc-gray">
+        Every network we deploy is built with a focus on accuracy, efficiency, and durability.
+        Our team combines engineering expertise with field experience to deliver solutions that
+        perform under real-world conditions and meet the demands of critical infrastructure
+        environments.
+      </p>
     </div>
   </section>
 
