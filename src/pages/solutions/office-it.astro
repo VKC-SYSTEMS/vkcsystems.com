@@ -1,22 +1,56 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const capabilities = [
-  'Network Engineering & Design',
-  'Cloud Computing Solutions',
-  'Server Infrastructure Management',
-  'Cable Infrastructure Installation',
-  'Office 365 Setup & Administration',
-  'Business Wi-Fi Solutions',
-  'Mobile Device Management',
-  'Ongoing IT Support & Maintenance',
-  'Workstation Setup & Configuration',
+const categories = [
+  {
+    title: 'IT Infrastructure & Network Services',
+    items: [
+      'Network design, configuration, and support',
+      'LAN/WAN and business network infrastructure management',
+      'Business Wi-Fi design and optimization',
+      'Structured cabling coordination and infrastructure support',
+    ],
+  },
+  {
+    title: 'Cloud & Platform Services',
+    items: [
+      'Microsoft 365 configuration and administration',
+      'Cloud infrastructure and services management',
+      'Email, collaboration, and data management solutions',
+      'Backup and data protection solutions',
+    ],
+  },
+  {
+    title: 'Systems & Endpoint Management',
+    items: [
+      'Server infrastructure management and support',
+      'Workstation configuration and lifecycle management',
+      'Mobile device management (MDM)',
+      'Patch management and system updates',
+    ],
+  },
+  {
+    title: 'Managed IT Services & Support',
+    items: [
+      'Ongoing system monitoring and proactive maintenance',
+      'IT support and issue resolution',
+      'Security best practices and system hardening',
+      'IT infrastructure optimization and scalability planning',
+      'Hybrid infrastructure support (on-premise and cloud)',
+    ],
+  },
+];
+
+const integrationSystems = [
+  'Network infrastructure',
+  'Security and access control systems',
+  'Communication and VoIP systems',
 ];
 ---
 
 <BaseLayout
-  title="Office IT Solutions | VKC Systems"
-  description="Managed IT solutions: network engineering, cloud computing, server infrastructure, Office 365, Wi-Fi, VoIP, and mobile device management."
+  title="Enterprise IT Infrastructure & Managed Systems | VKC Systems"
+  description="Managed IT services including network support, Microsoft 365, cloud infrastructure, server management, and endpoint security for business environments."
 >
   <!-- Hero Section -->
   <section class="relative bg-vkc-dark py-24 sm:py-32">
@@ -28,10 +62,11 @@ const capabilities = [
     <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
       <p class="mb-4 text-sm font-semibold uppercase tracking-widest text-vkc-red">Solutions</p>
       <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
-        Office IT Solutions
+        Enterprise IT Infrastructure &amp; Managed Systems
       </h1>
-      <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-300 sm:text-xl">
-        Managed IT services to keep your business running smoothly and securely.
+      <p class="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-gray-300 sm:text-xl">
+        Engineering-driven IT services that align with your network architecture, ensuring
+        operational continuity, system security, and long-term scalability.
       </p>
     </div>
   </section>
@@ -62,35 +97,106 @@ const capabilities = [
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-3xl">
         <h2 class="text-3xl font-extrabold tracking-tight text-vkc-dark sm:text-4xl">
-          Overview
+          IT Infrastructure Overview
         </h2>
         <div class="mt-2 h-1 w-16 rounded-full bg-vkc-red"></div>
         <p class="mt-6 text-lg leading-relaxed text-vkc-gray sm:text-xl">
-          VKC Systems provides managed IT solutions for businesses of all sizes. Our services
-          include network engineering, cloud computing, server and cable infrastructure, Office 365,
-          Wi-Fi, VoIP, and mobile device management. We keep your business running smoothly with
-          reliable, professional IT support.
+          VKC Systems provides structured IT services that integrate with your overall
+          technology infrastructure.
+        </p>
+        <p class="mt-4 text-lg leading-relaxed text-vkc-gray sm:text-xl">
+          We support the design, deployment, and management of business systems including
+          network infrastructure, cloud platforms, and endpoint environments — ensuring
+          consistent performance and secure operations.
+        </p>
+        <p class="mt-4 text-lg leading-relaxed text-vkc-gray sm:text-xl">
+          Our approach focuses on stability, security, and proactive system management to
+          reduce downtime and support business-critical operations.
+        </p>
+        <p class="mt-4 text-lg leading-relaxed text-vkc-gray sm:text-xl">
+          VKC Systems delivers IT services as an extension of its infrastructure engineering
+          capabilities — not as standalone support, but as an integrated component of complete
+          system environments.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- Capabilities Section -->
+  <!-- What We Deliver -->
   <section class="bg-vkc-light py-20 sm:py-28">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-3xl text-center">
-        <h2 class="text-3xl font-extrabold tracking-tight text-vkc-dark sm:text-4xl">
-          Our Capabilities
+        <p class="text-sm font-semibold uppercase tracking-widest text-vkc-red">What We Deliver</p>
+        <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-vkc-dark sm:text-4xl">
+          IT Capabilities
         </h2>
-        <p class="mt-4 text-lg text-vkc-gray">
-          End-to-end IT services tailored to your business operations.
-        </p>
       </div>
 
-      <div class="mx-auto mt-12 max-w-4xl">
-        <ul class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {capabilities.map((capability) => (
-            <li class="flex items-start gap-3 rounded-xl border border-gray-100 bg-white p-5 shadow-sm">
+      <div class="mx-auto mt-12 grid max-w-5xl gap-8 sm:grid-cols-2">
+        {categories.map((category) => (
+          <div class="rounded-2xl border border-gray-100 bg-white p-8 shadow-sm">
+            <h3 class="text-xl font-bold text-vkc-dark">{category.title}</h3>
+            <div class="mt-2 h-0.5 w-10 rounded-full bg-vkc-red"></div>
+            <ul class="mt-5 space-y-3">
+              {category.items.map((item) => (
+                <li class="flex items-start gap-3">
+                  <svg
+                    class="mt-0.5 h-5 w-5 shrink-0 text-vkc-red"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="2.5"
+                    stroke="currentColor"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                  </svg>
+                  <span class="text-base text-vkc-gray">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Built for Secure & Reliable Operations -->
+  <section class="bg-white py-20 sm:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <p class="text-sm font-semibold uppercase tracking-widest text-vkc-red">Reliability</p>
+        <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-vkc-dark sm:text-4xl">
+          Built for Secure &amp; Reliable Operations
+        </h2>
+        <div class="mt-2 h-1 w-16 rounded-full bg-vkc-red"></div>
+        <p class="mt-6 text-lg leading-relaxed text-vkc-gray sm:text-xl">
+          VKC Systems delivers IT solutions for environments where uptime, security, and
+          system performance are critical.
+        </p>
+        <p class="mt-4 text-lg leading-relaxed text-vkc-gray sm:text-xl">
+          Our services are designed to minimize downtime, enhance system security, and ensure
+          long-term operational reliability across business environments.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Integrated with Infrastructure Systems -->
+  <section class="bg-vkc-light py-20 sm:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <p class="text-sm font-semibold uppercase tracking-widest text-vkc-red">Integration</p>
+        <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-vkc-dark sm:text-4xl">
+          Integrated with Infrastructure Systems
+        </h2>
+        <div class="mt-2 h-1 w-16 rounded-full bg-vkc-red"></div>
+        <p class="mt-6 text-lg leading-relaxed text-vkc-gray sm:text-xl">
+          Our IT services are designed to operate as part of fully integrated infrastructure
+          environments, supporting network systems, security platforms, communication systems,
+          and operational technologies, including:
+        </p>
+        <ul class="mt-6 space-y-3">
+          {integrationSystems.map((item) => (
+            <li class="flex items-start gap-3">
               <svg
                 class="mt-0.5 h-5 w-5 shrink-0 text-vkc-red"
                 fill="none"
@@ -100,7 +206,7 @@ const capabilities = [
               >
                 <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
               </svg>
-              <span class="text-base font-medium text-vkc-dark">{capability}</span>
+              <span class="text-base text-vkc-gray">{item}</span>
             </li>
           ))}
         </ul>
@@ -108,15 +214,32 @@ const capabilities = [
     </div>
   </section>
 
+  <!-- Tagline Section -->
+  <section class="bg-white py-16 sm:py-20">
+    <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-extrabold tracking-tight text-vkc-dark sm:text-3xl">
+        Precision. Stability. Security.
+      </h2>
+      <p class="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-vkc-gray">
+        Every IT environment we support is managed with a focus on reliability, security, and
+        long-term performance. Our team ensures that systems operate efficiently and securely
+        in real-world business environments.
+      </p>
+    </div>
+  </section>
+
   <!-- CTA Section -->
   <section class="bg-vkc-dark py-20 sm:py-28">
     <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
       <h2 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
-        Need managed IT support?
+        Need a Reliable IT Infrastructure Partner?
       </h2>
       <p class="mx-auto mt-4 max-w-2xl text-lg text-gray-300">
-        Our team is ready to manage your IT infrastructure so you can focus on growing your
-        business.
+        Our team is ready to manage and support your IT environment with a structured,
+        engineering-driven approach.
+      </p>
+      <p class="mt-2 text-base text-gray-400">
+        Trusted across business environments throughout the New York metropolitan area.
       </p>
       <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
         <a
