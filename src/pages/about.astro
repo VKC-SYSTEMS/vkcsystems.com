@@ -1,5 +1,32 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+
+const agencies = [
+  { abbr: 'NYCT', name: 'MTA New York City Transit' },
+  { abbr: 'LIRR', name: 'Long Island Rail Road' },
+  { abbr: 'Metro-North', name: 'Metro-North Railroad' },
+  { abbr: 'NJT', name: 'NJ Transit' },
+  { abbr: 'Port Authority', name: 'Port Authority of NY & NJ' },
+  { abbr: 'NYC DEP', name: 'NYC Dept. of Environmental Protection' },
+];
+
+const capabilities = [
+  'Network infrastructure design and integration',
+  'CCTV and video management systems',
+  'Access control systems',
+  'Public address and intercom systems',
+  'Custom communication cabinet fabrication',
+  'Fiber optic and copper cable testing and certification',
+  'Field testing, commissioning, and system validation (FAT/SAT)',
+];
+
+const whyVkc = [
+  'Proven experience in transit and infrastructure projects',
+  'Strong reputation for on-time project delivery',
+  'Deep expertise in systems integration and network engineering',
+  'Hands-on field experience combined with engineering knowledge',
+  'Commitment to quality, safety, and client satisfaction',
+];
 ---
 
 <BaseLayout
@@ -7,75 +34,217 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   description="Founded in 2014, VKC Systems is an MBE/DBE systems integrator serving MTA, NYCT, LIRR, NJT, Port Authority, and commercial clients across the NYC metro area."
 >
   <!-- Hero Section -->
-  <section class="bg-vkc-dark py-24 md:py-32">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight">
+  <section class="relative bg-vkc-dark py-24 sm:py-32">
+    <div class="absolute inset-0 overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-br from-vkc-dark via-gray-900 to-vkc-dark"></div>
+      <div class="absolute top-0 right-0 h-96 w-96 rounded-full bg-vkc-red/5 blur-3xl"></div>
+      <div class="absolute bottom-0 left-0 h-96 w-96 rounded-full bg-vkc-red/5 blur-3xl"></div>
+    </div>
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
         About VKC Systems
       </h1>
-      <div class="mt-4 w-20 h-1 bg-vkc-red mx-auto rounded-full"></div>
-    </div>
-  </section>
-
-  <!-- Story Section -->
-  <section class="py-16 md:py-24">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl md:text-4xl font-bold text-vkc-dark mb-8">
-        Our Story
-      </h2>
-      <p class="text-lg md:text-xl leading-relaxed text-vkc-gray mb-6">
-        VKC Systems was founded in 2014 by the Cepeda brothers in Mount Vernon, NY. What began
-        as a focused operation has grown into a full-service systems integrator now headquartered
-        in South Hackensack, NJ. That growth is the direct result of consistent, on-time project
-        delivery and a reputation for technical excellence in demanding environments.
-      </p>
-      <p class="text-lg md:text-xl leading-relaxed text-vkc-gray">
-        Today, we provide end-to-end communication and network integration services &mdash; from
-        custom cabinet fabrication and fiber optic termination to CCTV engineering, network
-        engineering, and 24-hour service maintenance. Every project is completed on schedule,
-        within budget, and to the standards our clients expect.
+      <p class="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-gray-300 sm:text-xl">
+        A systems integrator specializing in mission-critical communications and infrastructure
+        solutions for transit, transportation, and public sector environments across the
+        New York metropolitan area.
       </p>
     </div>
   </section>
 
-  <!-- Highlight Box -->
-  <section class="py-12 md:py-16 bg-vkc-light">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="bg-white border-l-4 border-vkc-red rounded-lg shadow-lg p-8 md:p-12">
-        <p class="text-xl md:text-2xl font-semibold text-vkc-dark leading-relaxed">
-          VKC Systems, Inc. is a certified MBE/DBE specializing in mass transit systems
-          integration across the New York City metropolitan area.
+  <!-- Our Story Section -->
+  <section class="bg-white py-20 sm:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <p class="text-sm font-semibold uppercase tracking-widest text-vkc-red">Our Story</p>
+        <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-vkc-dark sm:text-4xl">
+          Who We Are
+        </h2>
+        <div class="mt-2 h-1 w-16 rounded-full bg-vkc-red"></div>
+        <p class="mt-6 text-lg leading-relaxed text-vkc-gray sm:text-xl">
+          Founded in 2014 and headquartered in South Hackensack, New Jersey, VKC Systems has
+          established itself as a trusted partner for major agencies and contractors by consistently
+          delivering high-quality, on-time, and technically sound solutions in demanding environments.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- Services Section -->
-  <section class="py-16 md:py-24">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl md:text-4xl font-bold text-vkc-dark mb-8">
-        What We Do
-      </h2>
-      <p class="text-lg md:text-xl leading-relaxed text-vkc-gray">
-        Our scope of work includes closed-circuit television, intercoms, security alarm systems,
-        train dispatch, customer information signs, data networks, gate control, telephone, and
-        VoIP systems. Our technical experts specialize in network upgrades and redesigns that
-        improve the reliability of data-dependent transit and commercial infrastructure.
+  <!-- What We Do Section -->
+  <section class="bg-vkc-light py-20 sm:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <p class="text-sm font-semibold uppercase tracking-widest text-vkc-red">Services</p>
+        <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-vkc-dark sm:text-4xl">
+          What We Do
+        </h2>
+        <p class="mt-4 text-lg text-vkc-gray">
+          VKC Systems provides end-to-end systems integration services, combining engineering,
+          field expertise, and technical execution to support complex infrastructure projects.
+        </p>
+      </div>
+
+      <div class="mx-auto mt-12 max-w-4xl">
+        <ul class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          {capabilities.map((capability) => (
+            <li class="flex items-start gap-3 rounded-xl border border-gray-100 bg-white p-5 shadow-sm">
+              <svg
+                class="mt-0.5 h-5 w-5 shrink-0 text-vkc-red"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2.5"
+                stroke="currentColor"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+              </svg>
+              <span class="text-base font-medium text-vkc-dark">{capability}</span>
+            </li>
+          ))}
+        </ul>
+        <p class="mt-8 text-center text-base leading-relaxed text-vkc-gray">
+          We specialize in integrating multiple systems into cohesive, reliable platforms that
+          support critical operations and meet strict project specifications.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Transit & Infrastructure Expertise -->
+  <section class="bg-vkc-dark py-20 sm:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <p class="text-sm font-semibold uppercase tracking-widest text-vkc-red">Expertise</p>
+        <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+          Transit &amp; Infrastructure Expertise
+        </h2>
+        <p class="mt-4 text-lg text-gray-300">
+          VKC Systems is a certified MBE/DBE contractor with a strong focus on mass transit
+          systems integration.
+        </p>
+      </div>
+
+      <div class="mx-auto mt-12 grid max-w-4xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {agencies.map((agency) => (
+          <div class="rounded-xl border border-white/10 bg-white/5 px-6 py-5 text-center">
+            <p class="text-lg font-bold text-white">{agency.abbr}</p>
+            <p class="mt-1 text-sm text-gray-400">{agency.name}</p>
+          </div>
+        ))}
+      </div>
+
+      <p class="mx-auto mt-10 max-w-2xl text-center text-base leading-relaxed text-gray-400">
+        We understand the complexity, safety requirements, and operational demands of transit
+        environments, and we deliver solutions that meet the highest standards of reliability
+        and performance.
       </p>
     </div>
   </section>
 
+  <!-- Our Approach Section -->
+  <section class="bg-white py-20 sm:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <p class="text-sm font-semibold uppercase tracking-widest text-vkc-red">Our Approach</p>
+        <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-vkc-dark sm:text-4xl">
+          Engineering Precision, Real-World Experience
+        </h2>
+        <div class="mt-2 h-1 w-16 rounded-full bg-vkc-red"></div>
+        <p class="mt-6 text-lg leading-relaxed text-vkc-gray">
+          We work closely with general contractors, agencies, and project stakeholders to ensure
+          every project meets the highest standards.
+        </p>
+
+        <ul class="mt-8 space-y-4">
+          <li class="flex items-start gap-3">
+            <svg class="mt-0.5 h-5 w-5 shrink-0 text-vkc-red" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+            </svg>
+            <span class="text-base leading-relaxed text-vkc-gray">Systems are properly designed and integrated</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="mt-0.5 h-5 w-5 shrink-0 text-vkc-red" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+            </svg>
+            <span class="text-base leading-relaxed text-vkc-gray">Testing and commissioning are executed thoroughly</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="mt-0.5 h-5 w-5 shrink-0 text-vkc-red" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+            </svg>
+            <span class="text-base leading-relaxed text-vkc-gray">Deliverables meet all technical and compliance requirements</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="mt-0.5 h-5 w-5 shrink-0 text-vkc-red" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+            </svg>
+            <span class="text-base leading-relaxed text-vkc-gray">Projects are completed on schedule and within budget</span>
+          </li>
+        </ul>
+
+        <p class="mt-8 text-base leading-relaxed text-vkc-gray">
+          We recognize that in critical infrastructure environments, delays and system failures
+          are not an option. Our team is committed to delivering solutions that perform reliably
+          from day one.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why VKC Section -->
+  <section class="bg-vkc-light py-20 sm:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <p class="text-sm font-semibold uppercase tracking-widest text-vkc-red">Why VKC</p>
+        <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-vkc-dark sm:text-4xl">
+          Why VKC Systems
+        </h2>
+      </div>
+
+      <div class="mx-auto mt-12 max-w-3xl">
+        <ul class="space-y-4">
+          {whyVkc.map((item) => (
+            <li class="flex items-start gap-3 rounded-xl border border-gray-100 bg-white p-5 shadow-sm">
+              <svg
+                class="mt-0.5 h-5 w-5 shrink-0 text-vkc-red"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2.5"
+                stroke="currentColor"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+              </svg>
+              <span class="text-base font-medium text-vkc-dark">{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA Section -->
-  <section class="py-16 md:py-24 bg-vkc-dark">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="text-xl md:text-2xl text-white mb-8">
-        Let's discuss how VKC Systems can support your next project.
+  <section class="bg-vkc-dark py-20 sm:py-28">
+    <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+        Let's Build Together
+      </h2>
+      <p class="mx-auto mt-4 max-w-2xl text-lg text-gray-300">
+        From design and engineering to integration, testing, and long-term support, VKC Systems
+        delivers solutions that keep critical infrastructure systems running safely and efficiently.
       </p>
-      <a
-        href="/contact"
-        class="inline-block bg-vkc-red hover:bg-vkc-red-dark text-white font-semibold text-lg px-8 py-4 rounded-lg transition-colors duration-200"
-      >
-        Contact Us
-      </a>
+      <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <a
+          href="/contact"
+          class="inline-flex items-center rounded-lg bg-vkc-red px-8 py-3.5 text-base font-semibold text-white shadow-sm transition-colors duration-200 hover:bg-vkc-red-dark"
+        >
+          Contact Us
+        </a>
+        <a
+          href="/solutions"
+          class="inline-flex items-center rounded-lg border-2 border-white/20 px-8 py-3.5 text-base font-semibold text-white transition-colors duration-200 hover:border-white hover:bg-white/10"
+        >
+          View Our Solutions
+        </a>
+      </div>
     </div>
   </section>
 </BaseLayout>
