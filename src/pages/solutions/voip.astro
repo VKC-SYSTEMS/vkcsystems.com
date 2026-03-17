@@ -1,21 +1,55 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const capabilities = [
-  'VoIP System Design & Engineering',
-  'IP Phone Engineering & Configuration',
-  'PBX System Setup & Management',
-  'Call Routing & Management',
-  'Network Integration for Voice Traffic',
-  'System Maintenance & Support',
-  'Unified Communications Solutions',
-  'Scalable Phone System Deployment',
+const categories = [
+  {
+    title: 'VoIP Engineering & Design',
+    items: [
+      'VoIP system architecture and design',
+      'SIP-based system configuration and call flow design',
+      'PBX system engineering, deployment, and system optimization',
+      'Redundancy and failover planning for voice systems',
+    ],
+  },
+  {
+    title: 'Network Integration for Voice',
+    items: [
+      'Network readiness assessments for VoIP',
+      'Quality of Service (QoS) configuration and optimization',
+      'VLAN configuration and traffic segmentation for voice',
+      'Integration with existing LAN/WAN infrastructure',
+    ],
+  },
+  {
+    title: 'System Configuration & Programming',
+    items: [
+      'IP phone system configuration and provisioning',
+      'Call routing, dial plans, and system logic configuration',
+      'Integration with third-party communication platforms',
+      'Unified communications system configuration',
+    ],
+  },
+  {
+    title: 'Maintenance & Support',
+    items: [
+      'Ongoing system monitoring and support',
+      'Performance tuning and system optimization',
+      'System upgrades and scalability planning',
+      'Troubleshooting and issue resolution',
+    ],
+  },
+];
+
+const integrationSystems = [
+  'Network infrastructure systems',
+  'Security and access control systems',
+  'Public address and communication systems',
 ];
 ---
 
 <BaseLayout
-  title="VoIP Solutions | VKC Systems"
-  description="VKC Systems provides enterprise VoIP solutions for business communication including professional engineering, configuration, and programming of modern phone systems."
+  title="VoIP Systems Engineering & Integration | VKC Systems"
+  description="Enterprise VoIP engineering, SIP/PBX configuration, QoS optimization, and network-integrated voice systems for business and infrastructure environments."
 >
   <!-- Hero Section -->
   <section class="relative bg-vkc-dark py-24 sm:py-32">
@@ -27,10 +61,11 @@ const capabilities = [
     <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
       <p class="mb-4 text-sm font-semibold uppercase tracking-widest text-vkc-red">Solutions</p>
       <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
-        VoIP Solutions
+        VoIP Systems Engineering &amp; Integration
       </h1>
-      <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-300 sm:text-xl">
-        Enterprise voice over IP systems for reliable, cost-effective business communication.
+      <p class="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-gray-300 sm:text-xl">
+        Enterprise-grade VoIP solutions engineered for reliability, performance, and seamless
+        integration within critical network infrastructure environments.
       </p>
     </div>
   </section>
@@ -61,35 +96,112 @@ const capabilities = [
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-3xl">
         <h2 class="text-3xl font-extrabold tracking-tight text-vkc-dark sm:text-4xl">
-          Overview
+          VoIP Infrastructure Overview
         </h2>
         <div class="mt-2 h-1 w-16 rounded-full bg-vkc-red"></div>
         <p class="mt-6 text-lg leading-relaxed text-vkc-gray sm:text-xl">
-          VKC Systems delivers enterprise VoIP solutions for business communication. We provide
-          professional engineering, configuration, and programming of modern IP phone
-          systems. Our VoIP solutions integrate seamlessly with your existing network infrastructure
-          to deliver reliable, cost-effective communications.
+          VKC Systems provides engineering-driven VoIP solutions that integrate directly with
+          existing network infrastructure.
+        </p>
+        <p class="mt-4 text-lg leading-relaxed text-vkc-gray sm:text-xl">
+          We design and deploy voice systems that prioritize call quality, network efficiency,
+          and system resilience — ensuring consistent performance across business and
+          infrastructure environments.
+        </p>
+        <p class="mt-4 text-lg leading-relaxed text-vkc-gray sm:text-xl">
+          Our approach focuses on proper network design for voice traffic, including bandwidth
+          management, Quality of Service (QoS), and system redundancy.
+        </p>
+        <p class="mt-4 text-lg leading-relaxed text-vkc-gray sm:text-xl">
+          Unlike traditional VoIP providers, VKC Systems delivers network-integrated voice
+          solutions engineered as part of a complete infrastructure ecosystem.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- Capabilities Section -->
+  <!-- What We Deliver -->
   <section class="bg-vkc-light py-20 sm:py-28">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-3xl text-center">
-        <h2 class="text-3xl font-extrabold tracking-tight text-vkc-dark sm:text-4xl">
-          Our Capabilities
+        <p class="text-sm font-semibold uppercase tracking-widest text-vkc-red">What We Deliver</p>
+        <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-vkc-dark sm:text-4xl">
+          VoIP Capabilities
         </h2>
-        <p class="mt-4 text-lg text-vkc-gray">
-          Comprehensive VoIP services tailored to your business communication needs.
-        </p>
       </div>
 
-      <div class="mx-auto mt-12 max-w-4xl">
-        <ul class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {capabilities.map((capability) => (
-            <li class="flex items-start gap-3 rounded-xl border border-gray-100 bg-white p-5 shadow-sm">
+      <div class="mx-auto mt-12 grid max-w-5xl gap-8 sm:grid-cols-2">
+        {categories.map((category) => (
+          <div class="rounded-2xl border border-gray-100 bg-white p-8 shadow-sm">
+            <h3 class="text-xl font-bold text-vkc-dark">{category.title}</h3>
+            <div class="mt-2 h-0.5 w-10 rounded-full bg-vkc-red"></div>
+            <ul class="mt-5 space-y-3">
+              {category.items.map((item) => (
+                <li class="flex items-start gap-3">
+                  <svg
+                    class="mt-0.5 h-5 w-5 shrink-0 text-vkc-red"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="2.5"
+                    stroke="currentColor"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                  </svg>
+                  <span class="text-base text-vkc-gray">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Built for Reliable Communication -->
+  <section class="bg-white py-20 sm:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <p class="text-sm font-semibold uppercase tracking-widest text-vkc-red">Reliability</p>
+        <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-vkc-dark sm:text-4xl">
+          Built for Reliable Communication
+        </h2>
+        <div class="mt-2 h-1 w-16 rounded-full bg-vkc-red"></div>
+        <p class="mt-6 text-lg leading-relaxed text-vkc-gray sm:text-xl">
+          VKC Systems designs VoIP systems for environments where communication reliability
+          and system performance are essential.
+        </p>
+        <p class="mt-4 text-lg leading-relaxed text-vkc-gray sm:text-xl">
+          Our solutions are engineered to deliver consistent call quality, minimize downtime,
+          and support long-term operational requirements.
+        </p>
+        <p class="mt-4 text-lg leading-relaxed text-vkc-gray sm:text-xl">
+          System designs incorporate redundancy and failover strategies to maintain continuous
+          communication during network or system disruptions.
+        </p>
+        <p class="mt-4 text-base leading-relaxed text-vkc-gray">
+          All VoIP systems are designed and configured in accordance with industry best practices,
+          project specifications, and network performance requirements.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Integrated with Network Infrastructure -->
+  <section class="bg-vkc-light py-20 sm:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <p class="text-sm font-semibold uppercase tracking-widest text-vkc-red">Integration</p>
+        <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-vkc-dark sm:text-4xl">
+          Integrated with Network Infrastructure
+        </h2>
+        <div class="mt-2 h-1 w-16 rounded-full bg-vkc-red"></div>
+        <p class="mt-6 text-lg leading-relaxed text-vkc-gray sm:text-xl">
+          Our VoIP solutions are designed as part of a broader infrastructure ecosystem,
+          ensuring seamless integration with:
+        </p>
+        <ul class="mt-6 space-y-3">
+          {integrationSystems.map((item) => (
+            <li class="flex items-start gap-3">
               <svg
                 class="mt-0.5 h-5 w-5 shrink-0 text-vkc-red"
                 fill="none"
@@ -99,7 +211,7 @@ const capabilities = [
               >
                 <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
               </svg>
-              <span class="text-base font-medium text-vkc-dark">{capability}</span>
+              <span class="text-base text-vkc-gray">{item}</span>
             </li>
           ))}
         </ul>
@@ -107,15 +219,32 @@ const capabilities = [
     </div>
   </section>
 
+  <!-- Tagline Section -->
+  <section class="bg-white py-16 sm:py-20">
+    <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-extrabold tracking-tight text-vkc-dark sm:text-3xl">
+        Precision. Performance. Reliability.
+      </h2>
+      <p class="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-vkc-gray">
+        Every VoIP system we deploy is engineered with a focus on call quality, system stability,
+        and long-term performance. Our team ensures that voice communication systems operate
+        reliably within real-world network environments.
+      </p>
+    </div>
+  </section>
+
   <!-- CTA Section -->
   <section class="bg-vkc-dark py-20 sm:py-28">
     <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
       <h2 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
-        Ready to upgrade your phone system?
+        Need a VoIP Solution?
       </h2>
       <p class="mx-auto mt-4 max-w-2xl text-lg text-gray-300">
-        Our team is ready to design and deploy a modern VoIP solution that fits your business
-        communication needs.
+        Our team is ready to design and implement a VoIP system tailored to your infrastructure
+        and communication needs.
+      </p>
+      <p class="mt-2 text-base text-gray-400">
+        Trusted on projects across the New York metropolitan area.
       </p>
       <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
         <a
