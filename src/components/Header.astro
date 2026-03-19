@@ -4,7 +4,7 @@ const currentPath = Astro.url.pathname;
 const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
-  { href: '/solutions', label: 'Solutions' },
+  { href: '/solutions', label: 'Capabilities' },
   { href: '/projects', label: 'Projects' },
   { href: '/contact', label: 'Contact' },
 ];
@@ -48,7 +48,7 @@ function isActive(href: string): boolean {
           href="/contact"
           class="ml-4 inline-flex items-center rounded-lg bg-vkc-red px-5 py-2.5 text-sm font-semibold text-white transition-colors duration-200 hover:bg-vkc-red-dark"
         >
-          Get a Quote
+          Request a Consultation
         </a>
       </nav>
 
@@ -96,7 +96,7 @@ function isActive(href: string): boolean {
           href="/contact"
           class="mt-4 inline-flex items-center justify-center rounded-lg bg-vkc-red px-5 py-3 text-base font-semibold text-white transition-colors duration-200 hover:bg-vkc-red-dark"
         >
-          Get a Quote
+          Request a Consultation
         </a>
       </nav>
 
