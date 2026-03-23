@@ -1,0 +1,54 @@
+# VKC Systems
+
+> MBE/DBE certified systems integrator specializing in communication and infrastructure systems for transit, government, and commercial projects across the NYC metro area.
+
+## About
+
+VKC Systems Inc. is a systems integrator founded in 2014, headquartered in South Hackensack, NJ. We provide CCTV, access control, public address, fiber optic, networking, and communication cabinet solutions for transit agencies and public sector clients.
+
+## Capabilities
+
+- CCTV and video surveillance systems
+- Access control systems (Lenel-integrated)
+- Public address and intercom systems
+- Fiber optic cabling and network backbone infrastructure
+- Communication cabinet fabrication
+- CADD / AutoCAD drafting services
+- VoIP phone systems
+- Office IT and managed services
+
+## Agencies Served
+
+- MTA (Metropolitan Transportation Authority)
+- NYCT (New York City Transit)
+- LIRR (Long Island Rail Road)
+- TBTA (Triborough Bridge & Tunnel Authority)
+- Metro-North Railroad
+- NJ Transit
+- Port Authority of NY & NJ
+- NYC DEP (Dept. of Environmental Protection)
+
+## Certifications
+
+- MBE Certified
+- DBE Certified
+- OSHA 30
+- Track Safety Training
+- Cisco CCNA / CCNP
+- CompTIA Network+
+- CSPM
+
+## Contact
+
+- Phone: (201) 374-0252
+- Address: 89 Leuning St Suite 1E, South Hackensack, NJ 07606
+- Website: https://vkcsystems.com
+
+## Pages
+
+- Home: https://vkcsystems.com/
+- About: https://vkcsystems.com/about
+- Capabilities: https://vkcsystems.com/solutions
+- Projects: https://vkcsystems.com/projects
+- Contact: https://vkcsystems.com/contact
+- Capability Statement (PDF): https://vkcsystems.com/VKC-Systems-Capability-Statement.pdf
