@@ -111,22 +111,25 @@ const whyVkc = [
                 placeholder="(201) 555-0123"
               />
             </div>
-            <div>
-              <label for="project-type" class="block text-sm font-medium text-vkc-dark mb-1">
+            <fieldset>
+              <legend class="block text-sm font-medium text-vkc-dark mb-2">
                 Project Type <span class="text-vkc-red">*</span>
-              </label>
-              <select
-                id="project-type"
-                name="project_type"
-                required
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-vkc-red focus:border-transparent transition-shadow bg-white"
-              >
-                <option value="" disabled selected>Select a project type</option>
+                <span class="text-xs font-normal text-vkc-gray ml-1">(select all that apply)</span>
+              </legend>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {projectTypes.map((type) => (
-                  <option value={type}>{type}</option>
+                  <label class="flex items-center gap-2 px-3 py-2.5 border border-gray-200 rounded-lg cursor-pointer hover:border-vkc-red/30 hover:bg-red-50/30 transition-colors has-[:checked]:border-vkc-red has-[:checked]:bg-red-50/50">
+                    <input
+                      type="checkbox"
+                      name="project_type"
+                      value={type}
+                      class="h-4 w-4 rounded border-gray-300 text-vkc-red focus:ring-vkc-red"
+                    />
+                    <span class="text-sm text-vkc-dark">{type}</span>
+                  </label>
                 ))}
-              </select>
-            </div>
+              </div>
+            </fieldset>
             <div>
               <label for="location" class="block text-sm font-medium text-vkc-dark mb-1">
                 Project Location
