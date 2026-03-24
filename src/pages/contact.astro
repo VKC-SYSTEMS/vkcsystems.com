@@ -121,7 +121,7 @@ const whyVkc = [
                   <label class="flex items-center gap-2 px-3 py-2.5 border border-gray-200 rounded-lg cursor-pointer hover:border-vkc-red/30 hover:bg-red-50/30 transition-colors has-[:checked]:border-vkc-red has-[:checked]:bg-red-50/50">
                     <input
                       type="checkbox"
-                      name="project_type"
+                      data-project-type
                       value={type}
                       class="h-4 w-4 rounded border-gray-300 text-vkc-red focus:ring-vkc-red"
                     />
@@ -155,6 +155,7 @@ const whyVkc = [
                 placeholder="Tell us about your project, scope, or requirements..."
               ></textarea>
             </div>
+            <input type="hidden" name="project_type" id="project-type-combined" value="" />
             <button
               type="submit"
               class="w-full bg-vkc-red hover:bg-vkc-red-dark text-white font-semibold text-lg px-8 py-4 rounded-lg transition-colors duration-200 cursor-pointer"
@@ -162,6 +163,7 @@ const whyVkc = [
               Submit Project Inquiry
             </button>
           </form>
+          <script src="/contact-form.js" defer></script>
         </div>
 
         <!-- Google Maps Embed -->
