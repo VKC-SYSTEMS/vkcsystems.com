@@ -4,6 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 const featuredProjects = [
   {
     id: 'AW-73',
+    agency: 'TBTA',
     name: 'Design-Build Replacement of Facility Monitoring and Safety Systems at the Hugh L. Carey Tunnel (HLCT) and Queens Midtown Tunnel (QMT)',
     image: '/projects/aw-73.jpg',
     services: [
@@ -19,6 +20,7 @@ const featuredProjects = [
   },
   {
     id: 'P-36719',
+    agency: 'NYCT',
     name: '82nd Road Substation Renewal, 13th Street Substation Renewal, and High-Tension Switchgear Replacement',
     image: '/projects/p-36719.jpg',
     services: [
@@ -34,7 +36,8 @@ const featuredProjects = [
   },
   {
     id: 'E-30647',
-    name: 'Design-Build Replacement of 21 Escalators',
+    agency: 'NYCT',
+    name: 'Design-Build Replacement of 21 Escalators at 6 Stations Systemwide',
     image: '/projects/e-30647.jpg',
     services: [
       'Network, VoIP, and UPS power plant integration throughout 6 stations',
@@ -49,6 +52,7 @@ const featuredProjects = [
   },
   {
     id: 'P-36727',
+    agency: 'NYCT',
     name: 'Rehabilitation of Concourse Yard Substation',
     image: '/projects/p-36727.jpg',
     services: [
@@ -64,7 +68,8 @@ const featuredProjects = [
   },
   {
     id: 'NJT',
-    name: 'NJT Raritan River Bridge Replacement',
+    agency: 'NJ Transit',
+    name: 'Raritan River Bridge Replacement',
     image: '/projects/njt-raritan.jpg',
     services: [
       'Communication system design and integration',
@@ -118,8 +123,8 @@ const previousProjectsRight = [
 ---
 
 <BaseLayout
-  title="Projects | Transit Systems Integration | VKC Systems"
-  description="View VKC Systems' portfolio of completed and current projects in mass transit, CCTV, networking, and communication systems across the New York City metro area."
+  title="NYCT, MTA & Transit Projects | VKC Systems"
+  description="NYCT, TBTA, LIRR, and NJ Transit systems integration projects. CCTV, network infrastructure, access control, and communication systems for transit and public infrastructure."
 >
   <!-- Hero Section -->
   <section class="relative bg-vkc-dark py-24 sm:py-32">
@@ -204,7 +209,7 @@ const previousProjectsRight = [
             <div class="flex flex-1 flex-col justify-center lg:p-10">
               <div class="mb-3">
                 <span class="inline-block rounded-full bg-vkc-red/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-vkc-red">
-                  {project.id}
+                  {project.agency} {project.id}
                 </span>
               </div>
               <h3 class="mb-5 text-xl font-bold leading-snug text-vkc-dark sm:text-2xl">
