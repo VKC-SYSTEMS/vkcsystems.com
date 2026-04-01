@@ -83,42 +83,42 @@ const featuredProjects = [
 ];
 
 const otherCurrentProjects = [
-  { id: 'BBJ', name: 'BBJ Queens Phase 1' },
-  { id: 'C-43058', name: 'Communication Room Upgrade' },
-  { id: 'C-52169', name: 'PIDS Bushwick Ave & Atlantic Ave' },
-  { id: 'C-52180', name: 'PIDS St. Lawrence' },
-  { id: 'C-52181', name: 'PIDS Longwood, E143 Street, Cypress Avenue' },
-  { id: 'E-30641', name: 'Replacement of 17 Escalators at 6 Stations Systemwide' },
-  { id: 'E-30645', name: 'Design-Build Services For Replacement of 6 Escalators at 2 Stations' },
-  { id: 'HC-48', name: 'Rehabilitation of HLCT Manhattan Plaza' },
-  { id: 'JFK', name: 'JFK GTC Garage PS' },
-  { id: 'MS-21001', name: 'Grand Central Madison' },
-  { id: 'P-36317', name: 'Construction of New West 28th Street Substation' },
-  { id: 'P-36708', name: 'Construction of New Canal Street Substation on the 8th Avenue Line' },
-  { id: 'PS-236A', name: 'Throgs Neck Pumping Station' },
-  { id: 'PS-276', name: 'Hannah St CCTV' },
-  { id: 'PS-317', name: 'Victory Blvd Pump Station Rehab' },
-  { id: 'R-50769', name: 'Installation of 2 Elevators at 57th Street' },
-  { id: 'S-48010', name: 'QBL East CBTC' },
+  { agency: 'DOC', id: 'BBJ', name: 'BBJ Queens Phase 1' },
+  { agency: 'NYCT', id: 'C-43058', name: 'Communication Room Upgrade' },
+  { agency: 'NYCT', id: 'C-52169', name: 'PIDS Bushwick Ave & Atlantic Ave' },
+  { agency: 'NYCT', id: 'C-52180', name: 'PIDS St. Lawrence' },
+  { agency: 'NYCT', id: 'C-52181', name: 'PIDS Longwood, E143 Street, Cypress Avenue' },
+  { agency: 'NYCT', id: 'E-30641', name: 'Replacement of 17 Escalators at 6 Stations Systemwide' },
+  { agency: 'NYCT', id: 'E-30645', name: 'Design-Build Services For Replacement of 6 Escalators at 2 Stations' },
+  { agency: 'TBTA', id: 'HC-48', name: 'Rehabilitation of HLCT Manhattan Plaza' },
+  { agency: 'Port Authority', id: 'JFK', name: 'JFK GTC Garage PS' },
+  { agency: 'LIRR', id: 'MS-21001', name: 'Grand Central Madison' },
+  { agency: 'NYCT', id: 'P-36317', name: 'Construction of New West 28th Street Substation' },
+  { agency: 'NYCT', id: 'P-36708', name: 'Construction of New Canal Street Substation on the 8th Avenue Line' },
+  { agency: 'NYC DEP', id: 'PS-236A', name: 'Throgs Neck Pumping Station' },
+  { agency: 'NYC DEP', id: 'PS-276', name: 'Hannah St CCTV' },
+  { agency: 'NYC DEP', id: 'PS-317', name: 'Victory Blvd Pump Station Rehab' },
+  { agency: 'NYCT', id: 'R-50769', name: 'Installation of 2 Elevators at 57th Street' },
+  { agency: 'NYCT', id: 'S-48010', name: 'QBL East CBTC' },
 ];
 
 const previousProjectsLeft = [
-  'LIRR 6240 3rd Track - 5 Stations',
-  'A-37150D - Livonia',
-  'E-34025R - Elevators GCT',
-  'C-43751 - Power and HVAC Upgrade at PCC RCC',
-  'P-36444 - Rutgers Tube Rehabilitation',
-  'QM-81 - Rehabilitation of Tunnel Controls and Communications at QMT and HCT',
-  'QM-36 - Relocation of QMT Refueling Station and QSB Switchgear',
+  { agency: 'LIRR', name: 'LIRR 6240 3rd Track - 5 Stations' },
+  { agency: 'NYCT', name: 'A-37150D - Livonia' },
+  { agency: 'NYCT', name: 'E-34025R - Elevators GCT' },
+  { agency: 'NYCT', name: 'C-43751 - Power and HVAC Upgrade at PCC RCC' },
+  { agency: 'NYCT', name: 'P-36444 - Rutgers Tube Rehabilitation' },
+  { agency: 'TBTA', name: 'QM-81 - Rehabilitation of Tunnel Controls and Communications at QMT and HCT' },
+  { agency: 'TBTA', name: 'QM-36 - Relocation of QMT Refueling Station and QSB Switchgear' },
 ];
 
 const previousProjectsRight = [
-  'CS-179 - East Side Access',
-  'S-33932 - Life Cycle Replacement Code System Phase I',
-  'E-30512 - Replace Escalators',
-  'LIRR - 3rd Track Temporary WiFi',
-  'P-80692 - Tottenville Substation',
-  'MNR 58050 - CSI Package',
+  { agency: 'LIRR', name: 'CS-179 - East Side Access' },
+  { agency: 'NYCT', name: 'S-33932 - Life Cycle Replacement Code System Phase I' },
+  { agency: 'NYCT', name: 'E-30512 - Replace Escalators' },
+  { agency: 'LIRR', name: 'LIRR - 3rd Track Temporary WiFi' },
+  { agency: 'NYCT', name: 'P-80692 - Tottenville Substation' },
+  { agency: 'Metro-North', name: 'MNR 58050 - CSI Package' },
 ];
 ---
 
@@ -263,7 +263,7 @@ const previousProjectsRight = [
               </svg>
             </div>
             <div>
-              <span class="mb-1 inline-block text-xs font-bold uppercase tracking-wider text-vkc-red">{project.id}</span>
+              <span class="mb-1 inline-block text-xs font-bold uppercase tracking-wider text-vkc-red">{project.agency} {project.id}</span>
               <p class="text-sm font-medium text-vkc-dark sm:text-base">{project.name}</p>
             </div>
           </div>
@@ -298,7 +298,10 @@ const previousProjectsRight = [
                   <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
                 </svg>
               </div>
-              <span class="text-sm font-medium text-vkc-dark sm:text-base">{project}</span>
+              <div>
+                <span class="mb-1 inline-block text-xs font-bold uppercase tracking-wider text-vkc-red">{project.agency}</span>
+                <p class="text-sm font-medium text-vkc-dark sm:text-base">{project.name}</p>
+              </div>
             </div>
           ))}
         </div>
@@ -318,7 +321,10 @@ const previousProjectsRight = [
                   <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
                 </svg>
               </div>
-              <span class="text-sm font-medium text-vkc-dark sm:text-base">{project}</span>
+              <div>
+                <span class="mb-1 inline-block text-xs font-bold uppercase tracking-wider text-vkc-red">{project.agency}</span>
+                <p class="text-sm font-medium text-vkc-dark sm:text-base">{project.name}</p>
+              </div>
             </div>
           ))}
         </div>
