@@ -2,6 +2,13 @@
   "framework": "astro",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
+  "redirects": [
+    {
+      "source": "/VKC-Systems-Capability-Statement.pdf",
+      "destination": "/VKC-Systems-Infrastructure-Capabilities-Statement.pdf",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.+\\.(?:jpg|jpeg|png|gif|svg|ico|webp|avif|woff|woff2|ttf|eot|js|css|pdf|mp4))",
