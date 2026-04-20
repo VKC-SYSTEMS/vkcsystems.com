@@ -1,5 +1,25 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import networkingIcon from '../assets/networking-icon.png';
+import cctvIcon from '../assets/cctv-icon.png';
+import publicAddressIcon from '../assets/public-address-icon.png';
+import accessControlIcon from '../assets/access-control-icon.png';
+import commCabinetsIcon from '../assets/comm-cabinets-icon.png';
+import caddIcon from '../assets/cadd-icon.png';
+import voipIcon from '../assets/voip-icon.png';
+import officeItIcon from '../assets/office-it-icon.png';
+
+const serviceIcons: Record<string, ImageMetadata> = {
+  Networking: networkingIcon,
+  CCTV: cctvIcon,
+  'Public Address Systems': publicAddressIcon,
+  'Access Control': accessControlIcon,
+  'Communication Cabinets': commCabinetsIcon,
+  'CADD Services': caddIcon,
+  VoIP: voipIcon,
+  'Office IT': officeItIcon,
+};
 
 const services = [
   {
@@ -171,16 +191,8 @@ const icons: Record<string, string> = {
             class="group relative flex flex-col rounded-2xl border border-gray-100 bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-xl hover:border-vkc-red/20 hover:-translate-y-1"
           >
             {/* Icon */}
-            <div class="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-vkc-red/10 text-vkc-red transition-colors duration-300 group-hover:bg-vkc-red group-hover:text-white">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="h-7 w-7"
-                set:html={icons[service.title]}
-              />
+            <div class="mb-6 h-28 w-28 overflow-hidden rounded-xl">
+              <Image src={serviceIcons[service.title]} alt={service.title} class="h-full w-full object-cover" width={112} quality={80} format="webp" />
             </div>
 
             {/* Title */}

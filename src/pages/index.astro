@@ -2,6 +2,33 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { Image } from "astro:assets";
 import officeImg from "../assets/office.jpg";
+import networkingIcon from "../assets/networking-icon.png";
+import cctvIcon from "../assets/cctv-icon.png";
+import publicAddressIcon from "../assets/public-address-icon.png";
+import accessControlIcon from "../assets/access-control-icon.png";
+import commCabinetsIcon from "../assets/comm-cabinets-icon.png";
+import caddIcon from "../assets/cadd-icon.png";
+import voipIcon from "../assets/voip-icon.png";
+import officeItIcon from "../assets/office-it-icon.png";
+import logoMta from "../assets/logo-mta.png";
+import logoNyct from "../assets/logo-nyct.png";
+import logoLirr from "../assets/logo-lirr.png";
+import logoTbta from "../assets/logo-tbta.png";
+import logoMetroNorth from "../assets/logo-metro-north.png";
+import logoNjTransit from "../assets/logo-nj-transit.png";
+import logoPortAuthority from "../assets/logo-port-authority.png";
+import logoNycDep from "../assets/logo-nyc-dep.png";
+
+const agencies = [
+  { name: "MTA", fullName: "Metropolitan Transportation Authority", logo: logoMta },
+  { name: "NYCT", fullName: "New York City Transit", logo: logoNyct },
+  { name: "LIRR", fullName: "Long Island Rail Road", logo: logoLirr },
+  { name: "TBTA", fullName: "Triborough Bridge & Tunnel Authority", logo: logoTbta },
+  { name: "Metro-North", fullName: "Metro-North Railroad", logo: logoMetroNorth },
+  { name: "NJT", fullName: "New Jersey Transit", logo: logoNjTransit },
+  { name: "Port Authority", fullName: "Port Authority of NY & NJ", logo: logoPortAuthority },
+  { name: "NYC DEP", fullName: "NYC Dept. of Environmental Protection", logo: logoNycDep },
+];
 ---
 
 <BaseLayout
@@ -103,8 +130,8 @@ import officeImg from "../assets/office.jpg";
       <div class="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
         <!-- Networking -->
         <a href="/solutions/networking" class="group relative rounded-xl border border-zinc-200 bg-white p-6 transition hover:border-vkc-red/30 hover:shadow-lg hover:shadow-vkc-red/5">
-          <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-vkc-red/10 text-2xl">
-            <span>&#128268;</span>
+          <div class="h-16 w-16 overflow-hidden rounded-lg">
+            <Image src={networkingIcon} alt="Networking" class="h-full w-full object-cover" width={64} quality={80} format="webp" />
           </div>
           <p class="mt-4 text-lg font-semibold text-zinc-900 group-hover:text-vkc-red transition">Networking</p>
           <p class="mt-2 text-sm leading-relaxed text-vkc-gray">
@@ -117,8 +144,8 @@ import officeImg from "../assets/office.jpg";
 
         <!-- CCTV -->
         <a href="/solutions/cctv" class="group relative rounded-xl border border-zinc-200 bg-white p-6 transition hover:border-vkc-red/30 hover:shadow-lg hover:shadow-vkc-red/5">
-          <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-vkc-red/10 text-2xl">
-            <span>&#128247;</span>
+          <div class="h-16 w-16 overflow-hidden rounded-lg">
+            <Image src={cctvIcon} alt="CCTV" class="h-full w-full object-cover" width={64} quality={80} format="webp" />
           </div>
           <p class="mt-4 text-lg font-semibold text-zinc-900 group-hover:text-vkc-red transition">CCTV</p>
           <p class="mt-2 text-sm leading-relaxed text-vkc-gray">
@@ -131,8 +158,8 @@ import officeImg from "../assets/office.jpg";
 
         <!-- Public Address Systems -->
         <a href="/solutions/public-address" class="group relative rounded-xl border border-zinc-200 bg-white p-6 transition hover:border-vkc-red/30 hover:shadow-lg hover:shadow-vkc-red/5">
-          <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-vkc-red/10 text-2xl">
-            <span>&#128226;</span>
+          <div class="h-16 w-16 overflow-hidden rounded-lg">
+            <Image src={publicAddressIcon} alt="Public Address Systems" class="h-full w-full object-cover" width={64} quality={80} format="webp" />
           </div>
           <p class="mt-4 text-lg font-semibold text-zinc-900 group-hover:text-vkc-red transition">Public Address Systems</p>
           <p class="mt-2 text-sm leading-relaxed text-vkc-gray">
@@ -145,8 +172,8 @@ import officeImg from "../assets/office.jpg";
 
         <!-- Access Control -->
         <a href="/solutions/access-control" class="group relative rounded-xl border border-zinc-200 bg-white p-6 transition hover:border-vkc-red/30 hover:shadow-lg hover:shadow-vkc-red/5">
-          <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-vkc-red/10 text-2xl">
-            <span>&#128274;</span>
+          <div class="h-16 w-16 overflow-hidden rounded-lg">
+            <Image src={accessControlIcon} alt="Access Control" class="h-full w-full object-cover" width={64} quality={80} format="webp" />
           </div>
           <p class="mt-4 text-lg font-semibold text-zinc-900 group-hover:text-vkc-red transition">Access Control</p>
           <p class="mt-2 text-sm leading-relaxed text-vkc-gray">
@@ -159,8 +186,8 @@ import officeImg from "../assets/office.jpg";
 
         <!-- Communication Cabinets -->
         <a href="/solutions/communication-cabinets" class="group relative rounded-xl border border-zinc-200 bg-white p-6 transition hover:border-vkc-red/30 hover:shadow-lg hover:shadow-vkc-red/5">
-          <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-vkc-red/10 text-2xl">
-            <span>&#128451;</span>
+          <div class="h-16 w-16 overflow-hidden rounded-lg">
+            <Image src={commCabinetsIcon} alt="Communication Cabinets" class="h-full w-full object-cover" width={64} quality={80} format="webp" />
           </div>
           <p class="mt-4 text-lg font-semibold text-zinc-900 group-hover:text-vkc-red transition">Communication Cabinets</p>
           <p class="mt-2 text-sm leading-relaxed text-vkc-gray">
@@ -173,8 +200,8 @@ import officeImg from "../assets/office.jpg";
 
         <!-- CADD Services -->
         <a href="/solutions/cadd" class="group relative rounded-xl border border-zinc-200 bg-white p-6 transition hover:border-vkc-red/30 hover:shadow-lg hover:shadow-vkc-red/5">
-          <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-vkc-red/10 text-2xl">
-            <span>&#128208;</span>
+          <div class="h-16 w-16 overflow-hidden rounded-lg">
+            <Image src={caddIcon} alt="CADD Services" class="h-full w-full object-cover" width={64} quality={80} format="webp" />
           </div>
           <p class="mt-4 text-lg font-semibold text-zinc-900 group-hover:text-vkc-red transition">CADD Services</p>
           <p class="mt-2 text-sm leading-relaxed text-vkc-gray">
@@ -187,8 +214,8 @@ import officeImg from "../assets/office.jpg";
 
         <!-- VoIP -->
         <a href="/solutions/voip" class="group relative rounded-xl border border-zinc-200 bg-white p-6 transition hover:border-vkc-red/30 hover:shadow-lg hover:shadow-vkc-red/5">
-          <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-vkc-red/10 text-2xl">
-            <span>&#128222;</span>
+          <div class="h-16 w-16 overflow-hidden rounded-lg">
+            <Image src={voipIcon} alt="VoIP" class="h-full w-full object-cover" width={64} quality={80} format="webp" />
           </div>
           <p class="mt-4 text-lg font-semibold text-zinc-900 group-hover:text-vkc-red transition">VoIP</p>
           <p class="mt-2 text-sm leading-relaxed text-vkc-gray">
@@ -201,8 +228,8 @@ import officeImg from "../assets/office.jpg";
 
         <!-- Office IT -->
         <a href="/solutions/office-it" class="group relative rounded-xl border border-zinc-200 bg-white p-6 transition hover:border-vkc-red/30 hover:shadow-lg hover:shadow-vkc-red/5">
-          <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-vkc-red/10 text-2xl">
-            <span>&#128187;</span>
+          <div class="h-16 w-16 overflow-hidden rounded-lg">
+            <Image src={officeItIcon} alt="Office IT" class="h-full w-full object-cover" width={64} quality={80} format="webp" />
           </div>
           <p class="mt-4 text-lg font-semibold text-zinc-900 group-hover:text-vkc-red transition">Office IT</p>
           <p class="mt-2 text-sm leading-relaxed text-vkc-gray">
@@ -228,39 +255,25 @@ import officeImg from "../assets/office.jpg";
         </h2>
       </div>
 
-      <div class="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        <div class="rounded-xl border border-white/10 bg-white/5 px-6 py-5 text-center">
-          <p class="text-lg font-bold text-white">MTA</p>
-          <p class="mt-1 text-sm text-gray-400">Metropolitan Transportation Authority</p>
-        </div>
-        <div class="rounded-xl border border-white/10 bg-white/5 px-6 py-5 text-center">
-          <p class="text-lg font-bold text-white">NYCT</p>
-          <p class="mt-1 text-sm text-gray-400">New York City Transit</p>
-        </div>
-        <div class="rounded-xl border border-white/10 bg-white/5 px-6 py-5 text-center">
-          <p class="text-lg font-bold text-white">LIRR</p>
-          <p class="mt-1 text-sm text-gray-400">Long Island Rail Road</p>
-        </div>
-        <div class="rounded-xl border border-white/10 bg-white/5 px-6 py-5 text-center">
-          <p class="text-lg font-bold text-white">TBTA</p>
-          <p class="mt-1 text-sm text-gray-400">Triborough Bridge &amp; Tunnel Authority</p>
-        </div>
-        <div class="rounded-xl border border-white/10 bg-white/5 px-6 py-5 text-center">
-          <p class="text-lg font-bold text-white">Metro-North</p>
-          <p class="mt-1 text-sm text-gray-400">Metro-North Railroad</p>
-        </div>
-        <div class="rounded-xl border border-white/10 bg-white/5 px-6 py-5 text-center">
-          <p class="text-lg font-bold text-white">NJT</p>
-          <p class="mt-1 text-sm text-gray-400">New Jersey Transit</p>
-        </div>
-        <div class="rounded-xl border border-white/10 bg-white/5 px-6 py-5 text-center">
-          <p class="text-lg font-bold text-white">Port Authority</p>
-          <p class="mt-1 text-sm text-gray-400">Port Authority of NY &amp; NJ</p>
-        </div>
-        <div class="rounded-xl border border-white/10 bg-white/5 px-6 py-5 text-center">
-          <p class="text-lg font-bold text-white">NYC DEP</p>
-          <p class="mt-1 text-sm text-gray-400">NYC Dept. of Environmental Protection</p>
-        </div>
+      <div class="mt-14 grid grid-cols-2 gap-6 sm:grid-cols-4">
+        {agencies.map((agency) => (
+          <div class="flex flex-col items-center justify-center rounded-xl border border-white/10 bg-white px-6 py-6">
+            <div class="flex h-14 items-center justify-center">
+              <Image
+                src={agency.logo}
+                alt={agency.fullName}
+                class:list={[
+                  "w-auto object-contain",
+                  agency.name === "MTA" ? "h-14" : "max-h-14 max-w-[140px]",
+                ]}
+                width={agency.name === "MTA" ? 56 : 160}
+                quality={80}
+                format="webp"
+              />
+            </div>
+            <p class="mt-3 text-xs text-vkc-gray text-center">{agency.fullName}</p>
+          </div>
+        ))}
       </div>
     </div>
   </section>
