@@ -164,6 +164,13 @@ const whyVkc = [
             </button>
           </form>
           <script src="/contact-form.js" defer></script>
+          <script>
+            import { track } from '@vercel/analytics';
+            document.querySelector('form')?.addEventListener('submit', () => {
+              const types = Array.from(document.querySelectorAll('[data-project-type]:checked')).map((el) => (el as HTMLInputElement).value);
+              track('contact_form_submit', { projectTypes: types.join(', ') || 'None selected' });
+            });
+          </script>
         </div>
 
         <!-- Google Maps Embed -->

@@ -1,5 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+import officeImg from "../assets/office.jpg";
 ---
 
 <BaseLayout
@@ -17,7 +19,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       muted
       loop
       playsinline
-      preload="auto"
+      preload="metadata"
     >
       <source src="/hero-video.mp4" type="video/mp4" />
       <track kind="captions" src="" label="No dialogue" default />
@@ -450,7 +452,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       <div class="grid grid-cols-1 lg:grid-cols-2">
         <!-- Office photo -->
         <div class="relative">
-          <img src="/office.jpg" alt="VKC Systems office" class="h-full w-full object-cover" loading="lazy" />
+          <Image src={officeImg} alt="VKC Systems office" class="h-full w-full object-cover" loading="lazy" width={900} quality={80} format="webp" />
         </div>
 
         <!-- Content right panel -->
