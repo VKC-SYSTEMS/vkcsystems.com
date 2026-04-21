@@ -43,6 +43,56 @@ const perks = [
   'Company vehicle or allowance',
   'Tools allowance',
 ];
+
+const jobPostingLd = {
+  "@context": "https://schema.org",
+  "@type": "JobPosting",
+  "title": "Security / Low Voltage Lead Technician",
+  "description": "Hands-on Lead Technician to install, service, and troubleshoot CCTV, access control, and low-voltage systems. Must be able to run jobs independently, lead junior installers, and deliver clean, professional installations.",
+  "datePosted": "2026-04-21",
+  "employmentType": "FULL_TIME",
+  "hiringOrganization": {
+    "@type": "Organization",
+    "name": "VKC Systems",
+    "sameAs": "https://vkcsystems.com",
+    "logo": "https://vkcsystems.com/og-image.jpg",
+  },
+  "jobLocation": [
+    {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "New York",
+        "addressRegion": "NY",
+        "addressCountry": "US",
+      },
+    },
+    {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "South Hackensack",
+        "addressRegion": "NJ",
+        "postalCode": "07606",
+        "addressCountry": "US",
+      },
+    },
+  ],
+  "baseSalary": {
+    "@type": "MonetaryAmount",
+    "currency": "USD",
+    "value": {
+      "@type": "QuantitativeValue",
+      "minValue": 30,
+      "maxValue": 42,
+      "unitText": "HOUR",
+    },
+  },
+  "qualifications": "3+ years of CCTV / low-voltage / security installation experience. Experience with IP cameras, NVRs, PoE switching, and cabling. Working knowledge of access control systems.",
+  "responsibilities": responsibilities.join('. '),
+  "industry": "Systems Integration / Low Voltage",
+  "directApply": true,
+};
 ---
 
 <BaseLayout
@@ -224,4 +274,7 @@ const perks = [
       </div>
     </div>
   </section>
+
+  <!-- JobPosting Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify(jobPostingLd)} />
 </BaseLayout>

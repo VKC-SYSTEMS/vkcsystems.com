@@ -50,5 +50,21 @@ VKC Systems Inc. is a systems integrator founded in 2014, headquartered in South
 - About: https://vkcsystems.com/about
 - Capabilities: https://vkcsystems.com/solutions
 - Projects: https://vkcsystems.com/projects
+- Careers: https://vkcsystems.com/careers
 - Contact: https://vkcsystems.com/contact
 - Capability Statement (PDF): https://vkcsystems.com/VKC-Systems-Capability-Statement.pdf
+
+## Solutions
+
+- Networking: https://vkcsystems.com/solutions/networking
+- CCTV: https://vkcsystems.com/solutions/cctv
+- Public Address: https://vkcsystems.com/solutions/public-address
+- Access Control: https://vkcsystems.com/solutions/access-control
+- Communication Cabinets: https://vkcsystems.com/solutions/communication-cabinets
+- CADD: https://vkcsystems.com/solutions/cadd
+- VoIP: https://vkcsystems.com/solutions/voip
+- Office IT: https://vkcsystems.com/solutions/office-it
+
+## Open Positions
+
+- Security / Low Voltage Lead Technician (NYC / NJ): https://vkcsystems.com/careers
