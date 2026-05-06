@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Thank You | VKC Systems"
+  description="Your project inquiry has been submitted. We'll get back to you within 1 business day."
+>
+  <section class="flex min-h-[60vh] items-center justify-center px-6 py-24">
+    <div class="text-center">
+      <div class="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
+        <svg class="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+        </svg>
+      </div>
+      <h1 class="text-3xl font-bold text-vkc-dark sm:text-4xl">Thank You</h1>
+      <p class="mt-4 text-lg text-vkc-gray">
+        Your project inquiry has been submitted successfully.
+      </p>
+      <p class="mt-2 text-base text-vkc-gray">
+        We'll review your request and get back to you <strong class="text-vkc-dark">within 1 business day</strong>.
+      </p>
+      <div class="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+        <a
+          href="/"
+          class="inline-block rounded-md bg-vkc-red px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-red-700"
+        >
+          Back to Homepage
+        </a>
+        <a
+          href="/solutions"
+          class="inline-block rounded-md border border-vkc-dark/20 px-6 py-3 text-sm font-semibold text-vkc-dark transition hover:bg-vkc-light"
+        >
+          View Our Capabilities
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

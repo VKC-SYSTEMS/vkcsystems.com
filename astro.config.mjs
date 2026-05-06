@@ -13,6 +13,6 @@ export default defineConfig({
   },
 
   integrations: [sitemap({
-    filter: (page) => !page.includes('/privacy'),
+    filter: (page) => !page.includes('/privacy') && !page.includes('/thank-you'),
   })]
 });

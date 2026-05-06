@@ -58,8 +58,9 @@ const jsonLd = {
   },
   "image": `${siteUrl}/og-image.jpg`,
   "sameAs": [
-    "https://www.facebook.com/VKCSYSTEMS/",
-    "https://www.instagram.com/vkcsystems/"
+    "https://www.facebook.com/vkcsystemsinc",
+    "https://www.instagram.com/vkcsystems/",
+    "https://www.linkedin.com/company/vkc-systems-inc"
   ]
 };
 
@@ -99,6 +100,7 @@ const serviceLd = serviceName ? {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#dd3333" />
 
     <!-- Font Preloads -->
     <link rel="preload" href="/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin />
@@ -116,10 +118,13 @@ const serviceLd = serviceName ? {
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={`${siteUrl}/og-image.jpg`} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />

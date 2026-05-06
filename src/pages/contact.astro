@@ -56,8 +56,8 @@ const whyVkc = [
             Typical Response Time: Within 1 Business Day
           </p>
           <form action="https://formsubmit.co/info@vkcsystems.com" method="POST" class="space-y-6">
-            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-            <input type="hidden" name="_next" value="https://vkcsystems.com/contact">
+            <input type="text" name="_honey" class="sr-only" tabindex="-1" autocomplete="off">
+            <input type="hidden" name="_next" value="https://vkcsystems.com/thank-you">
             <input type="hidden" name="_subject" value="New Project Inquiry - VKC Systems">
             <input type="hidden" name="_captcha" value="true">
             <div>
@@ -69,6 +69,7 @@ const whyVkc = [
                 id="name"
                 name="name"
                 required
+                maxlength="100"
                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-vkc-red focus:border-transparent transition-shadow"
                 placeholder="Your full name"
               />
@@ -82,6 +83,7 @@ const whyVkc = [
                 id="company"
                 name="company"
                 required
+                maxlength="100"
                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-vkc-red focus:border-transparent transition-shadow"
                 placeholder="Your company name"
               />
@@ -107,6 +109,8 @@ const whyVkc = [
                 type="tel"
                 id="phone"
                 name="phone"
+                pattern="[0-9\-\+\(\)\s]{7,20}"
+                title="Please enter a valid phone number"
                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-vkc-red focus:border-transparent transition-shadow"
                 placeholder="(201) 555-0123"
               />
