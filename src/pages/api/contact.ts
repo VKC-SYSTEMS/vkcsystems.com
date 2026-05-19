@@ -57,7 +57,9 @@ function escapeHtml(s: string): string {
 }
 
 function redirectTo(request: Request, path: string): Response {
-  return Response.redirect(new URL(path, request.url), 303);
+  const host = request.headers.get('x-forwarded-host') ?? request.headers.get('host') ?? 'vkcsystems.com';
+  const proto = request.headers.get('x-forwarded-proto') ?? 'https';
+  return Response.redirect(new URL(path, `${proto}://${host}`), 303);
 }
 
 export const POST: APIRoute = async ({ request, clientAddress }) => {
