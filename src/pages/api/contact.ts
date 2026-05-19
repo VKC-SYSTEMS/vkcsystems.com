@@ -115,22 +115,121 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     return redirectTo(request, '/contact?status=error');
   }
 
-  const subject = `New Project Inquiry - ${name} (${company})`;
-  const bodyHtml = `
-    <h2 style="color:#1f2937;font-family:Arial,sans-serif;">New Project Inquiry</h2>
-    <table style="font-family:Arial,sans-serif;border-collapse:collapse;">
-      <tr><td style="padding:4px 12px 4px 0;"><strong>Name:</strong></td><td style="padding:4px 0;">${escapeHtml(name)}</td></tr>
-      <tr><td style="padding:4px 12px 4px 0;"><strong>Company:</strong></td><td style="padding:4px 0;">${escapeHtml(company)}</td></tr>
-      <tr><td style="padding:4px 12px 4px 0;"><strong>Email:</strong></td><td style="padding:4px 0;"><a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></td></tr>
-      <tr><td style="padding:4px 12px 4px 0;"><strong>Phone:</strong></td><td style="padding:4px 0;">${escapeHtml(phone) || '<em style="color:#6b7280;">(not provided)</em>'}</td></tr>
-      <tr><td style="padding:4px 12px 4px 0;"><strong>Project Type:</strong></td><td style="padding:4px 0;">${escapeHtml(projectType) || '<em style="color:#6b7280;">(none selected)</em>'}</td></tr>
-      <tr><td style="padding:4px 12px 4px 0;"><strong>Location:</strong></td><td style="padding:4px 0;">${escapeHtml(projectLocation) || '<em style="color:#6b7280;">(not provided)</em>'}</td></tr>
-    </table>
-    <h3 style="color:#1f2937;font-family:Arial,sans-serif;margin-top:24px;">Project Description</h3>
-    <p style="font-family:Arial,sans-serif;line-height:1.5;white-space:pre-wrap;">${escapeHtml(message)}</p>
-    <hr style="border:none;border-top:1px solid #e5e7eb;margin:24px 0;">
-    <p style="font-family:Arial,sans-serif;color:#6b7280;font-size:12px;">Submitted via vkcsystems.com contact form.</p>
-  `;
+  const subject = `New Project Inquiry — ${name} (${company})`;
+
+  const submittedAt = new Date().toLocaleString('en-US', {
+    timeZone: 'America/New_York',
+    weekday: 'short',
+    month: 'short',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: '2-digit',
+    timeZoneName: 'short',
+  });
+
+  const projectTypePills = projectType
+    ? projectType
+        .split(',')
+        .map((t) => t.trim())
+        .filter(Boolean)
+        .map(
+          (t) =>
+            `<span style="display:inline-block;background-color:#fef2f2;color:#b82828;font-size:13px;font-weight:500;padding:5px 12px;border-radius:999px;margin:0 6px 6px 0;border:1px solid #fecaca;">${escapeHtml(t)}</span>`
+        )
+        .join('')
+    : '<span style="color:#9ca3af;font-size:14px;font-style:italic;">None selected</span>';
+
+  const FONT = "-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif";
+
+  const bodyHtml = `<!DOCTYPE html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escapeHtml(subject)}</title></head>
+<body style="margin:0;padding:0;background-color:#f3f4f6;font-family:${FONT};">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f3f4f6;padding:32px 12px;">
+    <tr><td align="center">
+
+      <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;width:100%;background-color:#ffffff;border-radius:12px;border:1px solid #e5e7eb;overflow:hidden;">
+
+        <tr>
+          <td style="background-color:#dd3333;padding:28px 32px;">
+            <div style="color:rgba(255,255,255,0.85);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-family:${FONT};">VKC Systems</div>
+            <div style="color:#ffffff;font-size:24px;font-weight:700;margin-top:6px;line-height:1.25;font-family:${FONT};">New Project Inquiry</div>
+            <div style="color:rgba(255,255,255,0.85);font-size:13px;margin-top:8px;font-family:${FONT};">${escapeHtml(submittedAt)}</div>
+          </td>
+        </tr>
+
+        <tr>
+          <td style="padding:28px 32px 8px;">
+            <div style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#6b7280;margin-bottom:12px;font-family:${FONT};">From</div>
+            <div style="font-size:20px;font-weight:600;color:#0a0a0a;line-height:1.3;font-family:${FONT};">${escapeHtml(name)}</div>
+            <div style="font-size:15px;color:#566678;margin-top:2px;font-family:${FONT};">${escapeHtml(company)}</div>
+
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:20px;">
+              <tr>
+                <td width="90" style="font-size:13px;color:#6b7280;padding:8px 0;font-family:${FONT};vertical-align:top;">Email</td>
+                <td style="font-size:14px;padding:8px 0;font-family:${FONT};"><a href="mailto:${escapeHtml(email)}" style="color:#dd3333;text-decoration:none;font-weight:500;">${escapeHtml(email)}</a></td>
+              </tr>
+              <tr>
+                <td width="90" style="font-size:13px;color:#6b7280;padding:8px 0;font-family:${FONT};vertical-align:top;">Phone</td>
+                <td style="font-size:14px;padding:8px 0;font-family:${FONT};color:#0a0a0a;">${phone ? `<a href="tel:${escapeHtml(phone)}" style="color:#0a0a0a;text-decoration:none;">${escapeHtml(phone)}</a>` : '<span style="color:#9ca3af;font-style:italic;">Not provided</span>'}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr><td style="padding:0 32px;"><div style="border-top:1px solid #e5e7eb;height:1px;line-height:1px;font-size:1px;">&nbsp;</div></td></tr>
+
+        <tr>
+          <td style="padding:24px 32px 8px;">
+            <div style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#6b7280;margin-bottom:12px;font-family:${FONT};">Project Type</div>
+            <div style="line-height:1.8;">${projectTypePills}</div>
+
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:16px;">
+              <tr>
+                <td width="90" style="font-size:13px;color:#6b7280;padding:8px 0;font-family:${FONT};vertical-align:top;">Location</td>
+                <td style="font-size:14px;padding:8px 0;font-family:${FONT};color:#0a0a0a;">${projectLocation ? escapeHtml(projectLocation) : '<span style="color:#9ca3af;font-style:italic;">Not provided</span>'}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr><td style="padding:0 32px;"><div style="border-top:1px solid #e5e7eb;height:1px;line-height:1px;font-size:1px;">&nbsp;</div></td></tr>
+
+        <tr>
+          <td style="padding:24px 32px 32px;">
+            <div style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#6b7280;margin-bottom:12px;font-family:${FONT};">Project Description</div>
+            <div style="font-size:15px;line-height:1.65;color:#0a0a0a;white-space:pre-wrap;font-family:${FONT};">${escapeHtml(message)}</div>
+          </td>
+        </tr>
+
+        <tr>
+          <td style="background-color:#f9fafb;padding:18px 32px;border-top:1px solid #e5e7eb;">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td style="font-size:13px;color:#566678;font-family:${FONT};line-height:1.5;">
+                  Hit <strong style="color:#0a0a0a;">Reply</strong> to respond directly to ${escapeHtml(name.split(' ')[0])}.
+                </td>
+                <td align="right" style="font-size:13px;font-family:${FONT};white-space:nowrap;padding-left:12px;">
+                  <a href="mailto:${escapeHtml(email)}" style="color:#dd3333;text-decoration:none;font-weight:600;">Reply &rarr;</a>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+      </table>
+
+      <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;width:100%;margin-top:24px;">
+        <tr>
+          <td align="center" style="font-size:12px;color:#9ca3af;line-height:1.6;font-family:${FONT};">
+            Submitted via the contact form at <a href="https://vkcsystems.com" style="color:#9ca3af;text-decoration:underline;">vkcsystems.com</a><br>
+            VKC Systems &middot; 89 Leuning St, South Hackensack, NJ 07606
+          </td>
+        </tr>
+      </table>
+
+    </td></tr>
+  </table>
+</body></html>`;
 
   try {
     const token = await getGraphToken(env);
