@@ -9,12 +9,18 @@ interface BreadcrumbItem {
   url: string;
 }
 
+interface FaqItem {
+  question: string;
+  answer: string;
+}
+
 interface Props {
   title: string;
   description: string;
   canonical?: string;
   breadcrumbs?: BreadcrumbItem[];
   serviceName?: string;
+  faqs?: FaqItem[];
 }
 
 const {
@@ -23,19 +29,41 @@ const {
   canonical,
   breadcrumbs,
   serviceName,
+  faqs,
 } = Astro.props;
 
 const siteUrl = Astro.site?.toString().replace(/\/$/, '') || 'https://vkcsystems.com';
 const canonicalUrl = canonical || new URL(Astro.url.pathname, siteUrl).toString();
 
+const businessId = `${siteUrl}/#business`;
+const websiteId = `${siteUrl}/#website`;
+
+const serviceCatalog = [
+  { name: 'Network Engineering & Infrastructure', url: `${siteUrl}/solutions/networking` },
+  { name: 'CCTV & Video Surveillance Systems', url: `${siteUrl}/solutions/cctv` },
+  { name: 'Access Control Systems', url: `${siteUrl}/solutions/access-control` },
+  { name: 'Public Address & Intercom Systems', url: `${siteUrl}/solutions/public-address` },
+  { name: 'Custom Communication Cabinets', url: `${siteUrl}/solutions/communication-cabinets` },
+  { name: 'CADD Engineering & Documentation', url: `${siteUrl}/solutions/cadd` },
+  { name: 'VoIP Phone Systems', url: `${siteUrl}/solutions/voip` },
+  { name: 'Office IT & Managed Services', url: `${siteUrl}/solutions/office-it` },
+];
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
+  "@id": businessId,
   "name": "VKC Systems",
+  "legalName": "VKC Systems Inc.",
   "description": description,
   "url": siteUrl,
   "telephone": "+1-201-374-0252",
   "email": "info@vkcsystems.com",
+  "foundingDate": "2014",
+  "priceRange": "$$$",
+  "paymentAccepted": "Check, Wire Transfer, ACH, Net 30/60 Invoice",
+  "currenciesAccepted": "USD",
+  "slogan": "Engineering-driven infrastructure for mission-critical environments.",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "89 Leuning St Suite 1E",
@@ -44,6 +72,23 @@ const jsonLd = {
     "postalCode": "07606",
     "addressCountry": "US"
   },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 40.8621,
+    "longitude": -74.0507
+  },
+  "areaServed": [
+    { "@type": "City", "name": "New York" },
+    { "@type": "City", "name": "Jersey City" },
+    { "@type": "City", "name": "Newark" },
+    { "@type": "State", "name": "New Jersey" },
+    { "@type": "State", "name": "New York" },
+    {
+      "@type": "GeoCircle",
+      "geoMidpoint": { "@type": "GeoCoordinates", "latitude": 40.8621, "longitude": -74.0507 },
+      "geoRadius": "100 mi"
+    }
+  ],
   "openingHoursSpecification": {
     "@type": "OpeningHoursSpecification",
     "dayOfWeek": [
@@ -56,12 +101,68 @@ const jsonLd = {
     "opens": "07:00",
     "closes": "15:00"
   },
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "telephone": "+1-201-374-0252",
+      "email": "info@vkcsystems.com",
+      "contactType": "customer service",
+      "areaServed": "US",
+      "availableLanguage": ["English", "Spanish"]
+    }
+  ],
+  "knowsAbout": [
+    "Network infrastructure design",
+    "CCTV and video surveillance systems",
+    "Access control systems",
+    "Public address and intercom systems",
+    "Fiber optic cabling",
+    "VoIP phone systems",
+    "Communication cabinet fabrication",
+    "Systems integration",
+    "Transit communications",
+    "Public sector infrastructure"
+  ],
+  "award": [
+    "Minority Business Enterprise (MBE) Certified",
+    "Disadvantaged Business Enterprise (DBE) Certified",
+    "OSHA 30 Certified",
+    "Track Safety Training",
+    "Cisco CCNA / CCNP",
+    "CompTIA Network+",
+    "CSPM"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Systems Integration Services",
+    "itemListElement": serviceCatalog.map((s) => ({
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": s.name,
+        "url": s.url,
+        "provider": { "@id": businessId },
+      },
+    })),
+  },
   "image": `${siteUrl}/og-image.jpg`,
+  "logo": `${siteUrl}/logo-color.png`,
   "sameAs": [
     "https://www.facebook.com/vkcsystemsinc",
     "https://www.instagram.com/vkcsystems/",
     "https://www.linkedin.com/company/vkc-systems-inc"
   ]
+};
+
+const websiteLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": websiteId,
+  "url": siteUrl,
+  "name": "VKC Systems",
+  "description": "MBE/DBE certified systems integrator serving the NYC metro area — networking, CCTV, access control, and communications infrastructure.",
+  "inLanguage": "en-US",
+  "publisher": { "@id": businessId },
 };
 
 const breadcrumbLd = breadcrumbs ? {
@@ -80,17 +181,26 @@ const serviceLd = serviceName ? {
   "@type": "Service",
   "name": serviceName,
   "description": description,
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "VKC Systems",
-    "url": siteUrl,
-  },
+  "provider": { "@id": businessId },
   "areaServed": {
     "@type": "GeoCircle",
     "geoMidpoint": { "@type": "GeoCoordinates", "latitude": 40.8621, "longitude": -74.0507 },
     "geoRadius": "100 mi",
   },
   "url": canonicalUrl,
+} : null;
+
+const faqLd = faqs && faqs.length > 0 ? {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map((f) => ({
+    "@type": "Question",
+    "name": f.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": f.answer,
+    },
+  })),
 } : null;
 ---
 
@@ -144,8 +254,10 @@ const serviceLd = serviceName ? {
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    <script type="application/ld+json" set:html={JSON.stringify(websiteLd)} />
     {breadcrumbLd && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />}
     {serviceLd && <script type="application/ld+json" set:html={JSON.stringify(serviceLd)} />}
+    {faqLd && <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />}
   </head>
   <body class="flex min-h-screen flex-col bg-white font-sans text-vkc-dark antialiased">
     <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-vkc-red focus:px-4 focus:py-2 focus:text-white focus:outline-none">
