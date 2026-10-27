@@ -3,9 +3,13 @@
 @theme {
   --color-vkc-red: #dd3333;
   --color-vkc-red-dark: #b82828;
+  /* Red for small text on dark backgrounds — #dd3333 falls below WCAG AA there */
+  --color-vkc-red-light: #f87171;
   --color-vkc-dark: #0a0a0a;
   --color-vkc-gray: #566678;
   --color-vkc-light: #f5f5f5;
-  --font-family-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-family-display: 'Inter', system-ui, -apple-system, sans-serif;
+  /* Tailwind v4 reads --font-*; the old --font-family-* names were ignored,
+     so pages fell back to the system font despite the self-hosted Inter files */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Inter', system-ui, -apple-system, sans-serif;
 }
