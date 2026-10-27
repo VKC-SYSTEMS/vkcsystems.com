@@ -6,6 +6,8 @@ export interface CapabilityGroup {
   id: string;
   title: string;
   summary: string;
+  // One sentence for the home page card
+  teaser: string;
   deliverables: string[];
   // Solution pages that belong to this group (by href)
   pages: string[];
@@ -19,6 +21,8 @@ export const capabilityGroups: CapabilityGroup[] = [
     title: 'Systems Engineering & Integration',
     summary:
       'Design and integration of communications networks and the systems that run on them: PSLAN, CCTV, access control, and PA/intercom.',
+    teaser:
+      'Network, PSLAN, CCTV, access control, and PA/intercom systems designed and integrated with existing infrastructure.',
     deliverables: [
       'Network design and PSLAN engineering',
       'Integration of new devices into existing network, CCTV, and PSLAN systems',
@@ -38,6 +42,8 @@ export const capabilityGroups: CapabilityGroup[] = [
     title: 'Communication Cabinet Fabrication & Staging',
     summary:
       'Communication, data, and access control cabinets built to each location’s requirements, then assembled and factory-tested before delivery to site.',
+    teaser:
+      'Communication and data cabinets built per location, then assembled and factory-tested before they ship.',
     deliverables: [
       'Data cabinets fabricated per location',
       'Network and access control enclosure fabrication',
@@ -52,6 +58,8 @@ export const capabilityGroups: CapabilityGroup[] = [
     title: 'Field Testing & Commissioning',
     summary:
       'Field surveys and testing that confirm new equipment works with the existing network before and after cutover, documented in written procedures and reports.',
+    teaser:
+      'Field surveys, fiber and copper certification, and FAT/SAT testing before and after cutover.',
     deliverables: [
       'Field and camera field-of-view surveys',
       'Pre-cutover and post-cutover network testing',
@@ -68,6 +76,8 @@ export const capabilityGroups: CapabilityGroup[] = [
     title: 'Technical Drawings & Project Closeout',
     summary:
       'AutoCAD drawings and closeout documentation for the communications scope, from installation plans and submittals through as-builts and manuals.',
+    teaser:
+      'Riser and wiring diagrams, submittals, as-builts, and O&M manuals for the communications scope.',
     deliverables: [
       'Logical communication riser, wiring, and layout diagrams',
       'Installation plans and drawings from field surveys',

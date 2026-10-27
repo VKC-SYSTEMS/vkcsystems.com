@@ -10,12 +10,11 @@ import logoMetroNorth from "../assets/logo-metro-north.png";
 import logoNjTransit from "../assets/logo-nj-transit.png";
 import logoPortAuthority from "../assets/logo-port-authority.png";
 import logoNycDep from "../assets/logo-nyc-dep.png";
-import { capabilityGroups, commercialGroup } from "../data/capabilities";
+import { capabilityGroups } from "../data/capabilities";
 import { featuredProjects, projectAnchor } from "../data/projects";
-import { serviceIcons, solutionByHref } from "../data/solutions";
 
 const capabilityStatementPdf = "/VKC-Systems-Infrastructure-Capabilities-Statement.pdf";
-const homeProjects = featuredProjects.filter((project) => project.highlights);
+const homeProjects = featuredProjects.filter((project) => project.homeCard);
 
 const agencies = [
   { name: "MTA", fullName: "Metropolitan Transportation Authority", logo: logoMta },
@@ -27,6 +26,8 @@ const agencies = [
   { name: "Port Authority", fullName: "Port Authority of NY & NJ", logo: logoPortAuthority },
   { name: "NYC DEP", fullName: "NYC Dept. of Environmental Protection", logo: logoNycDep },
 ];
+
+const credentials = ["OSHA 30", "Track Safety Training", "CSPM", "CompTIA Network+", "Cisco CCNA", "Cisco CCNP"];
 
 const faqs = [
   {
@@ -58,111 +59,204 @@ const faqs = [
   faqs={faqs}
 >
   <!-- ============================================ -->
-  <!--                HERO SECTION                  -->
+  <!--                    HERO                      -->
   <!-- ============================================ -->
-  <section class="relative bg-vkc-dark text-white overflow-hidden">
-    <!-- Background video (decorative) -->
-    <video
-      class="absolute inset-0 h-full w-full object-cover"
-      autoplay
-      muted
-      loop
-      playsinline
-      preload="metadata"
+  <section class="relative overflow-hidden bg-vkc-dark text-white">
+    <!-- Faint drafting grid behind the copy -->
+    <div
+      class="pointer-events-none absolute inset-0 opacity-[0.07]"
+      style="background-image: linear-gradient(to right, #fff 1px, transparent 1px), linear-gradient(to bottom, #fff 1px, transparent 1px); background-size: 48px 48px;"
       aria-hidden="true"
-    >
-      <source src="/hero-video.mp4" type="video/mp4" />
-      <track kind="captions" src="" label="No dialogue" default />
-    </video>
-    <!-- Overlay: darkest behind the text so copy stays legible over any frame -->
-    <div class="absolute inset-0 bg-gradient-to-r from-vkc-dark via-vkc-dark/90 to-vkc-dark/70"></div>
+    ></div>
 
-    <div class="relative z-10 mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 sm:py-20 lg:px-8 lg:py-28">
-      <div class="max-w-3xl">
-        <p class="text-xs font-semibold tracking-widest text-vkc-red-light uppercase sm:text-sm">
+    <div class="mx-auto max-w-7xl lg:flex lg:min-h-[36rem] lg:items-center">
+      <div class="relative z-10 flex flex-col justify-center px-4 py-10 sm:px-6 sm:py-16 lg:w-1/2 lg:py-20 lg:pr-10 lg:pl-8">
+        <p class="flex items-center gap-3 text-xs font-semibold tracking-widest text-vkc-red-light uppercase">
+          <span class="h-px w-8 bg-vkc-red" aria-hidden="true"></span>
           MBE/DBE Certified Systems Integrator
         </p>
-
-        <h1 class="mt-3 text-[1.75rem] font-extrabold leading-tight tracking-tight sm:mt-4 sm:text-5xl lg:text-6xl">
-          Communications Systems Integration for Transit &amp; Infrastructure
+        <h1 class="mt-5 text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl">
+          Integrated Systems.
+          <span class="block text-vkc-red">Critical Infrastructure.</span>
         </h1>
-
-        <p class="mt-4 max-w-2xl text-base leading-relaxed text-zinc-200 sm:mt-6 sm:text-xl">
-          Engineering, cabinet fabrication, network integration, testing, and commissioning for
-          complex public infrastructure projects.
+        <p class="mt-5 max-w-xl text-base leading-relaxed text-zinc-300 sm:text-lg">
+          VKC Systems engineers, fabricates, and integrates communications systems for transit
+          and public infrastructure projects.
         </p>
-
-        <div class="mt-6 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:flex-wrap sm:gap-4">
+        <div class="mt-7 flex flex-col gap-3 sm:flex-row">
+          <a
+            href="/projects"
+            class="inline-flex items-center justify-center rounded-md bg-vkc-red px-7 py-3 text-sm font-semibold text-white transition hover:bg-vkc-red-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-vkc-dark"
+          >
+            Explore Our Work
+          </a>
           <a
             href="/contact#bid"
-            class="inline-flex items-center justify-center rounded-md bg-vkc-red px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-vkc-red/25 transition hover:bg-vkc-red-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-vkc-dark sm:px-8 sm:py-3.5"
+            class="inline-flex items-center justify-center rounded-md border border-zinc-400 px-7 py-3 text-sm font-semibold text-white transition hover:border-white hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-vkc-dark"
           >
             Invite VKC to Bid
           </a>
-          <a
-            href="/projects"
-            class="inline-flex items-center justify-center rounded-md border border-zinc-400 px-6 py-3 text-sm font-semibold text-white transition hover:border-white hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-vkc-dark sm:px-8 sm:py-3.5"
-          >
-            View Project Experience
-          </a>
-          <a
-            href={capabilityStatementPdf}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center justify-center gap-2 rounded-md border border-zinc-400 px-6 py-3 text-sm font-semibold text-white transition hover:border-white hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-vkc-dark sm:px-8 sm:py-3.5"
-          >
-            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
-            </svg>
-            Download Capability Statement
-            <span class="sr-only">(PDF, opens in a new tab)</span>
-          </a>
         </div>
+        <a
+          href={capabilityStatementPdf}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-5 inline-flex w-fit items-center gap-2 text-sm text-zinc-300 underline decoration-zinc-500 underline-offset-4 transition hover:text-white hover:decoration-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+        >
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+          </svg>
+          Capability statement (PDF)
+          <span class="sr-only">, opens in a new tab</span>
+        </a>
+      </div>
+
+      <figure class="relative aspect-[16/10] lg:absolute lg:inset-y-0 lg:right-0 lg:aspect-auto lg:w-1/2">
+        <img
+          src="/projects/aw-73.jpg"
+          alt="Traffic entering the Hugh L. Carey Tunnel portal in Manhattan"
+          width="1024"
+          height="768"
+          fetchpriority="high"
+          class="absolute inset-0 h-full w-full object-cover object-[30%_50%]"
+        />
+        <!-- Blend the photo into the charcoal panel on wide screens -->
+        <div class="absolute inset-y-0 left-0 hidden w-24 bg-gradient-to-r from-vkc-dark to-transparent lg:block" aria-hidden="true"></div>
+        <figcaption class="absolute right-3 bottom-3 rounded bg-black/70 px-2 py-1 text-xs text-white">
+          Hugh L. Carey Tunnel, New York
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!--              AGENCY LOGO STRIP               -->
+  <!-- ============================================ -->
+  <section class="border-b border-zinc-200 bg-white">
+    <div class="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-8 sm:px-6 lg:flex-row lg:items-center lg:gap-10 lg:px-8">
+      <p class="shrink-0 text-xs font-semibold tracking-widest text-vkc-gray uppercase">Supporting projects for</p>
+      <ul class="grid flex-1 grid-cols-4 items-center gap-x-6 gap-y-5 sm:grid-cols-8">
+        {agencies.map((agency) => (
+          <li class="flex h-10 items-center justify-center">
+            <Image
+              src={agency.logo}
+              alt={agency.fullName}
+              title={agency.fullName}
+              class="max-h-10 w-auto max-w-full object-contain"
+              width={agency.name === "MTA" ? 40 : 120}
+              quality={80}
+              format="webp"
+            />
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!--               INTRODUCTION                   -->
+  <!-- ============================================ -->
+  <section class="bg-white py-16 sm:py-24">
+    <div class="mx-auto grid max-w-7xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-12 lg:gap-16 lg:px-8">
+      <div class="overflow-hidden rounded-lg lg:col-span-5">
+        <Image
+          src={officeImg}
+          alt="VKC Systems conference room with the company logo on the wall"
+          widths={[480, 720, 960]}
+          sizes="(min-width: 1024px) 40vw, 100vw"
+          quality={80}
+          format="webp"
+          loading="lazy"
+          class="aspect-[4/3] w-full object-cover object-[40%_22%] lg:aspect-[4/5]"
+        />
+      </div>
+      <div class="lg:col-span-7">
+        <p class="text-sm font-semibold tracking-widest text-vkc-red uppercase">About VKC</p>
+        <h2 class="mt-3 text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl">
+          The communications scope, start to finish
+        </h2>
+        <p class="mt-5 max-w-2xl text-lg leading-relaxed text-vkc-gray">
+          Founded in 2014 and headquartered in South Hackensack, New Jersey, VKC Systems is a
+          systems integrator for transit and public infrastructure projects. We work with general
+          contractors and agencies from field survey and engineering through cabinet fabrication,
+          testing, and closeout documentation.
+        </p>
+        <a href="/about" class="mt-6 inline-flex items-center text-sm font-semibold text-vkc-red transition hover:text-vkc-red-dark">
+          About VKC Systems &rarr;
+        </a>
       </div>
     </div>
   </section>
 
   <!-- ============================================ -->
-  <!--             FEATURED PROJECTS                -->
+  <!--               CAPABILITIES                   -->
+  <!-- ============================================ -->
+  <section class="bg-vkc-light py-16 sm:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <p class="text-sm font-semibold tracking-widest text-vkc-red-dark uppercase">Capabilities</p>
+          <h2 class="mt-3 text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl">What we deliver</h2>
+        </div>
+        <a href="/solutions" class="text-sm font-semibold text-vkc-red-dark transition hover:text-vkc-dark">All capabilities &rarr;</a>
+      </div>
+
+      <div class="mt-10 grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-zinc-200 bg-zinc-200 sm:grid-cols-2 lg:grid-cols-4">
+        {capabilityGroups.map((group, index) => (
+          <a
+            href={`/solutions#${group.id}`}
+            class="group relative flex flex-col bg-white p-6 transition hover:bg-zinc-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-vkc-red sm:p-8"
+          >
+            <span class="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-vkc-red transition-transform duration-300 group-hover:scale-x-100" aria-hidden="true"></span>
+            <span class="font-mono text-sm font-semibold text-vkc-red">{String(index + 1).padStart(2, "0")}</span>
+            <h3 class="mt-4 text-lg font-bold leading-snug text-zinc-900">{group.title}</h3>
+            <p class="mt-3 text-sm leading-relaxed text-vkc-gray">{group.teaser}</p>
+            <span class="mt-auto pt-6 text-sm font-semibold text-vkc-red">
+              Learn more<span class="sr-only"> about {group.title}</span> &rarr;
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!--               PROJECT CARDS                  -->
   <!-- ============================================ -->
   <section class="bg-white py-16 sm:py-24">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-        <div class="max-w-2xl">
+      <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+        <div>
           <p class="text-sm font-semibold tracking-widest text-vkc-red uppercase">Project Experience</p>
-          <h2 class="mt-3 text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl">
-            Featured Active Projects
-          </h2>
-          <p class="mt-4 text-base leading-relaxed text-vkc-gray">
-            Project names describe the overall project. The list on each card is VKC&rsquo;s scope.
-          </p>
+          <h2 class="mt-3 text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl">Selected work</h2>
         </div>
-        <a href="/projects" class="shrink-0 text-sm font-semibold text-vkc-red transition hover:text-vkc-red-dark">
-          All projects &rarr;
-        </a>
+        <a href="/projects" class="text-sm font-semibold text-vkc-red transition hover:text-vkc-red-dark">All projects &rarr;</a>
       </div>
 
-      <div class="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div class="mt-10 grid grid-cols-1 gap-8 md:grid-cols-3">
         {homeProjects.map((project) => (
-          <article class="flex flex-col rounded-xl border border-zinc-200 bg-white p-6">
-            <span class="text-xs font-bold tracking-wider text-vkc-red uppercase">{project.agency} {project.id}</span>
-            <h3 class="mt-2 text-lg font-bold leading-snug text-zinc-900">{project.name}</h3>
-            <p class="mt-4 text-xs font-semibold tracking-wider text-vkc-gray uppercase">VKC scope</p>
-            <ul class="mt-2 space-y-2">
-              {project.highlights!.map((item) => (
-                <li class="flex items-start gap-2 text-sm leading-relaxed text-vkc-gray">
-                  <svg class="mt-1 h-3.5 w-3.5 shrink-0 text-vkc-red" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                  </svg>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
+          <article class="group flex flex-col">
+            <div class="relative aspect-[4/3] overflow-hidden rounded-lg bg-zinc-100">
+              <img
+                src={project.image}
+                alt={project.imageAlt}
+                loading="lazy"
+                class="h-full w-full object-cover object-center transition duration-500 group-hover:scale-[1.03]"
+              />
+              {project.imageLabel && (
+                <span class="absolute bottom-3 left-3 right-3 w-fit rounded bg-black/75 px-2 py-1 text-xs font-medium text-white">
+                  {project.imageLabel}
+                </span>
+              )}
+            </div>
+            <p class="mt-5 text-xs font-bold tracking-wider text-vkc-red uppercase">{project.agency} {project.id}</p>
+            <h3 class="mt-2 text-xl font-bold leading-snug text-zinc-900">{project.homeCard!.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-vkc-gray">{project.homeCard!.role}</p>
             <a
               href={`/projects#${projectAnchor(project.id)}`}
-              class="mt-auto pt-6 text-sm font-semibold text-vkc-red transition hover:text-vkc-red-dark"
+              class="mt-4 text-sm font-semibold text-vkc-red transition hover:text-vkc-red-dark"
             >
-              Full scope<span class="sr-only"> for {project.id}</span> &rarr;
+              View project<span class="sr-only"> {project.id}</span> &rarr;
             </a>
           </article>
         ))}
@@ -171,332 +265,64 @@ const faqs = [
   </section>
 
   <!-- ============================================ -->
-  <!--            TRUSTED BY SECTION                -->
+  <!--               CREDIBILITY                    -->
   <!-- ============================================ -->
-  <section class="bg-vkc-dark py-20 sm:py-24">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="text-center">
-        <p class="text-sm font-semibold uppercase tracking-widest text-vkc-red-light">Agency Experience</p>
-        <h2 class="mt-3 text-2xl font-bold tracking-tight text-white sm:text-3xl">
-          Supporting Projects for the Region&rsquo;s Transit and Public Agencies
-        </h2>
-      </div>
-
-      <div class="mt-14 grid grid-cols-2 gap-6 sm:grid-cols-4">
-        {agencies.map((agency) => (
-          <div class="flex flex-col items-center justify-center rounded-xl border border-white/10 bg-white px-6 py-6">
-            <div class="flex h-14 items-center justify-center">
-              <Image
-                src={agency.logo}
-                alt={agency.fullName}
-                class:list={[
-                  "w-auto object-contain",
-                  agency.name === "MTA" ? "h-14" : "max-h-14 max-w-[140px]",
-                ]}
-                width={agency.name === "MTA" ? 56 : 160}
-                quality={80}
-                format="webp"
-              />
-            </div>
-            <p class="mt-3 text-xs text-vkc-gray text-center">{agency.fullName}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================ -->
-  <!--               CAPABILITIES                   -->
-  <!-- ============================================ -->
-  <section class="bg-white py-16 sm:py-24">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="max-w-2xl">
-        <p class="text-sm font-semibold tracking-widest text-vkc-red uppercase">What We Do</p>
-        <h2 class="mt-3 text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl">
-          Our Capabilities
-        </h2>
-        <p class="mt-4 text-base leading-relaxed text-vkc-gray">
-          The communications scope on transit and infrastructure projects, from engineering and
-          shop fabrication through field testing and closeout documents.
-        </p>
-      </div>
-
-      <div class="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
-        {capabilityGroups.map((group, index) => (
-          <div class="flex flex-col rounded-xl border border-zinc-200 bg-white p-6 sm:p-8">
-            <span class="text-sm font-bold text-vkc-red">{String(index + 1).padStart(2, "0")}</span>
-            <h3 class="mt-2 text-xl font-bold text-zinc-900">
-              <a href={`/solutions#${group.id}`} class="hover:text-vkc-red">{group.title}</a>
-            </h3>
-            <p class="mt-3 text-sm leading-relaxed text-vkc-gray">{group.summary}</p>
-            <ul class="mt-5 space-y-2 border-t border-zinc-100 pt-5">
-              {group.deliverables.map((item) => (
-                <li class="flex items-start gap-2 text-sm leading-relaxed text-zinc-700">
-                  <svg class="mt-1 h-3.5 w-3.5 shrink-0 text-vkc-red" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                  </svg>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-            <div class="mt-auto flex flex-wrap gap-2 pt-6">
-              {[...group.pages, ...(group.relatedPages ?? [])].map((href) => (
-                <a
-                  href={href}
-                  class="inline-flex items-center gap-2 rounded-full border border-zinc-300 py-1 pl-1 pr-3 text-xs font-semibold text-zinc-700 transition hover:border-vkc-red hover:text-vkc-red"
-                >
-                  <Image src={serviceIcons[solutionByHref[href].title]} alt="" class="h-6 w-6 rounded-full object-cover" width={24} quality={80} format="webp" />
-                  {solutionByHref[href].title} &rarr;
-                </a>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <!-- Secondary: commercial services -->
-      <div class="mt-6 flex flex-col gap-4 rounded-xl border border-dashed border-zinc-300 bg-vkc-light px-6 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-8">
-        <div>
-          <h3 class="text-sm font-bold tracking-wider text-zinc-900 uppercase">Also available: {commercialGroup.title}</h3>
-          <p class="mt-1 text-sm text-vkc-gray">{commercialGroup.summary}</p>
+  <section class="bg-vkc-dark py-14 text-white sm:py-16">
+    <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-12 lg:px-8">
+      <dl class="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:col-span-7">
+        <div class="border-l-2 border-vkc-red pl-4">
+          <dt class="text-xs font-semibold tracking-widest text-zinc-300 uppercase">Founded</dt>
+          <dd class="mt-1 text-2xl font-bold sm:text-3xl">2014</dd>
         </div>
-        <div class="flex shrink-0 flex-wrap gap-2">
-          {commercialGroup.pages.map((href) => (
-            <a
-              href={href}
-              class="inline-flex items-center gap-2 rounded-full border border-zinc-300 bg-white py-1 pl-1 pr-3 text-xs font-semibold text-zinc-700 transition hover:border-vkc-red hover:text-vkc-red"
-            >
-              <Image src={serviceIcons[solutionByHref[href].title]} alt="" class="h-6 w-6 rounded-full object-cover" width={24} quality={80} format="webp" />
-              {solutionByHref[href].title} &rarr;
-            </a>
+        <div class="border-l-2 border-vkc-red pl-4">
+          <dt class="text-xs font-semibold tracking-widest text-zinc-300 uppercase">Certified</dt>
+          <dd class="mt-1 text-2xl font-bold sm:text-3xl">MBE/DBE</dd>
+        </div>
+        <div class="col-span-2 border-l-2 border-vkc-red pl-4 sm:col-span-1">
+          <dt class="text-xs font-semibold tracking-widest text-zinc-300 uppercase">Based in</dt>
+          <dd class="mt-1 text-lg font-bold leading-tight sm:text-xl">South Hackensack, NJ</dd>
+        </div>
+      </dl>
+      <div class="lg:col-span-5">
+        <p class="text-xs font-semibold tracking-widest text-zinc-300 uppercase">Field credentials</p>
+        <ul class="mt-3 flex flex-wrap gap-2">
+          {credentials.map((credential) => (
+            <li class="rounded border border-white/15 px-3 py-1.5 text-sm text-zinc-100">{credential}</li>
           ))}
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================ -->
-  <!--       CAPABILITY STATEMENT SECTION            -->
-  <!-- ============================================ -->
-  <section class="bg-vkc-light py-16 sm:py-20">
-    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-2xl font-bold tracking-tight text-vkc-dark sm:text-3xl">
-        Download Our Capabilities Statement
-      </h2>
-      <p class="mt-3 text-base leading-relaxed text-vkc-gray">
-        Gain an overview of VKC Systems' engineering capabilities, infrastructure experience, and certifications.
-      </p>
-      <ul class="mt-5 inline-flex flex-col items-start gap-2 text-sm text-vkc-gray">
-        <li class="flex items-center gap-2">
-          <svg class="h-4 w-4 text-vkc-red flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
-          Core infrastructure capabilities
-        </li>
-        <li class="flex items-center gap-2">
-          <svg class="h-4 w-4 text-vkc-red flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
-          MBE / DBE certifications
-        </li>
-        <li class="flex items-center gap-2">
-          <svg class="h-4 w-4 text-vkc-red flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
-          Relevant project experience
-        </li>
-      </ul>
-      <div class="mt-6">
+        </ul>
         <a
           href={capabilityStatementPdf}
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 rounded-md bg-vkc-red px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-vkc-red-dark focus:outline-none focus:ring-2 focus:ring-vkc-red focus:ring-offset-2"
+          class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-vkc-red-light transition hover:text-white"
         >
-          <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
-          </svg>
-          Download Capabilities Statement (PDF)
+          Full qualifications in the capability statement (PDF) &rarr;
         </a>
       </div>
     </div>
   </section>
 
   <!-- ============================================ -->
-  <!--          CERTIFICATIONS SECTION              -->
+  <!--                    FAQ                       -->
   <!-- ============================================ -->
-  <section class="bg-white py-20 sm:py-24">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="text-center">
-        <p class="text-sm font-semibold uppercase tracking-widest text-vkc-red">Credentials</p>
-        <h2 class="mt-3 text-2xl font-bold tracking-tight text-vkc-dark sm:text-3xl">
-          Certifications &amp; Qualifications
-        </h2>
+  <section class="bg-white py-16 sm:py-20">
+    <div class="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-12 lg:px-8">
+      <div class="lg:col-span-4">
+        <h2 class="text-2xl font-bold tracking-tight text-zinc-900 sm:text-3xl">Common questions</h2>
+        <p class="mt-3 text-sm leading-relaxed text-vkc-gray">
+          Something else? Call <a href="tel:2013740252" class="font-semibold text-vkc-dark hover:text-vkc-red">(201) 374-0252</a>.
+        </p>
       </div>
-
-      <div class="mt-12 flex flex-wrap items-center justify-center gap-4">
-        <span class="rounded-full border border-gray-200 bg-vkc-light px-5 py-2.5 text-sm font-semibold text-vkc-dark">MBE Certified</span>
-        <span class="rounded-full border border-gray-200 bg-vkc-light px-5 py-2.5 text-sm font-semibold text-vkc-dark">DBE Certified</span>
-        <span class="rounded-full border border-gray-200 bg-vkc-light px-5 py-2.5 text-sm font-semibold text-vkc-dark">OSHA 30</span>
-        <span class="rounded-full border border-gray-200 bg-vkc-light px-5 py-2.5 text-sm font-semibold text-vkc-dark">Track Safety Training</span>
-        <span class="rounded-full border border-gray-200 bg-vkc-light px-5 py-2.5 text-sm font-semibold text-vkc-dark">CSPM</span>
-        <span class="rounded-full border border-gray-200 bg-vkc-light px-5 py-2.5 text-sm font-semibold text-vkc-dark">CompTIA Network+</span>
-        <span class="rounded-full border border-gray-200 bg-vkc-light px-5 py-2.5 text-sm font-semibold text-vkc-dark">Cisco CCNA</span>
-        <span class="rounded-full border border-gray-200 bg-vkc-light px-5 py-2.5 text-sm font-semibold text-vkc-dark">Cisco CCNP</span>
-        <span class="rounded-full border border-gray-200 bg-vkc-light px-5 py-2.5 text-sm font-semibold text-vkc-dark">Technical Experts</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================ -->
-  <!--           WHY CHOOSE VKC SECTION             -->
-  <!-- ============================================ -->
-  <section class="bg-vkc-light py-20 sm:py-24">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="text-center">
-        <p class="text-sm font-semibold uppercase tracking-widest text-vkc-red-dark">Why VKC</p>
-        <h2 class="mt-3 text-2xl font-bold tracking-tight text-vkc-dark sm:text-3xl">
-          What Sets Us Apart
-        </h2>
-      </div>
-
-      <div class="mt-14 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-        <div class="text-center">
-          <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-vkc-red/10">
-            <svg class="h-7 w-7 text-vkc-red" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z" />
-            </svg>
-          </div>
-          <p class="mt-4 text-lg font-bold text-vkc-dark">MBE/DBE Certified</p>
-          <p class="mt-2 text-sm leading-relaxed text-vkc-gray">Minority and Disadvantaged Business Enterprise certified, meeting diversity requirements for public projects.</p>
-        </div>
-        <div class="text-center">
-          <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-vkc-red/10">
-            <svg class="h-7 w-7 text-vkc-red" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.048.58.024 1.194-.14 1.743" />
-            </svg>
-          </div>
-          <p class="mt-4 text-lg font-bold text-vkc-dark">End-to-End Expertise</p>
-          <p class="mt-2 text-sm leading-relaxed text-vkc-gray">From engineering and design through programming and commissioning — we handle every phase of your project.</p>
-        </div>
-        <div class="text-center">
-          <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-vkc-red/10">
-            <svg class="h-7 w-7 text-vkc-red" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-            </svg>
-          </div>
-          <p class="mt-4 text-lg font-bold text-vkc-dark">Documented Testing</p>
-          <p class="mt-2 text-sm leading-relaxed text-vkc-gray">FAT/SAT procedures, test reports, cable certifications, and O&amp;M manuals prepared for review at each stage of the project.</p>
-        </div>
-        <div class="text-center">
-          <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-vkc-red/10">
-            <svg class="h-7 w-7 text-vkc-red" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
-            </svg>
-          </div>
-          <p class="mt-4 text-lg font-bold text-vkc-dark">Field Coordination</p>
-          <p class="mt-2 text-sm leading-relaxed text-vkc-gray">Field surveys, coordination with the general contractor, and support for communication drawing sign-off through cutover.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================ -->
-  <!--          INDUSTRIES SERVED SECTION            -->
-  <!-- ============================================ -->
-  <section class="bg-white py-20 sm:py-24">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="text-center">
-        <p class="text-sm font-semibold uppercase tracking-widest text-vkc-red">Industries</p>
-        <h2 class="mt-3 text-2xl font-bold tracking-tight text-vkc-dark sm:text-3xl">
-          Industries We Serve
-        </h2>
-      </div>
-
-      <div class="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-3">
-        <div class="group rounded-2xl border border-gray-100 bg-vkc-light p-8 text-center transition-all duration-300 hover:shadow-lg hover:border-vkc-red/20">
-          <svg class="mx-auto h-10 w-10 text-vkc-red" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0H21M3.375 14.25h17.25M3.375 14.25V3.375c0-.621.504-1.125 1.125-1.125h9.75c.621 0 1.125.504 1.125 1.125v10.875m-12 0h12m0 0h2.25a1.125 1.125 0 0 1 1.056.744l1.134 3.177" />
-          </svg>
-          <p class="mt-5 text-lg font-bold text-vkc-dark">Mass Transit</p>
-          <p class="mt-2 text-sm leading-relaxed text-vkc-gray">Subway systems, commuter rail, tunnels, bridges, and station infrastructure across the NYC tri-state area.</p>
-        </div>
-        <div class="group rounded-2xl border border-gray-100 bg-vkc-light p-8 text-center transition-all duration-300 hover:shadow-lg hover:border-vkc-red/20">
-          <svg class="mx-auto h-10 w-10 text-vkc-red" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75Z" />
-          </svg>
-          <p class="mt-5 text-lg font-bold text-vkc-dark">Government Infrastructure</p>
-          <p class="mt-2 text-sm leading-relaxed text-vkc-gray">Federal, state, and municipal facilities requiring secure, compliant communication and network systems.</p>
-        </div>
-        <div class="group rounded-2xl border border-gray-100 bg-vkc-light p-8 text-center transition-all duration-300 hover:shadow-lg hover:border-vkc-red/20">
-          <svg class="mx-auto h-10 w-10 text-vkc-red" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
-          </svg>
-          <p class="mt-5 text-lg font-bold text-vkc-dark">Commercial Buildings</p>
-          <p class="mt-2 text-sm leading-relaxed text-vkc-gray">Office complexes, retail spaces, and commercial properties requiring networking, CCTV, and access control solutions.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================ -->
-  <!--              ABOUT PREVIEW                   -->
-  <!-- ============================================ -->
-  <section class="bg-vkc-light">
-    <div class="mx-auto max-w-7xl">
-      <div class="grid grid-cols-1 lg:grid-cols-2">
-        <!-- Office photo -->
-        <div class="relative">
-          <Image src={officeImg} alt="VKC Systems office" class="h-full w-full object-cover" loading="lazy" width={900} quality={80} format="webp" />
-        </div>
-
-        <!-- Content right panel -->
-        <div class="flex items-center px-6 py-24 sm:px-12 lg:px-16 lg:py-40">
-          <div class="max-w-lg">
-            <p class="text-sm font-semibold tracking-widest text-vkc-red-dark uppercase">Who We Are</p>
-            <h2 class="mt-3 text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl">
-              About VKC Systems
-            </h2>
-            <p class="mt-6 text-base leading-relaxed text-vkc-gray">
-              Founded in 2014 and now headquartered in South Hackensack, NJ, VKC Systems
-              has supported systems integration projects for transit and public agencies including
-              MTA, NYCT, LIRR, TBTA, Metro-North, NJT, Port Authority, and NYC DEP.
-            </p>
-            <a
-              href="/about"
-              class="mt-8 inline-flex items-center text-sm font-semibold text-vkc-red-dark transition hover:text-vkc-dark"
-            >
-              Learn More About Us &rarr;
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================ -->
-  <!--               FAQ SECTION                    -->
-  <!-- ============================================ -->
-  <section class="bg-white py-20 sm:py-24">
-    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-      <div class="text-center">
-        <p class="text-sm font-semibold uppercase tracking-widest text-vkc-red">FAQ</p>
-        <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-vkc-dark sm:text-4xl">
-          Frequently Asked Questions
-        </h2>
-        <div class="mx-auto mt-3 h-1 w-16 rounded-full bg-vkc-red"></div>
-      </div>
-      <div class="mx-auto mt-12 max-w-3xl divide-y divide-gray-200 rounded-2xl border border-gray-200 bg-white shadow-sm">
+      <div class="divide-y divide-zinc-200 border-y border-zinc-200 lg:col-span-8">
         {faqs.map((faq) => (
-          <details class="group p-6 [&_summary::-webkit-details-marker]:hidden">
-            <summary class="flex cursor-pointer items-start justify-between gap-4 text-left">
-              <h3 class="text-base font-semibold text-vkc-dark sm:text-lg">{faq.question}</h3>
-              <svg
-                class="mt-1 h-5 w-5 shrink-0 text-vkc-gray transition-transform duration-200 group-open:rotate-180"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="2"
-                stroke="currentColor"
-                aria-hidden="true"
-              >
-                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+          <details class="group py-4 [&_summary::-webkit-details-marker]:hidden">
+            <summary class="flex cursor-pointer items-center justify-between gap-4 text-left">
+              <h3 class="text-base font-semibold text-zinc-900">{faq.question}</h3>
+              <svg class="h-5 w-5 shrink-0 text-vkc-gray transition-transform duration-200 group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
               </svg>
             </summary>
-            <p class="mt-4 text-base leading-relaxed text-vkc-gray">{faq.answer}</p>
+            <p class="mt-3 pr-8 text-sm leading-relaxed text-vkc-gray">{faq.answer}</p>
           </details>
         ))}
       </div>
@@ -504,29 +330,26 @@ const faqs = [
   </section>
 
   <!-- ============================================ -->
-  <!--               CTA SECTION                    -->
+  <!--                  CONTACT                     -->
   <!-- ============================================ -->
-  <section class="bg-vkc-dark py-24 sm:py-32">
-    <div class="mx-auto max-w-4xl px-6 text-center">
-      <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
-        Bidding a Project with Communications Scope?
-      </h2>
-      <p class="mt-4 text-lg text-zinc-300">
-        Tell us about the project, the scope, and the bid date. Typical response time is within
-        one business day.
-      </p>
-      <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+  <section class="bg-vkc-red text-white">
+    <div class="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-12 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+      <div>
+        <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">Bidding a project with communications scope?</h2>
+        <p class="mt-2 text-base text-white">Send us the details and bid date. We typically respond within one business day.</p>
+      </div>
+      <div class="flex shrink-0 flex-col gap-3 sm:flex-row">
         <a
           href="/contact#bid"
-          class="inline-flex items-center rounded-md bg-vkc-red px-8 py-3.5 text-sm font-semibold text-white shadow-lg transition hover:bg-vkc-red-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-vkc-dark"
+          class="inline-flex items-center justify-center rounded-md bg-white px-7 py-3 text-sm font-semibold text-vkc-red-dark transition hover:bg-zinc-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-vkc-red"
         >
           Invite VKC to Bid
         </a>
         <a
-          href="/contact"
-          class="inline-flex items-center rounded-md border border-zinc-400 px-8 py-3.5 text-sm font-semibold text-white transition hover:border-white hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-vkc-dark"
+          href="tel:2013740252"
+          class="inline-flex items-center justify-center rounded-md border border-white/70 px-7 py-3 text-sm font-semibold text-white transition hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
         >
-          Request a Consultation
+          Call (201) 374-0252
         </a>
       </div>
     </div>

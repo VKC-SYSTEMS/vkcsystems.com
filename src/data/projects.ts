@@ -11,8 +11,8 @@ export interface FeaturedProject {
   // Shown on the image when it is not a photo of the project itself
   imageLabel?: string;
   services: string[];
-  // Subset of `services` for the home page; omit to keep off the home page
-  highlights?: string[];
+  // Short title and one-sentence VKC role for the home page; omit to keep off it
+  homeCard?: { title: string; role: string };
 }
 
 /** In-page anchor for a project on /projects. */
@@ -26,6 +26,10 @@ export const featuredProjects: FeaturedProject[] = [
     image: '/projects/aw-73-cabinet.jpg',
     imageAlt: 'Communication cabinet with Cisco industrial network switches, Comnet power supplies, fiber media converters, and labeled terminal blocks, digitally enhanced to show wire-duct covers',
     imageLabel: 'Digitally enhanced to illustrate wire-duct covers.',
+    homeCard: {
+      title: 'Hugh L. Carey & Queens Midtown Tunnels',
+      role: 'Network and CCTV integration across 10 buildings, tolling areas, and tunnel interiors, with enclosure fabrication and FAT/SAT documentation.',
+    },
     services: [
       'Network and CCTV integration throughout 10 buildings, tolling areas, tunnel plazas, and inside QMT and HLCT',
       'Facility monitoring system design and integration',
@@ -36,12 +40,6 @@ export const featuredProjects: FeaturedProject[] = [
       'FAT/SAT procedures and reports',
       'Operations and maintenance manuals for network systems',
     ],
-    highlights: [
-      'Network and CCTV integration throughout 10 buildings, tolling areas, tunnel plazas, and inside QMT and HLCT',
-      'Network and access control enclosure fabrication',
-      'FAT/SAT procedures and reports',
-      'Operations and maintenance manuals for network systems',
-    ],
   },
   {
     id: 'P-36719',
@@ -49,6 +47,10 @@ export const featuredProjects: FeaturedProject[] = [
     name: '82nd Road Substation Renewal, 13th Street Substation Renewal, and High-Tension Switchgear Replacement',
     image: '/projects/p-36719.jpg',
     imageAlt: 'Communication cabinet with network switches, power supplies, and terminal blocks',
+    homeCard: {
+      title: '82nd Road & 13th Street Substations',
+      role: 'Custom data cabinets for each location, integration with the existing network, and fiber and copper testing.',
+    },
     services: [
       'Custom data cabinet fabrication per location',
       'Communication risers (logical), wiring diagrams and cable certifications',
@@ -58,12 +60,6 @@ export const featuredProjects: FeaturedProject[] = [
       'Fiber/copper testing procedures and reports',
       'FAT/SAT procedures and reports',
       'OEM manual for network systems',
-    ],
-    highlights: [
-      'Custom data cabinet fabrication per location',
-      'Integration of new devices into existing network systems',
-      'Fiber/copper testing procedures and reports',
-      'Technical expertise for field testing and communication drawing sign-off',
     ],
   },
   {
@@ -82,12 +78,6 @@ export const featuredProjects: FeaturedProject[] = [
       'CAT6 certification',
       'FAT/SAT/SIT procedures and reports',
       'Operations and maintenance manuals for network systems',
-    ],
-    highlights: [
-      'Network, VoIP, and UPS power plant integration throughout 6 stations',
-      'Fiber optic splicing and certification',
-      'CAT6 certification',
-      'FAT/SAT/SIT procedures and reports',
     ],
   },
   {
@@ -115,6 +105,10 @@ export const featuredProjects: FeaturedProject[] = [
     image: '/projects/njt-raritan.jpg',
     imageAlt: 'Rendering of a lift bridge over a river with a train crossing',
     imageLabel: 'Project rendering',
+    homeCard: {
+      title: 'Raritan River Bridge Replacement',
+      role: 'Communication system design, network installation, and testing, coordinated with the general contractor.',
+    },
     services: [
       'Communication system design and integration',
       'Network infrastructure installation',
