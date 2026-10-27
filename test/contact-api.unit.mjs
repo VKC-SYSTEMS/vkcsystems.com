@@ -94,6 +94,19 @@ test('valid submission sends one mocked email and redirects to /thank-you', asyn
   assert.doesNotMatch(payload.message.body.content, /<Builders>/);
 });
 
+test('all contact form project types fit the project_type limit', async () => {
+  const allTypes = [
+    'Network Infrastructure', 'CCTV Systems', 'Access Control', 'Public Address / Intercom',
+    'Communication Cabinets', 'Testing & Commissioning', 'CADD & Closeout Documentation',
+    'IT Infrastructure', 'Other',
+  ].join(', ');
+  const res = await submit({ ...VALID, project_type: allTypes });
+  assert.equal(res.location, '/thank-you');
+  const html = JSON.parse(sendMailCalls()[0].body).message.body.content;
+  assert.match(html, /Testing &amp; Commissioning/);
+  assert.match(html, /CADD &amp; Closeout Documentation/);
+});
+
 test('honeypot submissions are accepted silently without sending', async () => {
   const res = await submit({ ...VALID, _honey: 'spam' });
   assert.equal(res.location, '/thank-you');

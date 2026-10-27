@@ -23,8 +23,8 @@ export const featuredProjects: FeaturedProject[] = [
     id: 'AW-73',
     agency: 'TBTA',
     name: 'Design-Build Replacement of Facility Monitoring and Safety Systems at the Hugh L. Carey Tunnel (HLCT) and Queens Midtown Tunnel (QMT)',
-    image: '/projects/aw-73.jpg',
-    imageAlt: 'Open stainless-steel communication cabinet with network switches, controller boards, and terminal blocks',
+    image: '/projects/aw-73-cabinet.jpg',
+    imageAlt: 'Communication cabinet with Cisco industrial network switches, Comnet power supplies, fiber media converters, and labeled terminal blocks',
     services: [
       'Network and CCTV integration throughout 10 buildings, tolling areas, tunnel plazas, and inside QMT and HLCT',
       'Facility monitoring system design and integration',
