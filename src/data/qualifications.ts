@@ -27,7 +27,13 @@ export interface TeamCredential {
   // What the credential covers, for /qualifications. Describes the credential,
   // not a particular holder.
   about?: string;
+  // Site-access credentials are listed apart from technical certifications
+  kind?: 'technical' | 'site-access';
 }
+
+/** Technical credentials described in full on /qualifications. */
+export const isFeaturedCredential = (credential: TeamCredential) =>
+  Boolean(credential.about) && credential.kind !== 'site-access';
 
 export const teamCredentials: TeamCredential[] = [
   {
@@ -53,5 +59,11 @@ export const teamCredentials: TeamCredential[] = [
   { name: 'CSPM' },
   { name: 'OSHA 30' },
   { name: 'Track Safety Training' },
-  { name: 'SWAC' },
+  {
+    name: 'SWAC',
+    title: 'Secure Worker Access Consortium',
+    kind: 'site-access',
+    about:
+      'Team members hold current SWAC credentials for work at participating facilities, subject to each site’s access requirements.',
+  },
 ];

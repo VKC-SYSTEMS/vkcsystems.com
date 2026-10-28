@@ -1,10 +1,13 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { companyCertifications, euci, teamCredentials } from "../data/qualifications";
+import { companyCertifications, euci, isFeaturedCredential, teamCredentials } from "../data/qualifications";
 
 const capabilityStatementPdf = "/VKC-Systems-Infrastructure-Capabilities-Statement.pdf";
-const featuredCredentials = teamCredentials.filter((credential) => credential.about);
-const otherCredentials = teamCredentials.filter((credential) => !credential.about);
+const featuredCredentials = teamCredentials.filter(isFeaturedCredential);
+const siteAccessCredentials = teamCredentials.filter((credential) => credential.kind === 'site-access');
+const otherCredentials = teamCredentials.filter(
+  (credential) => !isFeaturedCredential(credential) && credential.kind !== 'site-access',
+);
 ---
 
 <BaseLayout
@@ -111,6 +114,16 @@ const otherCredentials = teamCredentials.filter((credential) => !credential.abou
           <li class="rounded border border-zinc-300 bg-white px-3 py-1.5 text-sm text-zinc-900">
             {credential.name}
             {credential.title && <span class="block text-xs text-zinc-700">{credential.title}</span>}
+          </li>
+        ))}
+      </ul>
+
+      <h3 class="mt-12 text-sm font-semibold tracking-widest text-zinc-700 uppercase">Personnel and site-access qualifications</h3>
+      <ul class="mt-4 grid gap-4 lg:grid-cols-2">
+        {siteAccessCredentials.map((credential) => (
+          <li class="rounded-lg border border-zinc-200 bg-white p-5">
+            <p class="font-semibold text-zinc-900">{credential.title} ({credential.name})</p>
+            <p class="mt-2 text-sm leading-relaxed text-vkc-gray">{credential.about}</p>
           </li>
         ))}
       </ul>

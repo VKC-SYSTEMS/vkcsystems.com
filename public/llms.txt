@@ -53,7 +53,10 @@ Held by members of the VKC team:
 - CSPM
 - OSHA 30
 - Track Safety Training
-- SWAC
+
+Personnel and site-access qualifications:
+
+- Secure Worker Access Consortium (SWAC): team members hold current SWAC credentials for work at participating facilities, subject to each site's access requirements.
 
 ## Contact
 
