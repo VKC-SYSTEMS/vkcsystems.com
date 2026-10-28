@@ -123,17 +123,31 @@ const jsonLd = {
     "Transit communications",
     "Public sector infrastructure"
   ],
-  "award": [
-    "Minority Business Enterprise (MBE) Certified",
-    "Disadvantaged Business Enterprise (DBE) Certified",
-    "OSHA 30 Certified",
-    "Track Safety Training",
-    "Cisco CCNA / CCNP",
-    "CompTIA Network+",
-    "CSPM",
-    "BICSI RCDD",
-    "AVIXA CTS-I",
-    "MTA EUCI Qualified"
+  // Company-held qualifications only. Team credentials (RCDD, CTS-I, CCNA…)
+  // belong to individuals, not the business, so they stay out of this markup.
+  // The MBE/DBE certifying agencies are unconfirmed, so no recognizedBy.
+  "hasCredential": [
+    {
+      "@type": "EducationalOccupationalCredential",
+      "name": "Minority Business Enterprise (MBE) certification",
+      "credentialCategory": "certification"
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      "name": "Disadvantaged Business Enterprise (DBE) certification",
+      "credentialCategory": "certification"
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      "name": "MTA Enhanced Utilization Credit Initiative (EUCI) Pilot Program qualification",
+      "credentialCategory": "program qualification",
+      "url": "https://www.mta.info/doing-business-with-us/opportunities-for-hubs/euci",
+      "recognizedBy": {
+        "@type": "GovernmentOrganization",
+        "name": "Metropolitan Transportation Authority",
+        "url": "https://www.mta.info"
+      }
+    }
   ],
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
@@ -232,6 +246,7 @@ const faqLd = faqs && faqs.length > 0 ? {
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="VKC Systems" />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />

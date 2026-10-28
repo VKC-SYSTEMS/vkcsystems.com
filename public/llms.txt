@@ -30,6 +30,8 @@ VKC Systems Inc. is a systems integrator founded in 2014, headquartered in South
 
 ## Company Certifications
 
+Details: https://vkcsystems.com/qualifications
+
 - MBE Certified
 - DBE Certified
 
@@ -61,9 +63,10 @@ Held by members of the VKC team:
 - About: https://vkcsystems.com/about
 - Capabilities: https://vkcsystems.com/solutions
 - Projects: https://vkcsystems.com/projects
+- Qualifications: https://vkcsystems.com/qualifications
 - Careers: https://vkcsystems.com/careers
 - Contact: https://vkcsystems.com/contact
-- Capability Statement (PDF): https://vkcsystems.com/VKC-Systems-Capability-Statement.pdf
+- Capability Statement (PDF): https://vkcsystems.com/VKC-Systems-Infrastructure-Capabilities-Statement.pdf
 
 ## Solutions
 

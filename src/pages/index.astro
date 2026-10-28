@@ -12,7 +12,7 @@ import logoPortAuthority from "../assets/logo-port-authority.png";
 import logoNycDep from "../assets/logo-nyc-dep.png";
 import { capabilityGroups } from "../data/capabilities";
 import { featuredProjects, projectAnchor } from "../data/projects";
-import { euci, teamCredentials } from "../data/qualifications";
+import { euci, qualificationsPath, teamCredentials } from "../data/qualifications";
 
 const capabilityStatementPdf = "/VKC-Systems-Infrastructure-Capabilities-Statement.pdf";
 const homeProjects = featuredProjects.filter((project) => project.homeCard);
@@ -347,6 +347,12 @@ const faqs = [
           Capability statement (PDF) &rarr;
         </a>
       </div>
+      <a
+        href={qualificationsPath}
+        class="inline-flex w-fit items-center text-sm font-semibold text-white underline decoration-white/40 underline-offset-4 transition hover:decoration-white lg:col-span-12"
+      >
+        All qualifications and team credentials &rarr;
+      </a>
     </div>
   </section>
 

@@ -1,0 +1,141 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { companyCertifications, euci, teamCredentials } from "../data/qualifications";
+
+const capabilityStatementPdf = "/VKC-Systems-Infrastructure-Capabilities-Statement.pdf";
+const featuredCredentials = teamCredentials.filter((credential) => credential.about);
+const otherCredentials = teamCredentials.filter((credential) => !credential.about);
+---
+
+<BaseLayout
+  title="Qualifications & Team Credentials | VKC Systems"
+  description="VKC Systems is a certified MBE/DBE systems integrator qualified for MTA’s EUCI Pilot Program. Credentials held by our team include BICSI RCDD and AVIXA CTS-I."
+  breadcrumbs={[
+    { name: "Home", url: "https://vkcsystems.com/" },
+    { name: "Qualifications", url: "https://vkcsystems.com/qualifications" },
+  ]}
+>
+  <!-- Hero Section -->
+  <section class="bg-vkc-dark py-16 text-white sm:py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <p class="flex items-center gap-3 text-xs font-semibold tracking-widest text-vkc-red-light uppercase">
+        <span class="h-px w-8 bg-vkc-red" aria-hidden="true"></span>
+        Qualifications
+      </p>
+      <h1 class="mt-5 max-w-3xl text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl">
+        Company qualifications and team credentials
+      </h1>
+      <p class="mt-5 max-w-2xl text-lg leading-relaxed text-zinc-300">
+        VKC Systems holds MBE/DBE certification and qualifies for MTA’s EUCI Pilot Program.
+        Members of our team hold professional credentials in communications infrastructure
+        design, audiovisual installation, networking, and field safety.
+      </p>
+    </div>
+  </section>
+
+  <!-- Company Qualifications: held by VKC Systems -->
+  <section class="bg-white py-16 sm:py-20" aria-labelledby="company-heading">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <p class="text-sm font-semibold tracking-widest text-vkc-red uppercase">Held by VKC Systems</p>
+      <h2 id="company-heading" class="mt-3 text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl">
+        Company qualifications
+      </h2>
+
+      <div class="mt-10 grid gap-6 lg:grid-cols-2">
+        <article class="rounded-lg border border-zinc-200 p-6 sm:p-8">
+          <h3 class="text-xl font-bold text-zinc-900">MBE/DBE certification</h3>
+          <p class="mt-3 leading-relaxed text-vkc-gray">VKC Systems is certified as a:</p>
+          <ul class="mt-3 space-y-2">
+            {companyCertifications.map((certification) => (
+              <li class="flex items-start gap-3 text-zinc-900">
+                <svg class="mt-1 h-4 w-4 shrink-0 text-vkc-red" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                </svg>
+                {certification}
+              </li>
+            ))}
+          </ul>
+          <p class="mt-5 text-sm leading-relaxed text-vkc-gray">
+            Need certification documents for a bid package?
+            <a href="/contact#bid" class="font-semibold text-vkc-red-dark underline underline-offset-2 hover:text-vkc-dark">Contact us</a>.
+          </p>
+        </article>
+
+        <article class="rounded-lg border border-zinc-200 p-6 sm:p-8">
+          <h3 class="text-xl font-bold text-zinc-900">{euci.label}</h3>
+          <p class="mt-3 leading-relaxed text-vkc-gray">{euci.summary}</p>
+          <p class="mt-3 text-sm leading-relaxed text-vkc-gray">
+            The credit applies only to eligible subcontracting on EUCI-eligible projects, under the
+            program’s rules. MTA runs the program; this qualification is not an MTA endorsement of
+            VKC Systems.
+          </p>
+          <a
+            href={euci.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-vkc-red-dark underline-offset-4 hover:text-vkc-dark hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-vkc-red"
+          >
+            {euci.linkLabel}<span class="sr-only"> (mta.info, opens in a new tab)</span> &rarr;
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Credentials: held by individual team members -->
+  <section class="bg-vkc-light py-16 sm:py-20" aria-labelledby="team-heading">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <p class="text-sm font-semibold tracking-widest text-vkc-red-dark uppercase">Held by members of our team</p>
+      <h2 id="team-heading" class="mt-3 text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl">
+        Team Credentials
+      </h2>
+      <p class="mt-4 max-w-2xl leading-relaxed text-vkc-gray">
+        These professional credentials are held by individual members of the VKC team, not by
+        the company, and not every team member holds each one.
+      </p>
+
+      <div class="mt-10 grid gap-6 lg:grid-cols-2">
+        {featuredCredentials.map((credential) => (
+          <article class="rounded-lg border border-zinc-200 bg-white p-6 sm:p-8">
+            <h3 class="text-xl font-bold text-zinc-900">{credential.name}</h3>
+            <p class="mt-1 font-medium text-zinc-700">{credential.title}</p>
+            <p class="mt-4 leading-relaxed text-vkc-gray">{credential.about}</p>
+          </article>
+        ))}
+      </div>
+
+      <h3 class="mt-12 text-sm font-semibold tracking-widest text-zinc-700 uppercase">Additional team credentials</h3>
+      <ul class="mt-4 flex flex-wrap gap-2">
+        {otherCredentials.map((credential) => (
+          <li class="rounded border border-zinc-300 bg-white px-3 py-1.5 text-sm text-zinc-900">{credential.name}</li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- Capability statement and bid invitation -->
+  <section class="bg-vkc-red text-white">
+    <div class="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-12 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+      <div>
+        <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">Let’s discuss your next project.</h2>
+        <p class="mt-2 text-base text-white">Send us the details and bid date. We typically respond within one business day.</p>
+      </div>
+      <div class="flex shrink-0 flex-col gap-3 sm:flex-row">
+        <a
+          href="/contact#bid"
+          class="inline-flex items-center justify-center rounded-md bg-white px-7 py-3 text-sm font-semibold text-vkc-red-dark transition hover:bg-zinc-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-vkc-red"
+        >
+          Invite VKC to Bid
+        </a>
+        <a
+          href={capabilityStatementPdf}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center rounded-md border border-white/70 px-7 py-3 text-sm font-semibold text-white transition hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+        >
+          Capability Statement (PDF)<span class="sr-only">, opens in a new tab</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
