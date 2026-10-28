@@ -101,9 +101,8 @@ export const featuredProjects: FeaturedProject[] = [
     id: 'NJT',
     agency: 'NJ Transit',
     name: 'Raritan River Bridge Replacement',
-    image: '/projects/njt-raritan.jpg',
-    imageAlt: 'Rendering of a lift bridge over a river with a train crossing',
-    imageLabel: 'Project rendering',
+    image: '/projects/njt-raritan-bridge-lift-towers.jpg',
+    imageAlt: 'Rendering of a vertical-lift rail bridge with two towers and steel truss spans over open water',
     homeCard: {
       title: 'Raritan River Bridge Replacement',
       role: 'Communication system design, network installation, and testing, coordinated with the general contractor.',
