@@ -7,7 +7,7 @@ import accessControlIcon from '../assets/access-control-icon.png';
 import commCabinetsIcon from '../assets/comm-cabinets-icon.png';
 import caddIcon from '../assets/cadd-icon.png';
 import voipIcon from '../assets/voip-icon.png';
-import officeItIcon from '../assets/office-it-icon.png';
+import officeItIcon from '../assets/office-it-server-rack-icon.png';
 
 
 export interface Solution {
