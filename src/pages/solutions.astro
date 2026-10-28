@@ -59,7 +59,7 @@ import { serviceIcons, solutionByHref } from '../data/solutions';
                 class="group relative flex flex-col rounded-2xl border border-gray-100 bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-xl hover:border-vkc-red/20 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-vkc-red focus-visible:ring-offset-2"
               >
                 <div class="mb-6 h-28 w-28 overflow-hidden rounded-xl">
-                  <Image src={serviceIcons[solution.title]} alt="" class="h-full w-full object-cover" width={112} quality={80} format="webp" />
+                  <Image src={serviceIcons[solution.title]} alt="" class="h-full w-full object-cover" width={112} densities={[1, 2]} quality={80} format="webp" />
                 </div>
                 <h3 class="mb-3 text-xl font-bold text-vkc-dark group-hover:text-vkc-dark transition-colors duration-200">
                   {solution.title}
@@ -125,7 +125,7 @@ import { serviceIcons, solutionByHref } from '../data/solutions';
                 class="group relative flex flex-col rounded-2xl border border-gray-100 bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-xl hover:border-vkc-red/20 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-vkc-red focus-visible:ring-offset-2"
               >
                 <div class="mb-6 h-28 w-28 overflow-hidden rounded-xl">
-                  <Image src={serviceIcons[solution.title]} alt="" class="h-full w-full object-cover" width={112} quality={80} format="webp" />
+                  <Image src={serviceIcons[solution.title]} alt="" class="h-full w-full object-cover" width={112} densities={[1, 2]} quality={80} format="webp" />
                 </div>
                 <h3 class="mb-3 text-xl font-bold text-vkc-dark group-hover:text-vkc-red transition-colors duration-200">
                   {solution.title}
