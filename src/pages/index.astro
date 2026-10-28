@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { Image } from "astro:assets";
-import officeImg from "../assets/office.jpg";
+import workshopImg from "../assets/technician-communication-cabinet-workshop.jpg";
 import logoMta from "../assets/logo-mta.png";
 import logoNyct from "../assets/logo-nyct.png";
 import logoLirr from "../assets/logo-lirr.png";
@@ -12,6 +12,7 @@ import logoPortAuthority from "../assets/logo-port-authority.png";
 import logoNycDep from "../assets/logo-nyc-dep.png";
 import { capabilityGroups } from "../data/capabilities";
 import { featuredProjects, projectAnchor } from "../data/projects";
+import { euci, teamCredentials } from "../data/qualifications";
 
 const capabilityStatementPdf = "/VKC-Systems-Infrastructure-Capabilities-Statement.pdf";
 const homeProjects = featuredProjects.filter((project) => project.homeCard);
@@ -27,8 +28,6 @@ const agencies = [
   { name: "NYC DEP", fullName: "NYC Dept. of Environmental Protection", logo: logoNycDep },
 ];
 
-const credentials = ["OSHA 30", "Track Safety Training", "CSPM", "CompTIA Network+", "Cisco CCNA", "Cisco CCNP"];
-
 const faqs = [
   {
     question: "What services does VKC Systems provide?",
@@ -40,7 +39,7 @@ const faqs = [
   },
   {
     question: "Is VKC Systems a certified MBE/DBE contractor?",
-    answer: "Yes. VKC Systems is a certified Minority Business Enterprise (MBE) and Disadvantaged Business Enterprise (DBE). Field credentials include OSHA 30, Track Safety Training, Cisco CCNA and CCNP, CompTIA Network+, and CSPM.",
+    answer: "Yes. VKC Systems is a certified Minority Business Enterprise (MBE) and Disadvantaged Business Enterprise (DBE), and qualifies for MTA's Enhanced Utilization Credit Initiative (EUCI) Pilot Program. Credentials held by members of our team include BICSI RCDD, AVIXA CTS-I, Cisco CCNA and CCNP, CompTIA Network+, CSPM, OSHA 30, and Track Safety Training.",
   },
   {
     question: "What public-sector agencies has VKC Systems worked with?",
@@ -157,20 +156,23 @@ const faqs = [
   <!--               INTRODUCTION                   -->
   <!-- ============================================ -->
   <section class="bg-white py-16 sm:py-24">
-    <div class="mx-auto grid max-w-7xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-12 lg:gap-16 lg:px-8">
-      <div class="overflow-hidden rounded-lg lg:col-span-5">
+    <div class="mx-auto grid max-w-7xl items-center gap-10 px-4 sm:px-6 md:grid-cols-12 lg:gap-16 lg:px-8">
+      <figure class="relative overflow-hidden rounded-lg md:col-span-5">
         <Image
-          src={officeImg}
-          alt="VKC Systems conference room with the company logo on the wall"
+          src={workshopImg}
+          alt="Technician working on an open communication cabinet with rack-mounted network switches and blue patch cables in a workshop"
           widths={[480, 720, 960]}
-          sizes="(min-width: 1024px) 40vw, 100vw"
+          sizes="(min-width: 768px) 40vw, 100vw"
           quality={80}
           format="webp"
           loading="lazy"
-          class="aspect-[4/3] w-full object-cover object-[40%_22%] lg:aspect-[4/5]"
+          class="aspect-square w-full object-cover object-[50%_30%] sm:aspect-[5/4] md:aspect-[4/5] md:object-center"
         />
-      </div>
-      <div class="lg:col-span-7">
+        <figcaption class="absolute bottom-3 left-3 rounded bg-black/70 px-2 py-1 text-xs text-white">
+          Digitally retouched image
+        </figcaption>
+      </figure>
+      <div class="md:col-span-7">
         <p class="text-sm font-semibold tracking-widest text-vkc-red uppercase">About VKC</p>
         <h2 class="mt-3 text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl">
           The communications scope, start to finish
@@ -265,44 +267,6 @@ const faqs = [
   </section>
 
   <!-- ============================================ -->
-  <!--               CREDIBILITY                    -->
-  <!-- ============================================ -->
-  <section class="bg-vkc-dark py-14 text-white sm:py-16">
-    <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-12 lg:px-8">
-      <dl class="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:col-span-7">
-        <div class="border-l-2 border-vkc-red pl-4">
-          <dt class="text-xs font-semibold tracking-widest text-zinc-300 uppercase">Founded</dt>
-          <dd class="mt-1 text-2xl font-bold sm:text-3xl">2014</dd>
-        </div>
-        <div class="border-l-2 border-vkc-red pl-4">
-          <dt class="text-xs font-semibold tracking-widest text-zinc-300 uppercase">Certified</dt>
-          <dd class="mt-1 text-2xl font-bold sm:text-3xl">MBE/DBE</dd>
-        </div>
-        <div class="col-span-2 border-l-2 border-vkc-red pl-4 sm:col-span-1">
-          <dt class="text-xs font-semibold tracking-widest text-zinc-300 uppercase">Based in</dt>
-          <dd class="mt-1 text-lg font-bold leading-tight sm:text-xl">South Hackensack, NJ</dd>
-        </div>
-      </dl>
-      <div class="lg:col-span-5">
-        <p class="text-xs font-semibold tracking-widest text-zinc-300 uppercase">Field credentials</p>
-        <ul class="mt-3 flex flex-wrap gap-2">
-          {credentials.map((credential) => (
-            <li class="rounded border border-white/15 px-3 py-1.5 text-sm text-zinc-100">{credential}</li>
-          ))}
-        </ul>
-        <a
-          href={capabilityStatementPdf}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-vkc-red-light transition hover:text-white"
-        >
-          Full qualifications in the capability statement (PDF) &rarr;
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================ -->
   <!--                    FAQ                       -->
   <!-- ============================================ -->
   <section class="bg-white py-16 sm:py-20">
@@ -325,6 +289,63 @@ const faqs = [
             <p class="mt-3 pr-8 text-sm leading-relaxed text-vkc-gray">{faq.answer}</p>
           </details>
         ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!--               QUALIFICATIONS                 -->
+  <!-- ============================================ -->
+  <!-- Company qualifications and team credentials stay in separate columns:
+       the first belong to VKC, the second to individual team members. -->
+  <section class="bg-vkc-dark py-14 text-white sm:py-16" aria-labelledby="qualifications-heading">
+    <h2 id="qualifications-heading" class="sr-only">Qualifications</h2>
+    <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-12 lg:gap-12 lg:px-8">
+      <div class="lg:col-span-7">
+        <h3 class="text-xs font-semibold tracking-widest text-zinc-300 uppercase">Company qualifications</h3>
+        <dl class="mt-5 grid grid-cols-2 gap-6 sm:grid-cols-3">
+          <div class="border-l-2 border-vkc-red pl-4">
+            <dt class="text-xs font-semibold tracking-widest text-zinc-300 uppercase">Founded</dt>
+            <dd class="mt-1 text-2xl font-bold sm:text-3xl">2014</dd>
+          </div>
+          <div class="border-l-2 border-vkc-red pl-4">
+            <dt class="text-xs font-semibold tracking-widest text-zinc-300 uppercase">Certified</dt>
+            <dd class="mt-1 text-2xl font-bold sm:text-3xl">MBE/DBE</dd>
+          </div>
+          <div class="col-span-2 border-l-2 border-vkc-red pl-4 sm:col-span-1">
+            <dt class="text-xs font-semibold tracking-widest text-zinc-300 uppercase">Program</dt>
+            <dd class="mt-1 text-lg font-bold leading-tight sm:text-xl">{euci.label}</dd>
+          </div>
+        </dl>
+        <p class="mt-6 max-w-2xl text-sm leading-relaxed text-zinc-300">{euci.summary}</p>
+        <a
+          href={euci.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-vkc-red-light underline-offset-4 transition hover:text-white hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+        >
+          {euci.linkLabel}<span class="sr-only"> (mta.info, opens in a new tab)</span> &rarr;
+        </a>
+      </div>
+      <div class="border-t border-white/10 pt-8 lg:col-span-5 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-12">
+        <h3 class="text-xs font-semibold tracking-widest text-zinc-300 uppercase">Team Credentials</h3>
+        <p class="mt-2 text-sm text-zinc-300">Held by members of the VKC team.</p>
+        <ul class="mt-4 flex flex-wrap gap-2">
+          {teamCredentials.map((credential) => (
+            <li class="rounded border border-white/15 px-3 py-1.5 text-sm text-zinc-100">
+              {credential.name}
+              {credential.title && <span class="block text-xs text-zinc-300">{credential.title}</span>}
+            </li>
+          ))}
+        </ul>
+        <a
+          href={capabilityStatementPdf}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-vkc-red-light transition hover:text-white"
+        >
+          Capability statement (PDF) &rarr;
+        </a>
       </div>
     </div>
   </section>

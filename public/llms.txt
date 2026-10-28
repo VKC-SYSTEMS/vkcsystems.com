@@ -28,15 +28,26 @@ VKC Systems Inc. is a systems integrator founded in 2014, headquartered in South
 - Port Authority of NY & NJ
 - NYC DEP (Dept. of Environmental Protection)
 
-## Certifications
+## Company Certifications
 
 - MBE Certified
 - DBE Certified
-- OSHA 30
-- Track Safety Training
+
+## Program Qualifications
+
+- MTA EUCI Qualified: VKC Systems qualifies for MTA's Enhanced Utilization Credit Initiative (EUCI) Pilot Program. Eligible subcontracting with VKC may provide prime contractors with 1.5x MWBE utilization credit, subject to MTA program requirements and project eligibility. https://www.mta.info/doing-business-with-us/opportunities-for-hubs/euci
+
+## Team Credentials
+
+Held by members of the VKC team:
+
+- BICSI RCDD (Registered Communications Distribution Designer)
+- AVIXA CTS-I (Certified Technology Specialist - Installation)
 - Cisco CCNA / CCNP
 - CompTIA Network+
 - CSPM
+- OSHA 30
+- Track Safety Training
 
 ## Contact
 

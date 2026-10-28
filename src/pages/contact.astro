@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { euci } from "../data/qualifications";
 
 const projectTypes = [
   'Network Infrastructure',
@@ -66,6 +67,15 @@ const statusMessages: Record<string, string> = {
           <p class="text-vkc-gray mb-2">
             <span class="font-semibold text-vkc-dark">Inviting VKC to bid?</span> Include the project
             name, owner, bid date, and where to find plans and specs in the project description.
+          </p>
+          <p class="text-sm text-vkc-gray mb-2">
+            VKC Systems is {euci.label}.
+            <a
+              href={euci.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="font-semibold text-vkc-red-dark underline underline-offset-2 hover:text-vkc-dark"
+            >{euci.linkLabel}<span class="sr-only"> (mta.info, opens in a new tab)</span></a>
           </p>
           <p class="text-sm font-medium text-vkc-red mb-8">
             Typical Response Time: Within 1 Business Day
