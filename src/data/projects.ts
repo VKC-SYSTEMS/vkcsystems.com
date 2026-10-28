@@ -67,7 +67,6 @@ export const featuredProjects: FeaturedProject[] = [
     name: 'Design-Build Replacement of 21 Escalators at 6 Stations Systemwide',
     image: '/projects/e-30647.jpg',
     imageAlt: 'Subway station escalator and stairway',
-    imageLabel: 'Representative image',
     services: [
       'Network, VoIP, and UPS power plant integration throughout 6 stations',
       'Network infrastructure for monitoring systems',
@@ -85,7 +84,6 @@ export const featuredProjects: FeaturedProject[] = [
     name: 'Rehabilitation of Concourse Yard Substation',
     image: '/projects/p-36727.jpg',
     imageAlt: 'Subway cars parked in a rail yard',
-    imageLabel: 'Representative image',
     services: [
       'Pre-cutover and post-cutover network testing',
       'Communication risers (logical), wiring diagrams and cable certifications',
