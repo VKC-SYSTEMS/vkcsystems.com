@@ -24,8 +24,7 @@ export const featuredProjects: FeaturedProject[] = [
     agency: 'TBTA',
     name: 'Design-Build Replacement of Facility Monitoring and Safety Systems at the Hugh L. Carey Tunnel (HLCT) and Queens Midtown Tunnel (QMT)',
     image: '/projects/aw-73-cabinet.jpg',
-    imageAlt: 'Communication cabinet with Cisco industrial network switches, Comnet power supplies, fiber media converters, and labeled terminal blocks, digitally enhanced to show wire-duct covers',
-    imageLabel: 'Digitally enhanced to illustrate wire-duct covers.',
+    imageAlt: 'Communication cabinet with Cisco industrial network switches, Comnet power supplies, fiber media converters, labeled terminal blocks, and wire-duct covers',
     homeCard: {
       title: 'Hugh L. Carey & Queens Midtown Tunnels',
       role: 'Network and CCTV integration across 10 buildings, tolling areas, and tunnel interiors, with enclosure fabrication and FAT/SAT documentation.',
