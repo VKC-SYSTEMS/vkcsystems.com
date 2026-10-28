@@ -39,7 +39,7 @@ const faqs = [
   },
   {
     question: "Is VKC Systems a certified MBE/DBE contractor?",
-    answer: "Yes. VKC Systems is a certified Minority Business Enterprise (MBE) and Disadvantaged Business Enterprise (DBE), and qualifies for MTA's Enhanced Utilization Credit Initiative (EUCI) Pilot Program. Credentials held by members of our team include BICSI RCDD, AVIXA CTS-I, Cisco CCNA and CCNP, CompTIA Network+, CSPM, OSHA 30, and Track Safety Training.",
+    answer: "Yes. VKC Systems is a certified Minority Business Enterprise (MBE) and Disadvantaged Business Enterprise (DBE), and qualifies for MTA's Enhanced Utilization Credit Initiative (EUCI) Pilot Program. Credentials held by members of our team include BICSI RCDD, AVIXA CTS and CTS-I, FOA CFOT, PMI PMP, Cisco CCNA and CCNP, CompTIA Network+, CSPM, OSHA 30, Track Safety Training, and SWAC.",
   },
   {
     question: "What public-sector agencies has VKC Systems worked with?",
@@ -334,7 +334,7 @@ const faqs = [
           {teamCredentials.map((credential) => (
             <li class="rounded border border-white/15 px-3 py-1.5 text-sm text-zinc-100">
               {credential.name}
-              {credential.title && <span class="block text-xs text-zinc-300">{credential.title}</span>}
+              {credential.about && <span class="block text-xs text-zinc-300">{credential.title}</span>}
             </li>
           ))}
         </ul>

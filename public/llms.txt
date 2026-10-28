@@ -44,12 +44,16 @@ Details: https://vkcsystems.com/qualifications
 Held by members of the VKC team:
 
 - BICSI RCDD (Registered Communications Distribution Designer)
+- AVIXA CTS (Certified Technology Specialist)
 - AVIXA CTS-I (Certified Technology Specialist - Installation)
+- FOA CFOT (Certified Fiber Optic Technician)
+- PMI PMP (Project Management Professional)
 - Cisco CCNA / CCNP
 - CompTIA Network+
 - CSPM
 - OSHA 30
 - Track Safety Training
+- SWAC
 
 ## Contact
 

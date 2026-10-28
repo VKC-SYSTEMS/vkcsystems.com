@@ -37,6 +37,7 @@ export const teamCredentials: TeamCredential[] = [
     about:
       'BICSI’s design credential for professionals who plan, design, and coordinate telecommunications distribution systems: pathways, spaces, and structured cabling infrastructure, designed to codes, standards, and best practices.',
   },
+  { name: 'AVIXA CTS', title: 'Certified Technology Specialist' },
   {
     name: 'AVIXA CTS-I',
     title: 'Certified Technology Specialist – Installation',
@@ -44,10 +45,13 @@ export const teamCredentials: TeamCredential[] = [
     about:
       'AVIXA’s audiovisual installation credential, covering the installation lifecycle: reviewing project documentation and site readiness, mounting racks and equipment, terminating cable, configuring and testing systems, and closeout.',
   },
+  { name: 'FOA CFOT', title: 'Certified Fiber Optic Technician' },
+  { name: 'PMI PMP', title: 'Project Management Professional' },
   { name: 'Cisco CCNA' },
   { name: 'Cisco CCNP' },
   { name: 'CompTIA Network+' },
   { name: 'CSPM' },
   { name: 'OSHA 30' },
   { name: 'Track Safety Training' },
+  { name: 'SWAC' },
 ];

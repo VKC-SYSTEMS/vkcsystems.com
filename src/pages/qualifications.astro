@@ -28,7 +28,8 @@ const otherCredentials = teamCredentials.filter((credential) => !credential.abou
       <p class="mt-5 max-w-2xl text-lg leading-relaxed text-zinc-300">
         VKC Systems holds MBE/DBE certification and qualifies for MTA’s EUCI Pilot Program.
         Members of our team hold professional credentials in communications infrastructure
-        design, audiovisual installation, networking, and field safety.
+        design, audiovisual systems, fiber optics, networking, project management, and field
+        safety.
       </p>
     </div>
   </section>
@@ -107,7 +108,10 @@ const otherCredentials = teamCredentials.filter((credential) => !credential.abou
       <h3 class="mt-12 text-sm font-semibold tracking-widest text-zinc-700 uppercase">Additional team credentials</h3>
       <ul class="mt-4 flex flex-wrap gap-2">
         {otherCredentials.map((credential) => (
-          <li class="rounded border border-zinc-300 bg-white px-3 py-1.5 text-sm text-zinc-900">{credential.name}</li>
+          <li class="rounded border border-zinc-300 bg-white px-3 py-1.5 text-sm text-zinc-900">
+            {credential.name}
+            {credential.title && <span class="block text-xs text-zinc-700">{credential.title}</span>}
+          </li>
         ))}
       </ul>
     </div>

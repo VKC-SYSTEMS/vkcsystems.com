@@ -19,7 +19,7 @@ const relevant = teamCredentials.filter((credential) => credentials.includes(cre
       {relevant.map((credential, index) => (
         <>
           {index > 0 && ", "}
-          {credential.name} ({credential.title})
+          {credential.name}{credential.title && ` (${credential.title})`}
         </>
       ))}
     </p>
