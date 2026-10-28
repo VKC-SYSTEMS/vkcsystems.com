@@ -2,7 +2,7 @@
 // Grouped into capability groups by data/capabilities.ts.
 import networkingIcon from '../assets/networking-fiber-distribution-panel-icon.png';
 import cctvIcon from '../assets/cctv-dome-camera-icon.png';
-import publicAddressIcon from '../assets/public-address-icon.png';
+import publicAddressIcon from '../assets/public-address-amplifier-stack-icon.png';
 import accessControlIcon from '../assets/access-control-icon.png';
 import commCabinetsIcon from '../assets/comm-cabinets-icon.png';
 import caddIcon from '../assets/cadd-icon.png';
