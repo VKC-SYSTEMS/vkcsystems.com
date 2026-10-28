@@ -192,6 +192,8 @@ const statusMessages: Record<string, string> = {
               ></textarea>
             </div>
             <input type="hidden" name="project_type" id="project-type-combined" value="" />
+            <!-- Referral source for this visit (set by /contact-form.js); no personal data -->
+            <input type="hidden" name="source" id="inquiry-source" value="" />
             <div class="cf-turnstile" data-sitekey={turnstileSiteKey} data-theme="light"></div>
             <button
               type="submit"
@@ -202,14 +204,7 @@ const statusMessages: Record<string, string> = {
           </form>
           <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
           <!-- ?v= busts the year-long immutable cache set for .js in vercel.json -->
-          <script src="/contact-form.js?v=2" defer></script>
-          <script>
-            import { track } from '@vercel/analytics';
-            document.querySelector('form')?.addEventListener('submit', () => {
-              const types = Array.from(document.querySelectorAll('[data-project-type]:checked')).map((el) => (el as HTMLInputElement).value);
-              track('contact_form_submit', { projectTypes: types.join(', ') || 'None selected' });
-            });
-          </script>
+          <script src="/contact-form.js?v=3" defer></script>
         </div>
 
         <!-- Google Maps Embed -->
