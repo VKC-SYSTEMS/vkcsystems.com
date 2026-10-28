@@ -1,13 +1,13 @@
 // Solution pages: title, description, and sub-services as shown on /solutions.
 // Grouped into capability groups by data/capabilities.ts.
-import networkingIcon from '../assets/networking-icon.png';
-import cctvIcon from '../assets/cctv-icon.png';
-import publicAddressIcon from '../assets/public-address-icon.png';
+import networkingIcon from '../assets/networking-fiber-distribution-panel-icon.png';
+import cctvIcon from '../assets/cctv-dome-camera-icon.png';
+import publicAddressIcon from '../assets/public-address-amplifier-stack-icon.png';
 import accessControlIcon from '../assets/access-control-icon.png';
 import commCabinetsIcon from '../assets/comm-cabinets-icon.png';
 import caddIcon from '../assets/cadd-icon.png';
 import voipIcon from '../assets/voip-icon.png';
-import officeItIcon from '../assets/office-it-icon.png';
+import officeItIcon from '../assets/office-it-server-rack-icon.png';
 
 
 export interface Solution {

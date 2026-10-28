@@ -67,7 +67,6 @@ export const featuredProjects: FeaturedProject[] = [
     name: 'Design-Build Replacement of 21 Escalators at 6 Stations Systemwide',
     image: '/projects/e-30647.jpg',
     imageAlt: 'Subway station escalator and stairway',
-    imageLabel: 'Representative image',
     services: [
       'Network, VoIP, and UPS power plant integration throughout 6 stations',
       'Network infrastructure for monitoring systems',
@@ -85,7 +84,6 @@ export const featuredProjects: FeaturedProject[] = [
     name: 'Rehabilitation of Concourse Yard Substation',
     image: '/projects/p-36727.jpg',
     imageAlt: 'Subway cars parked in a rail yard',
-    imageLabel: 'Representative image',
     services: [
       'Pre-cutover and post-cutover network testing',
       'Communication risers (logical), wiring diagrams and cable certifications',
@@ -101,9 +99,8 @@ export const featuredProjects: FeaturedProject[] = [
     id: 'NJT',
     agency: 'NJ Transit',
     name: 'Raritan River Bridge Replacement',
-    image: '/projects/njt-raritan.jpg',
-    imageAlt: 'Rendering of a lift bridge over a river with a train crossing',
-    imageLabel: 'Project rendering',
+    image: '/projects/njt-raritan-bridge-lift-towers.jpg',
+    imageAlt: 'Rendering of a vertical-lift rail bridge with two towers and steel truss spans over open water',
     homeCard: {
       title: 'Raritan River Bridge Replacement',
       role: 'Communication system design, network installation, and testing, coordinated with the general contractor.',
