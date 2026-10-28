@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { euci } from "../data/qualifications";
 
 const projectTypes = [
   'Network Infrastructure',
@@ -7,6 +8,8 @@ const projectTypes = [
   'Access Control',
   'Public Address / Intercom',
   'Communication Cabinets',
+  'Testing & Commissioning',
+  'CADD & Closeout Documentation',
   'IT Infrastructure',
   'Other',
 ];
@@ -19,13 +22,13 @@ const whyVkc = [
 ];
 
 const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? '';
-const status = Astro.url.searchParams.get('status');
+// /api/contact redirects back with ?status=…; this page is prerendered, so the
+// matching message is revealed by /contact-form.js (external for the CSP).
 const statusMessages: Record<string, string> = {
   invalid: 'Some fields were missing or invalid. Please review and submit again.',
   bot: 'Bot verification failed. Please refresh the page and try again.',
   error: 'We could not send your message. Please try again, or email info@vkcsystems.com directly.',
 };
-const errorMessage = status ? statusMessages[status] : null;
 ---
 
 <BaseLayout
@@ -40,7 +43,7 @@ const errorMessage = status ? statusMessages[status] : null;
       <div class="absolute bottom-0 left-0 h-96 w-96 rounded-full bg-vkc-red/5 blur-3xl"></div>
     </div>
     <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-      <p class="mb-4 text-sm font-semibold uppercase tracking-widest text-vkc-red">Contact</p>
+      <p class="mb-4 text-sm font-semibold uppercase tracking-widest text-vkc-red-light">Contact</p>
       <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
         Let's Discuss Your Infrastructure Project
       </h1>
@@ -56,22 +59,37 @@ const errorMessage = status ? statusMessages[status] : null;
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
         <!-- Contact Form -->
-        <div>
+        <div id="bid" class="scroll-mt-24">
           <h2 class="text-3xl font-bold text-vkc-dark mb-2">Project Inquiry</h2>
           <p class="text-vkc-gray mb-2">
             Tell us about your project and we'll get back to you with a tailored response.
           </p>
+          <p class="text-vkc-gray mb-2">
+            <span class="font-semibold text-vkc-dark">Inviting VKC to bid?</span> Include the project
+            name, owner, bid date, and where to find plans and specs in the project description.
+          </p>
+          <p class="text-sm text-vkc-gray mb-2">
+            VKC Systems is {euci.label}.
+            <a
+              href={euci.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="font-semibold text-vkc-red-dark underline underline-offset-2 hover:text-vkc-dark"
+            >{euci.linkLabel}<span class="sr-only"> (mta.info, opens in a new tab)</span></a>
+          </p>
           <p class="text-sm font-medium text-vkc-red mb-8">
             Typical Response Time: Within 1 Business Day
           </p>
-          {errorMessage && (
+          {Object.entries(statusMessages).map(([key, message]) => (
             <div
               role="alert"
+              data-status-message={key}
+              hidden
               class="mb-6 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800"
             >
-              {errorMessage}
+              {message}
             </div>
-          )}
+          ))}
           <form action="/api/contact" method="POST" class="space-y-6">
             <input type="text" name="_honey" class="sr-only" tabindex="-1" autocomplete="off" aria-hidden="true">
             <div>
@@ -183,7 +201,8 @@ const errorMessage = status ? statusMessages[status] : null;
             </button>
           </form>
           <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-          <script src="/contact-form.js" defer></script>
+          <!-- ?v= busts the year-long immutable cache set for .js in vercel.json -->
+          <script src="/contact-form.js?v=2" defer></script>
           <script>
             import { track } from '@vercel/analytics';
             document.querySelector('form')?.addEventListener('submit', () => {
@@ -220,7 +239,7 @@ const errorMessage = status ? statusMessages[status] : null;
   <section class="bg-vkc-light py-16 md:py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-3xl text-center">
-        <p class="text-sm font-semibold uppercase tracking-widest text-vkc-red">Why VKC</p>
+        <p class="text-sm font-semibold uppercase tracking-widest text-vkc-red-dark">Why VKC</p>
         <h2 class="mt-3 text-2xl font-bold tracking-tight text-vkc-dark sm:text-3xl">
           Why Work With VKC Systems
         </h2>

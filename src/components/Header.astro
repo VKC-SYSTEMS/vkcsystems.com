@@ -28,7 +28,7 @@ function isActive(href: string): boolean {
       </a>
 
       <!-- Desktop Nav -->
-      <nav class="hidden items-center gap-1 md:flex" aria-label="Primary navigation">
+      <nav class="hidden items-center gap-1 lg:flex" aria-label="Primary navigation">
         {navLinks.map((link) => (
           <a
             href={link.href}
@@ -46,17 +46,17 @@ function isActive(href: string): boolean {
           </a>
         ))}
         <a
-          href="/contact"
-          class="ml-4 inline-flex items-center rounded-lg bg-vkc-red px-5 py-2.5 text-sm font-semibold text-white transition-colors duration-200 hover:bg-vkc-red-dark"
+          href="/contact#bid"
+          class="ml-4 inline-flex items-center whitespace-nowrap rounded-lg bg-vkc-red px-5 py-2.5 text-sm font-semibold text-white transition-colors duration-200 hover:bg-vkc-red-dark"
         >
-          Request a Consultation
+          Invite VKC to Bid
         </a>
       </nav>
 
       <!-- Mobile Hamburger -->
       <button
         id="menu-toggle"
-        class="relative z-[60] flex h-10 w-10 items-center justify-center rounded-lg text-vkc-dark transition-colors hover:bg-gray-100 md:hidden"
+        class="relative z-[60] flex h-10 w-10 items-center justify-center rounded-lg text-vkc-dark transition-colors hover:bg-gray-100 lg:hidden"
         aria-label="Toggle menu"
         aria-expanded="false"
       >
@@ -72,7 +72,7 @@ function isActive(href: string): boolean {
   <!-- Mobile Slide-out Menu -->
   <div
     id="mobile-menu"
-    class="fixed inset-0 z-40 translate-x-full transition-transform duration-300 ease-in-out md:hidden"
+    class="fixed inset-0 z-40 translate-x-full transition-transform duration-300 ease-in-out lg:hidden"
   >
     <!-- Overlay -->
     <div id="menu-overlay" class="absolute inset-0 bg-black/50 opacity-0 transition-opacity duration-300"></div>
@@ -94,10 +94,10 @@ function isActive(href: string): boolean {
           </a>
         ))}
         <a
-          href="/contact"
+          href="/contact#bid"
           class="mt-4 inline-flex items-center justify-center rounded-lg bg-vkc-red px-5 py-3 text-base font-semibold text-white transition-colors duration-200 hover:bg-vkc-red-dark"
         >
-          Request a Consultation
+          Invite VKC to Bid
         </a>
       </nav>
 

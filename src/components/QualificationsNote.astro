@@ -1,0 +1,33 @@
+---
+// One-line pointer from a solution page to /qualifications, naming the team
+// credentials relevant to that work.
+import { qualificationsPath, teamCredentials } from "../data/qualifications";
+
+interface Props {
+  // Credential names from data/qualifications.ts, e.g. "BICSI RCDD"
+  credentials: string[];
+}
+
+const { credentials } = Astro.props;
+const relevant = teamCredentials.filter((credential) => credentials.includes(credential.name));
+---
+
+<section class="border-t border-zinc-200 bg-white">
+  <div class="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-8 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+    <p class="text-sm leading-relaxed text-vkc-gray">
+      <span class="font-semibold text-vkc-dark">Relevant team credentials:</span>
+      {relevant.map((credential, index) => (
+        <>
+          {index > 0 && ", "}
+          {credential.name}{credential.title && ` (${credential.title})`}
+        </>
+      ))}
+    </p>
+    <a
+      href={qualificationsPath}
+      class="shrink-0 text-sm font-semibold text-vkc-red-dark transition hover:text-vkc-dark"
+    >
+      VKC qualifications &rarr;
+    </a>
+  </div>
+</section>

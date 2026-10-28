@@ -7,9 +7,17 @@ echo "=== VKC Systems Build Smoke Test ==="
 echo "Building..."
 npm run build
 
+# The Vercel adapter writes static pages to dist/client
+DIST=dist/client
+[ -d "$DIST" ] || DIST=dist
+
 # Check all pages exist
 PAGES=(
   "index.html"
+  "404.html"
+  "careers/index.html"
+  "privacy/index.html"
+  "thank-you/index.html"
   "about/index.html"
   "contact/index.html"
   "projects/index.html"
@@ -26,12 +34,12 @@ PAGES=(
 
 echo "Checking pages..."
 for page in "${PAGES[@]}"; do
-  test -f "dist/$page" || { echo "FAIL: $page missing"; exit 1; }
+  test -f "$DIST/$page" || { echo "FAIL: $page missing"; exit 1; }
   echo "  OK: $page"
 done
 
 # Sitemap
-test -f "dist/sitemap-index.xml" || { echo "FAIL: sitemap missing"; exit 1; }
+test -f "$DIST/sitemap-index.xml" || { echo "FAIL: sitemap missing"; exit 1; }
 echo "  OK: sitemap-index.xml"
 
 # No source maps in production
@@ -41,6 +49,18 @@ if [ "$MAP_COUNT" -ne "0" ]; then
   exit 1
 fi
 echo "  OK: no source maps"
+
+# Production assets that must keep their URLs
+ASSETS=(
+  "VKC-Systems-Infrastructure-Capabilities-Statement.pdf"
+  "fonts/inter-400.woff2"
+  "fonts/inter-700.woff2"
+  "fonts/LICENSE.txt"
+)
+for asset in "${ASSETS[@]}"; do
+  test -f "$DIST/$asset" || { echo "FAIL: $asset missing"; exit 1; }
+  echo "  OK: $asset"
+done
 
 echo ""
 echo "All smoke tests passed"

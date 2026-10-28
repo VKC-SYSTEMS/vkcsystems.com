@@ -1,125 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const featuredProjects = [
-  {
-    id: 'AW-73',
-    agency: 'TBTA',
-    name: 'Design-Build Replacement of Facility Monitoring and Safety Systems at the Hugh L. Carey Tunnel (HLCT) and Queens Midtown Tunnel (QMT)',
-    image: '/projects/aw-73.jpg',
-    services: [
-      'Network and CCTV integration throughout 10 buildings, tolling areas, tunnel plazas, and inside QMT and HLCT',
-      'Facility monitoring system design and integration',
-      'Network infrastructure for monitoring systems',
-      'Network and access control enclosure fabrication',
-      'Communication risers (logical), wiring and layout diagrams',
-      'Field and camera field-of-view surveys for installation plans and drawings',
-      'FAT/SAT procedures and reports',
-      'Operations and maintenance manuals for network systems',
-    ],
-  },
-  {
-    id: 'P-36719',
-    agency: 'NYCT',
-    name: '82nd Road Substation Renewal, 13th Street Substation Renewal, and High-Tension Switchgear Replacement',
-    image: '/projects/p-36719.jpg',
-    services: [
-      'Custom data cabinet fabrication per location',
-      'Communication risers (logical), wiring diagrams and cable certifications',
-      'Technical expertise for field testing and communication drawing sign-off',
-      'Field surveys for installation plans and drawings',
-      'Integration of new devices into existing network systems',
-      'Fiber/copper testing procedures and reports',
-      'FAT/SAT procedures and reports',
-      'OEM manual for network systems',
-    ],
-  },
-  {
-    id: 'E-30647',
-    agency: 'NYCT',
-    name: 'Design-Build Replacement of 21 Escalators at 6 Stations Systemwide',
-    image: '/projects/e-30647.jpg',
-    services: [
-      'Network, VoIP, and UPS power plant integration throughout 6 stations',
-      'Network infrastructure for monitoring systems',
-      'Communication risers (logical), wiring and layout diagrams',
-      'Field surveys for installation plans and drawings',
-      'Fiber optic splicing and certification',
-      'CAT6 certification',
-      'FAT/SAT/SIT procedures and reports',
-      'Operations and maintenance manuals for network systems',
-    ],
-  },
-  {
-    id: 'P-36727',
-    agency: 'NYCT',
-    name: 'Rehabilitation of Concourse Yard Substation',
-    image: '/projects/p-36727.jpg',
-    services: [
-      'Pre-cutover and post-cutover network testing',
-      'Communication risers (logical), wiring diagrams and cable certifications',
-      'Technical expertise for field testing and communication drawing sign-off',
-      'Field surveys for installation plans and drawings',
-      'Integration of new devices into existing network systems',
-      'Fiber/copper testing procedures and reports',
-      'FAT/SAT procedures and reports',
-      'OEM manual for network systems',
-    ],
-  },
-  {
-    id: 'NJT',
-    agency: 'NJ Transit',
-    name: 'Raritan River Bridge Replacement',
-    image: '/projects/njt-raritan.jpg',
-    services: [
-      'Communication system design and integration',
-      'Network infrastructure installation',
-      'Communication risers (logical), wiring diagrams and cable certifications',
-      'Field surveys and coordination with general contractor',
-      'Fiber/copper testing procedures and reports',
-      'FAT/SAT procedures and reports',
-    ],
-  },
-];
-
-const otherCurrentProjects = [
-  { agency: 'DOC', id: 'BBJ', name: 'BBJ Queens Phase 1' },
-  { agency: 'NYCT', id: 'C-43058', name: 'Communication Room Upgrade' },
-  { agency: 'NYCT', id: 'C-52169', name: 'PIDS Bushwick Ave & Atlantic Ave' },
-  { agency: 'NYCT', id: 'C-52180', name: 'PIDS St. Lawrence' },
-  { agency: 'NYCT', id: 'C-52181', name: 'PIDS Longwood, E143 Street, Cypress Avenue' },
-  { agency: 'NYCT', id: 'E-30641', name: 'Replacement of 17 Escalators at 6 Stations Systemwide' },
-  { agency: 'NYCT', id: 'E-30645', name: 'Design-Build Services For Replacement of 6 Escalators at 2 Stations' },
-  { agency: 'TBTA', id: 'HC-48', name: 'Rehabilitation of HLCT Manhattan Plaza' },
-  { agency: 'Port Authority', id: 'JFK', name: 'JFK GTC Garage PS' },
-  { agency: 'LIRR', id: 'MS-21001', name: 'Grand Central Madison' },
-  { agency: 'NYCT', id: 'P-36317', name: 'Construction of New West 28th Street Substation' },
-  { agency: 'NYCT', id: 'P-36708', name: 'Construction of New Canal Street Substation on the 8th Avenue Line' },
-  { agency: 'NYC DEP', id: 'PS-236A', name: 'Throgs Neck Pumping Station' },
-  { agency: 'NYC DEP', id: 'PS-276', name: 'Hannah St CCTV' },
-  { agency: 'NYC DEP', id: 'PS-317', name: 'Victory Blvd Pump Station Rehab' },
-  { agency: 'NYCT', id: 'R-50769', name: 'Installation of 2 Elevators at 57th Street' },
-  { agency: 'NYCT', id: 'S-48010', name: 'QBL East CBTC' },
-];
-
-const previousProjectsLeft = [
-  { agency: 'LIRR', name: 'LIRR 6240 3rd Track - 5 Stations' },
-  { agency: 'NYCT', name: 'A-37150D - Livonia' },
-  { agency: 'NYCT', name: 'E-34025R - Elevators GCT' },
-  { agency: 'NYCT', name: 'C-43751 - Power and HVAC Upgrade at PCC RCC' },
-  { agency: 'NYCT', name: 'P-36444 - Rutgers Tube Rehabilitation' },
-  { agency: 'TBTA', name: 'QM-81 - Rehabilitation of Tunnel Controls and Communications at QMT and HCT' },
-  { agency: 'TBTA', name: 'QM-36 - Relocation of QMT Refueling Station and QSB Switchgear' },
-];
-
-const previousProjectsRight = [
-  { agency: 'LIRR', name: 'CS-179 - East Side Access' },
-  { agency: 'NYCT', name: 'S-33932 - Life Cycle Replacement Code System Phase I' },
-  { agency: 'NYCT', name: 'E-30512 - Replace Escalators' },
-  { agency: 'LIRR', name: 'LIRR - 3rd Track Temporary WiFi' },
-  { agency: 'NYCT', name: 'P-80692 - Tottenville Substation' },
-  { agency: 'Metro-North', name: 'MNR 58050 - CSI Package' },
-];
+import {
+  featuredProjects,
+  otherCurrentProjects,
+  previousProjectsLeft,
+  previousProjectsRight,
+  projectAnchor,
+} from '../data/projects';
 ---
 
 <BaseLayout
@@ -134,7 +22,7 @@ const previousProjectsRight = [
       <div class="absolute bottom-0 right-1/4 h-96 w-96 rounded-full bg-vkc-red/5 blur-3xl"></div>
     </div>
     <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-      <p class="mb-4 text-sm font-semibold uppercase tracking-widest text-vkc-red">Our Work</p>
+      <p class="mb-4 text-sm font-semibold uppercase tracking-widest text-vkc-red-light">Our Work</p>
       <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
         Our Projects
       </h1>
@@ -152,13 +40,18 @@ const previousProjectsRight = [
         <h2 class="text-3xl font-extrabold tracking-tight text-vkc-dark sm:text-4xl">
           Major Active Projects
         </h2>
+        <p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-vkc-gray">
+          Project names and contract numbers describe the overall project. The list under each
+          project is VKC&rsquo;s scope of work.
+        </p>
       </div>
 
       <div class="space-y-16">
         {featuredProjects.map((project, index) => (
-          <div
+          <article
+            id={projectAnchor(project.id)}
             class:list={[
-              'flex flex-col gap-8 rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition-shadow duration-300 hover:shadow-lg lg:flex-row lg:items-stretch lg:p-0 lg:overflow-hidden',
+              'scroll-mt-24 flex flex-col gap-8 rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition-shadow duration-300 hover:shadow-lg lg:flex-row lg:items-stretch lg:p-0 lg:overflow-hidden',
               index % 2 !== 0 && 'lg:flex-row-reverse',
             ]}
           >
@@ -167,16 +60,21 @@ const previousProjectsRight = [
               {project.image ? (
                 <div
                   class:list={[
-                    'h-64 overflow-hidden rounded-xl lg:h-full lg:min-h-[320px] lg:rounded-none',
+                    'relative h-64 overflow-hidden rounded-xl lg:h-full lg:min-h-[320px] lg:rounded-none',
                     index % 2 === 0 ? 'lg:rounded-l-2xl' : 'lg:rounded-r-2xl',
                   ]}
                 >
                   <img
                     src={project.image}
-                    alt={project.name}
-                    class="h-full w-full object-cover"
+                    alt={project.imageAlt}
+                    class="h-full w-full object-cover lg:absolute lg:inset-0"
                     loading="lazy"
                   />
+                  {project.imageLabel && (
+                    <span class="absolute bottom-3 left-3 rounded bg-black/75 px-2 py-1 text-xs font-medium text-white">
+                      {project.imageLabel}
+                    </span>
+                  )}
                 </div>
               ) : (
                 <div
@@ -208,13 +106,14 @@ const previousProjectsRight = [
             {/* Content */}
             <div class="flex flex-1 flex-col justify-center lg:p-10">
               <div class="mb-3">
-                <span class="inline-block rounded-full bg-vkc-red/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-vkc-red">
+                <span class="inline-block rounded-full bg-vkc-red/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-vkc-red-dark">
                   {project.agency} {project.id}
                 </span>
               </div>
               <h3 class="mb-5 text-xl font-bold leading-snug text-vkc-dark sm:text-2xl">
                 {project.name}
               </h3>
+              <p class="mb-3 text-xs font-semibold uppercase tracking-wider text-vkc-gray">VKC scope</p>
               <ul class="space-y-2.5">
                 {project.services.map((service) => (
                   <li class="flex items-start gap-3 text-sm leading-relaxed text-vkc-gray sm:text-base">
@@ -232,7 +131,7 @@ const previousProjectsRight = [
                 ))}
               </ul>
             </div>
-          </div>
+          </article>
         ))}
       </div>
     </div>
@@ -242,7 +141,7 @@ const previousProjectsRight = [
   <section class="bg-vkc-light py-20 sm:py-28">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mb-16 text-center">
-        <p class="mb-2 text-sm font-semibold uppercase tracking-widest text-vkc-red">Active</p>
+        <p class="mb-2 text-sm font-semibold uppercase tracking-widest text-vkc-red-dark">Active</p>
         <h2 class="text-3xl font-extrabold tracking-tight text-vkc-dark sm:text-4xl">
           Additional Current Projects
         </h2>
@@ -263,7 +162,7 @@ const previousProjectsRight = [
               </svg>
             </div>
             <div>
-              <span class="mb-1 inline-block text-xs font-bold uppercase tracking-wider text-vkc-red">{project.agency} {project.id}</span>
+              <span class="mb-1 inline-block text-xs font-bold uppercase tracking-wider text-vkc-red-dark">{project.agency} {project.id}</span>
               <p class="text-sm font-medium text-vkc-dark sm:text-base">{project.name}</p>
             </div>
           </div>
