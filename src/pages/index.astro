@@ -344,11 +344,13 @@ const faqs = [
           <h3 class="text-xs font-semibold tracking-widest text-zinc-300 uppercase">Team Credentials</h3>
           <p class="text-sm text-zinc-300">Held by members of the VKC team.</p>
         </div>
-        <div class="mt-6 grid gap-6 md:grid-cols-3 md:gap-8">
+        <!-- Each group spans two rows of a shared grid (subgrid) so wrapped
+             headings keep all three badge lists starting at the same height -->
+        <div class="mt-6 grid gap-6 md:grid-cols-3 md:grid-rows-[auto_auto] md:gap-x-8 md:gap-y-3">
           {credentialGroups.map((group) => (
-            <div>
+            <div class="md:row-span-2 md:grid md:grid-rows-subgrid">
               <h4 class="text-sm font-semibold text-white">{group.label}</h4>
-              <ul class="mt-3 flex flex-wrap gap-2">
+              <ul class="mt-3 flex flex-wrap content-start gap-2 md:mt-0">
                 {teamCredentials.filter((credential) => credential.group === group.id).map((credential) => (
                   <li class="inline-flex items-center gap-2 rounded-md bg-white/[0.06] px-3 py-1.5 text-sm whitespace-nowrap text-zinc-100">
                     <span class="h-1.5 w-1.5 shrink-0 rounded-full bg-vkc-red" aria-hidden="true"></span>

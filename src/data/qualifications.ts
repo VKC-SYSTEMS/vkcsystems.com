@@ -19,12 +19,12 @@ export const euci = {
 
 export const qualificationsPath = '/qualifications';
 
-export type CredentialGroupId = 'design-av' | 'networking-it' | 'pm-site-access';
+export type CredentialGroupId = 'design-av' | 'network-comms' | 'pm-safety-access';
 
 export const credentialGroups: { id: CredentialGroupId; label: string }[] = [
-  { id: 'design-av', label: 'Design & AV' },
-  { id: 'networking-it', label: 'Networking & IT' },
-  { id: 'pm-site-access', label: 'Project Management & Site Access' },
+  { id: 'design-av', label: 'Systems Design & AV' },
+  { id: 'network-comms', label: 'Network & Communications Engineering' },
+  { id: 'pm-safety-access', label: 'Project Management, Safety & Site Access' },
 ];
 
 export interface TeamCredential {
@@ -37,7 +37,7 @@ export interface TeamCredential {
   about?: string;
   // Site-access credentials are listed apart from technical certifications
   kind?: 'technical' | 'site-access';
-  // Home page grouping; follows the capability statement's categories
+  // Home page grouping (approved arrangement)
   group: CredentialGroupId;
 }
 
@@ -63,17 +63,17 @@ export const teamCredentials: TeamCredential[] = [
     about:
       'AVIXA’s audiovisual installation credential, covering the installation lifecycle: reviewing project documentation and site readiness, mounting racks and equipment, terminating cable, configuring and testing systems, and closeout.',
   },
-  { name: 'PMI PMP', title: 'Project Management Professional', group: 'pm-site-access' },
-  { name: 'Cisco CCNA', group: 'networking-it' },
-  { name: 'Cisco CCNP', group: 'networking-it' },
-  { name: 'CompTIA Network+', group: 'networking-it' },
-  { name: 'CSPM', group: 'networking-it' },
-  { name: 'FOA CFOT', title: 'Certified Fiber Optic Technician', group: 'networking-it' },
-  { name: 'OSHA 30', group: 'pm-site-access' },
-  { name: 'Track Safety Training', group: 'pm-site-access' },
+  { name: 'PMI PMP', title: 'Project Management Professional', group: 'pm-safety-access' },
+  { name: 'Cisco CCNA', group: 'network-comms' },
+  { name: 'Cisco CCNP', group: 'network-comms' },
+  { name: 'CompTIA Network+', group: 'network-comms' },
+  { name: 'CSPM', group: 'pm-safety-access' },
+  { name: 'FOA CFOT', title: 'Certified Fiber Optic Technician', group: 'network-comms' },
+  { name: 'OSHA 30', group: 'pm-safety-access' },
+  { name: 'Track Safety Training', group: 'pm-safety-access' },
   {
     name: 'SWAC',
-    group: 'pm-site-access',
+    group: 'pm-safety-access',
     title: 'Secure Worker Access Consortium',
     kind: 'site-access',
     about:
