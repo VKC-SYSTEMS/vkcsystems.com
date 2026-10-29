@@ -1,4 +1,5 @@
 import type { APIRoute } from 'astro';
+import { track } from '@vercel/analytics/server';
 
 export const prerender = false;
 
@@ -56,6 +57,31 @@ function escapeHtml(s: string): string {
     .replace(/'/g, '&#39;');
 }
 
+// Referral source from the form's hidden field: a hostname, UTM tags, or "direct"
+function cleanSource(value: FormDataEntryValue | null): string {
+  return String(value ?? '').toLowerCase().replace(/[^a-z0-9./ _-]/g, '').trim().slice(0, 100) || 'unknown';
+}
+
+// Counts an inquiry for Vercel Web Analytics once Microsoft 365 has accepted
+// it. Two properties (the Pro plan limit) and no personal details. Analytics
+// must never delay the visitor for long or turn a delivered inquiry into an
+// error, so this waits at most 1.5 s and swallows failures.
+async function trackInquiryDelivered(request: Request, projectType: string, source: string): Promise<void> {
+  try {
+    const headers: Record<string, string> = {};
+    for (const key of ['user-agent', 'x-forwarded-for', 'referer']) {
+      const value = request.headers.get(key);
+      if (value) headers[key] = value;
+    }
+    await Promise.race([
+      track('inquiry_delivered', { projectType: (projectType || 'None selected').slice(0, 255), source }, { headers }),
+      new Promise((resolve) => setTimeout(resolve, 1500)),
+    ]);
+  } catch (err) {
+    console.error('Inquiry analytics failed:', err);
+  }
+}
+
 function redirectTo(request: Request, path: string): Response {
   const host = request.headers.get('x-forwarded-host') ?? request.headers.get('host') ?? 'vkcsystems.com';
   const proto = request.headers.get('x-forwarded-proto') ?? 'https';
@@ -84,6 +110,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
   const projectType = String(formData.get('project_type') ?? '').trim();
   const projectLocation = String(formData.get('project_location') ?? '').trim();
   const message = String(formData.get('message') ?? '').trim();
+  const source = cleanSource(formData.get('source'));
 
   const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (
@@ -188,6 +215,10 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
                 <td width="90" style="font-size:13px;color:#6b7280;padding:8px 0;font-family:${FONT};vertical-align:top;">Location</td>
                 <td style="font-size:14px;padding:8px 0;font-family:${FONT};color:#0a0a0a;">${projectLocation ? escapeHtml(projectLocation) : '<span style="color:#9ca3af;font-style:italic;">Not provided</span>'}</td>
               </tr>
+              <tr>
+                <td width="90" style="font-size:13px;color:#6b7280;padding:8px 0;font-family:${FONT};vertical-align:top;">Source</td>
+                <td style="font-size:14px;padding:8px 0;font-family:${FONT};color:#0a0a0a;">${escapeHtml(source)}</td>
+              </tr>
             </table>
           </td>
         </tr>
@@ -261,6 +292,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
       return redirectTo(request, '/contact?status=error');
     }
 
+    await trackInquiryDelivered(request, projectType, source);
     return redirectTo(request, '/thank-you');
   } catch (err) {
     console.error('Contact form error:', err);

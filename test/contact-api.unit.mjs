@@ -4,6 +4,9 @@
 // request goes through a mocked fetch, so no email is sent and Turnstile /
 // Microsoft Graph are never contacted. Any unexpected URL fails the test.
 //
+// Analytics: VERCEL_URL points @vercel/analytics/server at a fake host, so
+// the inquiry_delivered event is captured by the same mocked fetch.
+//
 // Run: npm run test:contact-api (named .unit.mjs so Playwright does not collect it)
 import { test, beforeEach } from 'node:test';
 import assert from 'node:assert/strict';
@@ -17,6 +20,9 @@ const FAKE_ENV = {
   M365_SENDER_USER_ID: 'sender@test.invalid',
   TURNSTILE_SECRET_KEY: 'test-turnstile-secret',
 };
+
+const ANALYTICS_URL = 'https://analytics.test.invalid/_vercel/insights/event';
+process.env.VERCEL_URL = 'analytics.test.invalid';
 
 const entry = fileURLToPath(new URL('../src/pages/api/contact.ts', import.meta.url));
 const { outputFiles } = await build({
@@ -34,16 +40,18 @@ const { POST, GET } = await import(
 let calls;
 let turnstileSuccess;
 let sendMailStatus;
+let analyticsMode;
 
 beforeEach(() => {
   calls = [];
   turnstileSuccess = true;
   sendMailStatus = 202;
+  analyticsMode = 'ok';
 });
 
 globalThis.fetch = async (url, init = {}) => {
   const u = String(url);
-  calls.push({ url: u, body: init.body });
+  calls.push({ url: u, body: init.body, headers: init.headers });
   if (u === 'https://challenges.cloudflare.com/turnstile/v0/siteverify') {
     return Response.json({ success: turnstileSuccess });
   }
@@ -52,6 +60,11 @@ globalThis.fetch = async (url, init = {}) => {
   }
   if (u.startsWith('https://graph.microsoft.com/v1.0/users/') && u.endsWith('/sendMail')) {
     return new Response(sendMailStatus < 300 ? null : 'mock failure', { status: sendMailStatus });
+  }
+  if (u === ANALYTICS_URL) {
+    if (analyticsMode === 'fail') throw new Error('analytics down');
+    if (analyticsMode === 'hang') return new Promise(() => {});
+    return new Response('ok');
   }
   throw new Error(`Unexpected outbound request in test: ${u}`);
 };
@@ -71,7 +84,13 @@ async function submit(fields) {
   const body = new URLSearchParams(fields);
   const request = new Request('https://vkcsystems.com/api/contact', {
     method: 'POST',
-    headers: { 'content-type': 'application/x-www-form-urlencoded', host: 'vkcsystems.com' },
+    headers: {
+      'content-type': 'application/x-www-form-urlencoded',
+      host: 'vkcsystems.com',
+      'user-agent': 'test-agent',
+      referer: 'https://vkcsystems.com/contact',
+      cookie: 'session=secret-cookie',
+    },
     body,
   });
   const res = await POST({ request, clientAddress: '203.0.113.5' });
@@ -79,6 +98,7 @@ async function submit(fields) {
 }
 
 const sendMailCalls = () => calls.filter((c) => c.url.endsWith('/sendMail'));
+const analyticsCalls = () => calls.filter((c) => c.url === ANALYTICS_URL);
 
 test('valid submission sends one mocked email and redirects to /thank-you', async () => {
   const res = await submit(VALID);
@@ -141,10 +161,64 @@ test('failed Turnstile verification is rejected without email', async () => {
   assert.equal(sendMailCalls().length, 0);
 });
 
-test('Graph send failure redirects to the error message', async () => {
+test('Graph send failure redirects to the error message and is not counted', async () => {
   sendMailStatus = 500;
   const res = await submit(VALID);
   assert.equal(res.location, '/contact?status=error');
+  assert.equal(analyticsCalls().length, 0);
+});
+
+test('failed Turnstile verification is not counted as an inquiry', async () => {
+  turnstileSuccess = false;
+  await submit(VALID);
+  assert.equal(analyticsCalls().length, 0);
+});
+
+test('delivered inquiry sends one inquiry_delivered event after the email, without personal data', async () => {
+  const res = await submit({ ...VALID, source: 'google.com' });
+  assert.equal(res.location, '/thank-you');
+  const events = analyticsCalls();
+  assert.equal(events.length, 1);
+  const sendIndex = calls.findIndex((c) => c.url.endsWith('/sendMail'));
+  assert.ok(calls.indexOf(events[0]) > sendIndex, 'event must follow the accepted sendMail');
+  const event = JSON.parse(events[0].body);
+  assert.equal(event.en, 'inquiry_delivered');
+  assert.deepEqual(event.ed, { projectType: VALID.project_type, source: 'google.com' });
+  // Nothing personal reaches analytics: not in the event, and no cookies forwarded
+  const raw = events[0].body;
+  for (const value of [VALID.name, VALID.company, VALID.email, VALID.phone, VALID.message, VALID.project_location]) {
+    assert.ok(!raw.includes(value), `analytics payload must not include "${value}"`);
+  }
+  assert.equal(events[0].headers.cookie, undefined);
+});
+
+test('inquiry with no project type or source is counted with placeholders', async () => {
+  await submit({ ...VALID, project_type: '' });
+  assert.deepEqual(JSON.parse(analyticsCalls()[0].body).ed, { projectType: 'None selected', source: 'unknown' });
+});
+
+test('referral source is sanitized and included in the email', async () => {
+  await submit({ ...VALID, source: 'LinkedIn / Social<script>' });
+  assert.equal(JSON.parse(analyticsCalls()[0].body).ed.source, 'linkedin / socialscript');
+  const html = JSON.parse(sendMailCalls()[0].body).message.body.content;
+  assert.match(html, />Source<\/td>/);
+  assert.match(html, /linkedin \/ socialscript/);
+});
+
+test('analytics failure never blocks a delivered inquiry', async () => {
+  analyticsMode = 'fail';
+  const res = await submit(VALID);
+  assert.equal(res.location, '/thank-you');
+  assert.equal(sendMailCalls().length, 1);
+});
+
+test('a hanging analytics endpoint delays the reply by at most about 1.5 s', async () => {
+  analyticsMode = 'hang';
+  const started = Date.now();
+  const res = await submit(VALID);
+  const elapsed = Date.now() - started;
+  assert.equal(res.location, '/thank-you');
+  assert.ok(elapsed < 2500, `took ${elapsed} ms`);
 });
 
 test('GET redirects to the contact page', async () => {
