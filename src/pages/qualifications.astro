@@ -2,7 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { companyCertifications, euci, isFeaturedCredential, teamCredentials } from "../data/qualifications";
 
-const capabilityStatementPdf = "/VKC-Systems-Infrastructure-Capabilities-Statement.pdf";
+const capabilityStatementPdf = "/VKC-Systems-Infrastructure-Capabilities-Statement.pdf?v=2026-10-29";
 const featuredCredentials = teamCredentials.filter(isFeaturedCredential);
 const siteAccessCredentials = teamCredentials.filter((credential) => credential.kind === 'site-access');
 const otherCredentials = teamCredentials.filter(
