@@ -14,7 +14,8 @@ import { capabilityGroups } from "../data/capabilities";
 import { featuredProjects, projectAnchor } from "../data/projects";
 import { euci, isFeaturedCredential, qualificationsPath, teamCredentials } from "../data/qualifications";
 
-const capabilityStatementPdf = "/VKC-Systems-Infrastructure-Capabilities-Statement.pdf";
+// ?v= makes browsers that cached an older statement fetch the current one
+const capabilityStatementPdf = "/VKC-Systems-Infrastructure-Capabilities-Statement.pdf?v=2026-10-29";
 const homeProjects = featuredProjects.filter((project) => project.homeCard);
 
 const agencies = [
