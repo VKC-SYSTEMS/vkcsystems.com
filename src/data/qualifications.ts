@@ -19,6 +19,14 @@ export const euci = {
 
 export const qualificationsPath = '/qualifications';
 
+export type CredentialGroupId = 'design-av' | 'networking-it' | 'pm-site-access';
+
+export const credentialGroups: { id: CredentialGroupId; label: string }[] = [
+  { id: 'design-av', label: 'Design & AV' },
+  { id: 'networking-it', label: 'Networking & IT' },
+  { id: 'pm-site-access', label: 'Project Management & Site Access' },
+];
+
 export interface TeamCredential {
   name: string;
   // Spelled-out title, where the short name needs one
@@ -29,6 +37,8 @@ export interface TeamCredential {
   about?: string;
   // Site-access credentials are listed apart from technical certifications
   kind?: 'technical' | 'site-access';
+  // Home page grouping; follows the capability statement's categories
+  group: CredentialGroupId;
 }
 
 /** Technical credentials described in full on /qualifications. */
@@ -38,29 +48,32 @@ export const isFeaturedCredential = (credential: TeamCredential) =>
 export const teamCredentials: TeamCredential[] = [
   {
     name: 'BICSI RCDD',
+    group: 'design-av',
     title: 'Registered Communications Distribution Designer',
     issuer: 'BICSI',
     about:
       'BICSI’s design credential for professionals who plan, design, and coordinate telecommunications distribution systems: pathways, spaces, and structured cabling infrastructure, designed to codes, standards, and best practices.',
   },
-  { name: 'AVIXA CTS', title: 'Certified Technology Specialist' },
+  { name: 'AVIXA CTS', title: 'Certified Technology Specialist', group: 'design-av' },
   {
     name: 'AVIXA CTS-I',
+    group: 'design-av',
     title: 'Certified Technology Specialist – Installation',
     issuer: 'AVIXA',
     about:
       'AVIXA’s audiovisual installation credential, covering the installation lifecycle: reviewing project documentation and site readiness, mounting racks and equipment, terminating cable, configuring and testing systems, and closeout.',
   },
-  { name: 'FOA CFOT', title: 'Certified Fiber Optic Technician' },
-  { name: 'PMI PMP', title: 'Project Management Professional' },
-  { name: 'Cisco CCNA' },
-  { name: 'Cisco CCNP' },
-  { name: 'CompTIA Network+' },
-  { name: 'CSPM' },
-  { name: 'OSHA 30' },
-  { name: 'Track Safety Training' },
+  { name: 'PMI PMP', title: 'Project Management Professional', group: 'pm-site-access' },
+  { name: 'Cisco CCNA', group: 'networking-it' },
+  { name: 'Cisco CCNP', group: 'networking-it' },
+  { name: 'CompTIA Network+', group: 'networking-it' },
+  { name: 'CSPM', group: 'networking-it' },
+  { name: 'FOA CFOT', title: 'Certified Fiber Optic Technician', group: 'networking-it' },
+  { name: 'OSHA 30', group: 'pm-site-access' },
+  { name: 'Track Safety Training', group: 'pm-site-access' },
   {
     name: 'SWAC',
+    group: 'pm-site-access',
     title: 'Secure Worker Access Consortium',
     kind: 'site-access',
     about:

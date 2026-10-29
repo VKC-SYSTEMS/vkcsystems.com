@@ -12,7 +12,7 @@ import logoPortAuthority from "../assets/logo-port-authority.png";
 import logoNycDep from "../assets/logo-nyc-dep.png";
 import { capabilityGroups } from "../data/capabilities";
 import { featuredProjects, projectAnchor } from "../data/projects";
-import { euci, isFeaturedCredential, qualificationsPath, teamCredentials } from "../data/qualifications";
+import { credentialGroups, euci, qualificationsPath, teamCredentials } from "../data/qualifications";
 
 const capabilityStatementPdf = "/VKC-Systems-Infrastructure-Capabilities-Statement.pdf";
 const homeProjects = featuredProjects.filter((project) => project.homeCard);
@@ -292,64 +292,80 @@ const faqs = [
   <!-- ============================================ -->
   <!--               QUALIFICATIONS                 -->
   <!-- ============================================ -->
-  <!-- Company qualifications and team credentials stay in separate columns:
-       the first belong to VKC, the second to individual team members. -->
+  <!-- Company qualifications (held by VKC) sit above team credentials (held by
+       individual team members), so the two are never read as one list. -->
   <section class="bg-vkc-dark py-14 text-white sm:py-16" aria-labelledby="qualifications-heading">
     <h2 id="qualifications-heading" class="sr-only">Qualifications</h2>
-    <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-12 lg:gap-12 lg:px-8">
-      <div class="lg:col-span-7">
-        <h3 class="text-xs font-semibold tracking-widest text-zinc-300 uppercase">Company qualifications</h3>
-        <dl class="mt-5 grid grid-cols-2 gap-6 sm:grid-cols-3">
-          <div class="border-l-2 border-vkc-red pl-4">
-            <dt class="text-xs font-semibold tracking-widest text-zinc-300 uppercase">Founded</dt>
-            <dd class="mt-1 text-2xl font-bold sm:text-3xl">2014</dd>
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid gap-8 lg:grid-cols-12 lg:gap-12">
+        <div class="lg:col-span-7">
+          <h3 class="text-xs font-semibold tracking-widest text-zinc-300 uppercase">Company qualifications</h3>
+          <dl class="mt-5 grid grid-cols-2 gap-6 sm:grid-cols-3">
+            <div class="border-l-2 border-vkc-red pl-4">
+              <dt class="text-xs font-semibold tracking-widest text-zinc-300 uppercase">Founded</dt>
+              <dd class="mt-1 text-2xl font-bold sm:text-3xl">2014</dd>
+            </div>
+            <div class="border-l-2 border-vkc-red pl-4">
+              <dt class="text-xs font-semibold tracking-widest text-zinc-300 uppercase">Certified</dt>
+              <dd class="mt-1 text-2xl font-bold sm:text-3xl">MBE/DBE</dd>
+            </div>
+            <div class="col-span-2 border-l-2 border-vkc-red pl-4 sm:col-span-1">
+              <dt class="text-xs font-semibold tracking-widest text-zinc-300 uppercase">Program</dt>
+              <dd class="mt-1 text-lg font-bold leading-tight sm:text-xl">{euci.label}</dd>
+            </div>
+          </dl>
+        </div>
+        <div class="lg:col-span-5 lg:pt-8">
+          <p class="text-sm leading-relaxed text-zinc-300">{euci.summary}</p>
+          <div class="mt-3 flex flex-wrap gap-x-6 gap-y-2">
+            <a
+              href={euci.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-1 text-sm font-semibold text-vkc-red-light underline-offset-4 transition hover:text-white hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+            >
+              {euci.linkLabel}<span class="sr-only"> (mta.info, opens in a new tab)</span> &rarr;
+            </a>
+            <a
+              data-track="qualifications band"
+              href={capabilityStatementPdf}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-1 text-sm font-semibold text-vkc-red-light underline-offset-4 transition hover:text-white hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+            >
+              Capability statement (PDF)<span class="sr-only">, opens in a new tab</span> &rarr;
+            </a>
           </div>
-          <div class="border-l-2 border-vkc-red pl-4">
-            <dt class="text-xs font-semibold tracking-widest text-zinc-300 uppercase">Certified</dt>
-            <dd class="mt-1 text-2xl font-bold sm:text-3xl">MBE/DBE</dd>
-          </div>
-          <div class="col-span-2 border-l-2 border-vkc-red pl-4 sm:col-span-1">
-            <dt class="text-xs font-semibold tracking-widest text-zinc-300 uppercase">Program</dt>
-            <dd class="mt-1 text-lg font-bold leading-tight sm:text-xl">{euci.label}</dd>
-          </div>
-        </dl>
-        <p class="mt-6 max-w-2xl text-sm leading-relaxed text-zinc-300">{euci.summary}</p>
-        <a
-          href={euci.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-vkc-red-light underline-offset-4 transition hover:text-white hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
-        >
-          {euci.linkLabel}<span class="sr-only"> (mta.info, opens in a new tab)</span> &rarr;
-        </a>
+        </div>
       </div>
-      <div class="border-t border-white/10 pt-8 lg:col-span-5 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-12">
-        <h3 class="text-xs font-semibold tracking-widest text-zinc-300 uppercase">Team Credentials</h3>
-        <p class="mt-2 text-sm text-zinc-300">Held by members of the VKC team.</p>
-        <ul class="mt-4 flex flex-wrap gap-2">
-          {teamCredentials.map((credential) => (
-            <li class="rounded border border-white/15 px-3 py-1.5 text-sm text-zinc-100">
-              {credential.name}
-              {isFeaturedCredential(credential) && <span class="block text-xs text-zinc-300">{credential.title}</span>}
-            </li>
+
+      <div class="mt-10 border-t border-white/10 pt-10">
+        <div class="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:gap-4">
+          <h3 class="text-xs font-semibold tracking-widest text-zinc-300 uppercase">Team Credentials</h3>
+          <p class="text-sm text-zinc-300">Held by members of the VKC team.</p>
+        </div>
+        <div class="mt-6 grid gap-6 md:grid-cols-3 md:gap-8">
+          {credentialGroups.map((group) => (
+            <div>
+              <h4 class="text-sm font-semibold text-white">{group.label}</h4>
+              <ul class="mt-3 flex flex-wrap gap-2">
+                {teamCredentials.filter((credential) => credential.group === group.id).map((credential) => (
+                  <li class="inline-flex items-center gap-2 rounded-md bg-white/[0.06] px-3 py-1.5 text-sm whitespace-nowrap text-zinc-100">
+                    <span class="h-1.5 w-1.5 shrink-0 rounded-full bg-vkc-red" aria-hidden="true"></span>
+                    {credential.name}
+                  </li>
+                ))}
+              </ul>
+            </div>
           ))}
-        </ul>
+        </div>
         <a
-          data-track="qualifications band"
-          href={capabilityStatementPdf}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-vkc-red-light transition hover:text-white"
+          href={`${qualificationsPath}#team-credentials`}
+          class="mt-8 inline-flex w-fit items-center text-sm font-semibold text-white underline decoration-white/40 underline-offset-4 transition hover:decoration-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
         >
-          Capability statement (PDF) &rarr;
+          Explore team credentials &rarr;
         </a>
       </div>
-      <a
-        href={qualificationsPath}
-        class="inline-flex w-fit items-center text-sm font-semibold text-white underline decoration-white/40 underline-offset-4 transition hover:decoration-white lg:col-span-12"
-      >
-        All qualifications and team credentials &rarr;
-      </a>
     </div>
   </section>
 
