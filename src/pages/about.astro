@@ -54,38 +54,6 @@ const whyVkc = [
     </div>
   </section>
 
-  <!-- Our Story Section -->
-  <section class="bg-white py-20 sm:py-28">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="grid items-center gap-10 lg:grid-cols-12 lg:gap-16">
-        <div class="lg:col-span-7">
-          <p class="text-sm font-semibold uppercase tracking-widest text-vkc-red">Our Story</p>
-          <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-vkc-dark sm:text-4xl">
-            Who We Are
-          </h2>
-          <div class="mt-2 h-1 w-16 rounded-full bg-vkc-red"></div>
-          <p class="mt-6 text-lg leading-relaxed text-vkc-gray sm:text-xl">
-            Founded in 2014 and headquartered in South Hackensack, New Jersey, VKC Systems has
-            established itself as a trusted partner for major agencies and contractors by consistently
-            delivering high-quality, on-time, and technically sound solutions in demanding environments.
-          </p>
-        </div>
-        <div class="overflow-hidden rounded-lg lg:col-span-5">
-          <Image
-            src={officeImg}
-            alt="VKC Systems conference room with the company logo on the wall"
-            widths={[480, 720, 960]}
-            sizes="(min-width: 1024px) 40vw, 100vw"
-            quality={80}
-            format="webp"
-            loading="lazy"
-            class="aspect-[4/3] w-full object-cover object-[40%_22%]"
-          />
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- What We Do Section -->
   <section class="bg-vkc-light py-20 sm:py-28">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -162,49 +130,63 @@ const whyVkc = [
   <!-- Our Approach Section -->
   <section class="bg-white py-20 sm:py-28">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <p class="text-sm font-semibold uppercase tracking-widest text-vkc-red">Our Approach</p>
-        <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-vkc-dark sm:text-4xl">
-          Engineering Precision, Real-World Experience
-        </h2>
-        <div class="mt-2 h-1 w-16 rounded-full bg-vkc-red"></div>
-        <p class="mt-6 text-lg leading-relaxed text-vkc-gray">
-          We work closely with general contractors, agencies, and project stakeholders so that
-          each system meets the project&rsquo;s specifications and testing requirements.
-        </p>
+      <div class="grid items-center gap-10 lg:grid-cols-12 lg:gap-16">
+        <div class="lg:col-span-7">
+          <p class="text-sm font-semibold uppercase tracking-widest text-vkc-red">Our Approach</p>
+          <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-vkc-dark sm:text-4xl">
+            Engineering Precision, Real-World Experience
+          </h2>
+          <div class="mt-2 h-1 w-16 rounded-full bg-vkc-red"></div>
+          <p class="mt-6 text-lg leading-relaxed text-vkc-gray">
+            We work closely with general contractors, agencies, and project stakeholders so that
+            each system meets the project&rsquo;s specifications and testing requirements.
+          </p>
 
-        <ul class="mt-8 space-y-4">
-          <li class="flex items-start gap-3">
-            <svg class="mt-0.5 h-5 w-5 shrink-0 text-vkc-red" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-            </svg>
-            <span class="text-base leading-relaxed text-vkc-gray">Systems are properly designed and integrated</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <svg class="mt-0.5 h-5 w-5 shrink-0 text-vkc-red" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-            </svg>
-            <span class="text-base leading-relaxed text-vkc-gray">Testing and commissioning are executed thoroughly</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <svg class="mt-0.5 h-5 w-5 shrink-0 text-vkc-red" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-            </svg>
-            <span class="text-base leading-relaxed text-vkc-gray">Deliverables are prepared to the contract&rsquo;s technical and compliance requirements</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <svg class="mt-0.5 h-5 w-5 shrink-0 text-vkc-red" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-            </svg>
-            <span class="text-base leading-relaxed text-vkc-gray">Test procedures, reports, and closeout documents are submitted for review</span>
-          </li>
-        </ul>
+          <ul class="mt-8 space-y-4">
+            <li class="flex items-start gap-3">
+              <svg class="mt-0.5 h-5 w-5 shrink-0 text-vkc-red" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+              </svg>
+              <span class="text-base leading-relaxed text-vkc-gray">Systems are properly designed and integrated</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="mt-0.5 h-5 w-5 shrink-0 text-vkc-red" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+              </svg>
+              <span class="text-base leading-relaxed text-vkc-gray">Testing and commissioning are executed thoroughly</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="mt-0.5 h-5 w-5 shrink-0 text-vkc-red" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+              </svg>
+              <span class="text-base leading-relaxed text-vkc-gray">Deliverables are prepared to the contract&rsquo;s technical and compliance requirements</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="mt-0.5 h-5 w-5 shrink-0 text-vkc-red" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+              </svg>
+              <span class="text-base leading-relaxed text-vkc-gray">Test procedures, reports, and closeout documents are submitted for review</span>
+            </li>
+          </ul>
 
-        <p class="mt-8 text-base leading-relaxed text-vkc-gray">
-          We recognize that in critical infrastructure environments, delays and system failures
-          are not an option. Our team is committed to delivering solutions that perform reliably
-          from day one.
-        </p>
+          <p class="mt-8 text-base leading-relaxed text-vkc-gray">
+            We recognize that in critical infrastructure environments, delays and system failures
+            are not an option. Our team is committed to delivering solutions that perform reliably
+            from day one.
+          </p>
+        </div>
+        <div class="overflow-hidden rounded-lg lg:col-span-5">
+          <Image
+            src={officeImg}
+            alt="VKC Systems conference room with the company logo on the wall"
+            widths={[480, 720, 960]}
+            sizes="(min-width: 1024px) 40vw, 100vw"
+            quality={80}
+            format="webp"
+            loading="lazy"
+            class="aspect-[4/3] w-full object-cover object-[40%_22%] lg:aspect-[4/5]"
+          />
+        </div>
       </div>
     </div>
   </section>
@@ -237,20 +219,6 @@ const whyVkc = [
           ))}
         </ul>
       </div>
-    </div>
-  </section>
-
-  <!-- ============================================ -->
-  <!--             AGENCIES STRIP                    -->
-  <!-- ============================================ -->
-  <section class="bg-white py-12 sm:py-14">
-    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-      <p class="text-sm font-medium text-vkc-gray">
-        Supporting projects for agencies across the tri-state region:
-      </p>
-      <p class="mt-3 text-sm font-semibold tracking-wide text-vkc-dark">
-        MTA &bull; NYCT &bull; LIRR &bull; NJ Transit &bull; Port Authority &bull; NYC DEP
-      </p>
     </div>
   </section>
 

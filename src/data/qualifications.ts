@@ -64,8 +64,22 @@ export const teamCredentials: TeamCredential[] = [
       'AVIXA’s audiovisual installation credential, covering the installation lifecycle: reviewing project documentation and site readiness, mounting racks and equipment, terminating cable, configuring and testing systems, and closeout.',
   },
   { name: 'PMI PMP', title: 'Project Management Professional', group: 'pm-safety-access' },
-  { name: 'Cisco CCNA', group: 'network-comms' },
-  { name: 'Cisco CCNP', group: 'network-comms' },
+  {
+    name: 'Cisco CCNA',
+    group: 'network-comms',
+    title: 'Cisco Certified Network Associate',
+    issuer: 'Cisco',
+    about:
+      'Cisco’s associate-level networking certification, covering network fundamentals and access, IP connectivity and services, security fundamentals, and network automation.',
+  },
+  {
+    name: 'Cisco CCNP',
+    group: 'network-comms',
+    title: 'Cisco Certified Network Professional',
+    issuer: 'Cisco',
+    about:
+      'Cisco’s professional-level certification for planning, implementing, and troubleshooting complex networks, earned by passing a core technology exam and a specialty concentration exam.',
+  },
   { name: 'CompTIA Network+', group: 'network-comms' },
   { name: 'CSPM', group: 'pm-safety-access' },
   { name: 'FOA CFOT', title: 'Certified Fiber Optic Technician', group: 'network-comms' },
