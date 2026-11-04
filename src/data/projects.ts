@@ -151,6 +151,6 @@ export const previousProjectsRight = [
   { agency: 'NYCT', name: 'S-33932 - Life Cycle Replacement Code System Phase I' },
   { agency: 'NYCT', name: 'E-30512 - Replace Escalators' },
   { agency: 'LIRR', name: 'LIRR - 3rd Track Temporary WiFi' },
-  { agency: 'NYCT', name: 'P-80692 - Tottenville Substation' },
+  { agency: 'NYCT', name: 'P-80682 - Tottenville Substation' },
   { agency: 'Metro-North', name: 'MNR 58050 - CSI Package' },
 ];
